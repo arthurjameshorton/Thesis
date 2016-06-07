@@ -1,0 +1,180 @@
+%
+%  LaTeX source:
+%  This is a skeleton thesis, provided by (?) Wolfgang Meuck
+%  to be copied, along with thesisstyle.sty to your computer.
+%
+%  Slightly modified by Andrew Kurn, May 2009
+%
+\documentclass[12pt,letterpaper,oneside]{book}
+% Use either 11pt or 12pt! 10pt is too small, although supported. 
+
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs,amsmath}
+\usepackage{makecell}
+\usepackage{rotating}
+\usepackage{multicol}
+\usepackage{slashed}
+%\usepackage{slashbox}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{afterpage}
+\usepackage[titletoc]{appendix}
+
+% Load the package
+\usepackage[acronym]{glossaries} 
+% Generate the glossary
+\makeglossaries
+\usepackage[xindy]{imakeidx}
+\makeindex
+
+
+\include{Abbreviations}
+%\newacronym{qcd}{QCD}{Quantum Chromodynamics}
+
+
+
+\usepackage[headings]{thesisstyle}
+% Options plain and headings are supported. 
+
+% This makes use LaTeX's new font selection scheme (nfss).
+\usepackage[T1]{fontenc}
+
+% You might consider using postscript fonts.
+% `Times' can be included used this: (2nd line is for math fonts)
+\usepackage{times}
+\usepackage{mathptm}  
+\newcommand{\MET}{\ensuremath E_T^{miss}}
+\newcommand{\vMET}{\ensuremath \vec{E}_T^{miss}}
+\newcommand{\PT}{\ensuremath p_{\mathrm {T}}}
+\newcommand{\vPT}{\ensuremath \vec{p}_{\mathrm {T}}}
+% The following packages might be useful for formula typesetting and
+% for the inclusion of graphs, respectively.
+%\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+
+% Substitute your information 
+\author{Arthur James Horton}
+\qualifications{BSc., University of Prince Edward Island 2010}
+\qualifications{MSc., Simon Fraser University 2013}
+\title{THE JET ENERGY SCALE AT ATLAS USING Z+JET EVENTS}
+%\approvaltitle{The Jet Energy Scale at ATLAS Using Z+jet Events}
+\degree{Master of Science}
+\department{Physics \\ Faculty of Science}
+\submitdate{Spring 2013}
+%\thesistype{thesis}   % standard is "thesis"
+\entity{Department}   % standard is "Department"
+%\copyrightyear{}      % standard is current
+
+% If you want to grant the copyright instead of reserving it,
+% uncomment the next line!
+%\grantcopyright   
+
+% Insert here the members of your examining committee 
+\chair{Dr. Eldon Emberly (Chair)\\
+Associate Professor}
+\committee{Dr. Michel Vetterli, Senior Supervisor\\
+Professor}
+\committee{Dr. Dugan O'Neil, Supervisor\\
+Associate Professor}
+\committee{Dr. Bernd Stelzer, Supervisor\\
+Assistant Professor}
+\committee{Dr. Corina Andreoiu, Internal Examiner\\
+Assistant Professor\\
+Department of Chemistry}
+
+\approvaldate{22 March, 2013}
+
+\abstract{
+Jets, collimated sprays of subatomic particles, are an important component of the final state in high-energy proton-proton scattering.  
+A correct jet energy scale is therefore essential to the success of the ATLAS experiment.  
+In this thesis the missing transverse projection fraction method is used to measure the absolute jet response in Z+jet events where the Z decays into a pair of leptons.  
+This measurement complements similar measurements made using $\gamma$+jet events while extending the calibration to lower energies.  
+The possibility of taking advantage of the differing fraction of events in each sample with gluon-initiated jets as a method for deriving a parton-dependent jet response is also explored.  
+Preliminary results are shown to agree with Monte Carlo predictions within their statistical uncertainty.  
+}
+
+% Use this command to compile the chapters individually. This saves
+% time when writing.
+%\includeonly{chap3}
+
+\begin{document}
+\frontmatter          % switches to roman page numbering
+\maketitle
+
+%\chapter[Dedication]{}  % writes `Dedication' into table of contents,
+			% but not on actual page 
+\begin{center}
+%\Large
+%\emph{\`A tous ceux que j'aime:}
+%\\
+%\emph{Mum, Dad, Amy, M\'{e}lanie, Justin, Eli, M\'{e}m\`{e}re, P\'{e}p\`{e}re, Ron, et sp\'{e}cialement Ryan.}
+\end{center}
+
+% end of dedication
+
+\chapter{Acknowledgments}
+
+
+
+% end of acknowledgements
+
+\newpage
+\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents
+
+\newpage 
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\newpage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\newpage
+\addcontentsline{toc}{chapter}{Glossary}
+%Print the glossary
+\glsaddall
+\printglossary[title=Acronyms,nonumberlist]
+%[type=\acronymtype,title=Abbreviations]
+
+\mainmatter 
+% Here comes the content of your thesis. 
+% You should not write the text here, but include each chapter
+% separately with the \include command.
+
+%\include{chap0}
+\include{chap1}
+%\include{chap2}
+%\include{chap3}
+%\include{chap4}
+%\include{chap5}
+%\include{chap6}
+%\include{chap7}
+%\appendix
+%\begin{appendices}
+%\input{appendixA}
+%\input{appendixB}
+%\input{appendixC}
+%\input{appendixD}
+%\input{appendixE}
+%\end{appendices}
+
+%\backmatter
+%\newpage
+%\include{appendices}
+
+
+\backmatter
+\newpage
+\addcontentsline{toc}{chapter}{\bibname}
+
+% Here comes the bibliography
+
+\bibliographystyle{unsrt}
+\bibliography{myrefs}
+
+\end{document}

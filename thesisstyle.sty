@@ -1,0 +1,222 @@
+% Simon Fraser University Thesis style 
+% adopted from LaTeX 2.09 `sfuthesis.sty' to LaTeX 2e 
+% by Wolfgang Mueck -- December 1999, version 1.4
+%    Andrew Kurn    -- May 2009   -- minor change to reflect change in margin rule
+%
+% Important: needs documentclass "book" for page numbering
+
+\NeedsTeXFormat{LaTeX2e}[1994/12/01]
+\ProvidesPackage{thesisstyle}[1999/12/02 v1.4]
+
+% defines pagestyles plain and headings with appropriate margins
+% 
+\DeclareOption{plain}{%					% if no head is needed
+	\setlength{\headsep}{0pt}		
+	\setlength{\headheight}{0pt}
+	\pagestyle{plain}}
+\DeclareOption{headings}{%				% with headline
+	\setlength{\headsep}{1cm}			% distance head-text
+	\setlength{\headheight}{\baselineskip}	% height of headline
+	\pagestyle{headings}}
+
+% defines linespacing of document
+%
+% The values for baselinestrech are 
+%       3 lines/in   4 lines/in
+% 10pt     2            1.5
+% 11pt     1.82         1.35 
+% 12pt     1.67         1.25
+%
+\DeclareOption{10pt}{%
+	\renewcommand{\baselinestretch}{1.5}}		
+\DeclareOption{11pt}{%
+	\renewcommand{\baselinestretch}{1.35}}		
+\DeclareOption{12pt}{%
+	\renewcommand{\baselinestretch}{1.25}}		
+
+\ExecuteOptions{12pt,plain}				% default option
+\ProcessOptions
+	
+% exporting papersize for dvips driver
+\special{papersize=8.5in,11in}
+
+% set dvips offset
+\setlength{\voffset}{-1in}
+\setlength{\hoffset}{-1in}
+
+% inner and outer margins
+\setlength{\oddsidemargin}{1.25in}			% inner margin - AK
+\setlength{\evensidemargin}{1.25in}			% outer margin - AK
+
+% set textwidth
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-\oddsidemargin}
+\addtolength{\textwidth}{-\evensidemargin}
+
+% set textheight
+\setlength{\topmargin}{2.5cm}	% top margin
+\setlength{\footskip}{1cm}		% distance between text and foot
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-\topmargin}
+\addtolength{\textheight}{-\headheight}
+\addtolength{\textheight}{-\headsep}
+\addtolength{\textheight}{-\footskip}
+\addtolength{\textheight}{-2.5cm} 		  	% bottom margin
+
+% define entries of titlepage except some standard ones
+%
+\newcommand{\TH@title}{}
+\renewcommand{\title}[1]{\renewcommand{\@title}{#1}
+    \renewcommand{\TH@title}{\uppercase{#1}}}
+	\@onlypreamble{\title}   
+%
+\newcommand{\TH@quals}{}
+\newcommand{\qualifications}[1]{\renewcommand{\TH@quals}{#1}}
+	\@onlypreamble{\qualifications}
+%
+\newcommand{\TH@dept}{}
+\newcommand{\department}[1]{\renewcommand{\TH@dept}{#1}}
+	\@onlypreamble{\department}
+%
+\newcommand{\TH@degree}{}
+\newcommand{\degree}[1]{\renewcommand{\TH@degree}{#1}}
+	\@onlypreamble{\degree}
+%
+\newcommand{\TH@endeavour}{Thesis}
+\newcommand{\thesistype}[1]{\renewcommand{\TH@endeavour}{#1}}
+	\@onlypreamble{\thesistype}
+%
+\newcommand{\TH@entity}{department}
+\newcommand{\entity}[1]{\renewcommand{\TH@entity}{#1}}
+	\@onlypreamble{\entity}
+%
+\newcommand{\TH@submit}{\ifcase\month\or January\or February\or
+March\or April\or May\or June\or July\or August\or September\or
+October\or November\or December\fi \space\number\year}
+\newcommand{\submitdate}[1]{\renewcommand{\TH@submit}{#1}}
+	\@onlypreamble{\submitdate}
+%
+\newcommand{\TH@cpright}{\number\year}
+\newcommand{\copyrightyear}[1]{\renewcommand{\TH@cpright}{#1}}
+	\@onlypreamble{\copyrightyear}
+
+%
+\newcommand{\TH@cptext}{%  --  AK
+  All rights reserved. However, in accordance with the Copyright Act of Canada,\\
+  this work may be reproduced, without authorization, under the conditions for\\
+  Fair Dealing. Therefore, limited reproduction of this work for the purposes of\\
+  private study, research, criticism, review, and news reporting is likely to be\\
+  in accordance with the law, particularly if cited appropriately.}
+%\newcommand{\TH@cptext}{All rights reserved. This work may not be\\
+%		reproduced in whole or in part, by photocopy\\ 
+%		or other means, without permission of the author.}
+\newcommand{\grantcopyright}{\renewcommand{\TH@cptext}{%
+		Copyrights are not reserved.\\
+		Permission is hereby granted to\\
+		reproduce this work in whole or in part.}}
+	\@onlypreamble{\grantcopyright}
+
+%
+% define entries of approvalpage
+%
+\newcommand{\TH@chair}{}
+\newcommand{\chair}[1]{\renewcommand{\TH@chair}{#1}}
+	\@onlypreamble{\chair}
+%
+\newsavebox{\TH@committee}
+\newcommand{\committee}[1]{\savebox{\TH@committee}[3in][t]{%
+	\parbox{3in}{\usebox{\TH@committee}\\[.5in]
+	\makebox[0pt]{}\hrulefill\\ 
+	%\fontsize{10}{10}\selectfont %Uncomment to show committee members
+                                      %in 10pt fontsize.
+        \textrm{#1}}}}
+	\@onlypreamble{\committee}
+%
+\newcommand{\TH@appdate}{}
+\newcommand{\approvaldate}[1]{\renewcommand{\TH@appdate}{#1}}
+	\@onlypreamble{\approvaldate}
+
+% define approvalpage list
+%
+\newenvironment{TH@approval}{\begin{list}{}{%
+	\setlength{\topsep}{.25in}
+	\settowidth{\labelwidth}{\textbf{Examining Committee:}}
+	\setlength{\labelsep}{2em} 
+	\setlength{\leftmargin}{\labelwidth}
+	\addtolength{\leftmargin}{\labelsep}
+	\newlength{\parwidth}
+	\setlength{\parwidth}{\textwidth}
+	\addtolength{\parwidth}{-\leftmargin}
+	\setlength{\listparindent}{0pt}
+	\renewcommand{\makelabel}[1]{\textbf{##1:}\hfill}}}
+	{\end{list}}
+
+% define abstract
+%
+\newcommand{\TH@abstract}{}
+\newcommand{\abstract}[1]{\renewcommand{\TH@abstract}{#1}}
+   \@onlypreamble{\abstract}
+	
+% define command, which creates titlepage, approvalpage and abstract
+%
+\renewcommand{\maketitle}{%
+\begingroup
+	\setlength{\topmargin}{4cm}	 % title page has special margins
+	\setlength{\headsep}{0pt}		
+	\setlength{\headheight}{0pt}
+	\setlength{\textheight}{\paperheight}
+	\addtolength{\textheight}{-8cm}
+	\thispagestyle{empty}
+	\renewcommand{\baselinestretch}{1}
+	\sffamily
+	\begin{center}
+		\fontsize{17.28}{34.56} \selectfont
+		\bfseries \TH@title
+	\end{center}
+	\begin{center}
+		\fontsize{14.4}{28.8} \selectfont
+		\vfill
+	 	by 
+		\vfill
+		\@author\\ 
+		\fontsize{12}{24} \selectfont
+		\TH@quals
+		\vfill \vfill \vfill
+		\fontsize{14.4}{28.8} \selectfont
+		\textsc{\TH@endeavour\  submitted in partial fulfillment\\  
+		of the requirements for the degree of\\ 
+		\TH@degree\\
+		in the \TH@entity\\
+		of\\ 
+		\TH@dept}
+		\vfill \vfill \vfill
+		\fontsize{14.4}{21.6} \selectfont
+		\copyright\ \@author\ \TH@cpright\\
+		SIMON FRASER UNIVERSITY\\
+		\TH@submit\\
+		\vfill \vfill
+		\fontsize{12}{15} \selectfont
+		\TH@cptext
+	\end{center}
+\endgroup
+\begingroup
+	\newpage
+	\thispagestyle{plain}
+	\addcontentsline{toc}{chapter}{Approval}
+	\begin{center}\Large \textbf{APPROVAL}\end{center}
+	\begin{TH@approval}
+		\item[Name] \@author
+		\item[Degree] \TH@degree
+		\item[Title of \TH@endeavour] \@title
+		\item[Examining Committee] 
+			\TH@chair\ (Chair)\\
+			\usebox{\TH@committee}
+		\vfill
+		\item[Date Approved] \TH@appdate
+	\end{TH@approval}
+	\newpage
+	\chapter{Abstract}
+	\TH@abstract
+\endgroup}
+%
+% end of file thesis.sty
