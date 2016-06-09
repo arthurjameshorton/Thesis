@@ -3,7 +3,7 @@
 \section{The Standard Model}
 \label{SM}
 For the last 50 years particle physicists have very successfully described the short distance interactions of elementary particles using the so called Standard Model.  
-The Standard Model consists of two quantum field theories: the Electroweak Theory and \gls{qcd} Quantum Chromodynamics (or QCD), which describe the interactions of 12 fundamental spin $\frac{1}{2}$ fermions.  
+The Standard Model consists of two quantum field theories: the Electroweak Theory and \gls{QCD}, which describe the interactions of 12 fundamental spin $\frac{1}{2}$ fermions.  
 While the Standard Model contains no explanation for gravity, dark matter, dark energy, etc. it does remain the most successful model available to describe reality on the smallest scales and at the highest energies. \\ 
 
 \begin{table}
@@ -44,7 +44,7 @@ While the Standard Model contains no explanation for gravity, dark matter, dark 
 
 
 The fermions, listed in Table~\ref{table:Fermions}, are categorized into three generations of four particles, with each generation being a heavier copy of the previous generation.  
-Each generation includes two quarks, particles which have colour charge and are therefore subject to the strong force described by QCD, and two leptons which have no colour charge.  
+Each generation includes two quarks, particles which have colour charge and are therefore subject to the strong force described by \gls{QCD}, and two leptons which have no colour charge.  
 The six types (flavours) of quarks are organized into generational pairs, the up (u) and the down (d), the charm (c) and the strange (s), and the top (t) and the bottom (b).  
 Similarly each generation of leptons is composed of one charged lepton, known as the electron (e), the muon ($\mathrm{\mu}$), and the tau ($\mathrm{\tau}$), and their neutral counterparts the neutrinos ($\nu_{\mathrm{e}}, \nu_{\mu}, \nu_{\tau}$).  
 In additions to each of these matter particles there is a complimentary anti-particle, which have the opposite charge of their regular counter parts and are denoted using an over bar.  
@@ -76,10 +76,10 @@ As the name suggests, while the electroweak force is one unified for at high ene
 In the Standard Model this breaking is explained by introducing a new scalar field with a non-zero ground amplitude in the ground state, known as the Higgs field.  
 This breaking into two separate forces also allows the W and Z bosons to acquire their very large observed mass through the Brout-Englert-Higgs (BEH) mechanism.  
 This Higgs field also allows the fermions in the Standard Model to obtain mass as well.  
-A measurable consequence of this theory is the presence of a massive spin-0 boson called the Higgs Boson, which was discovered in 2012 at the Large Hadron Collider (LHC).  \\
+A measurable consequence of this theory is the presence of a massive spin-0 boson called the Higgs Boson, which was discovered in 2012 at the \gls{LHC}.  \\
 
-As previously mentioned, QCD describes the strong force, which affects particles carrying colour charge much like the electric force affects particles carrying an electric charge.  
-Unlike the electromagnetism which only has one charge, the electric charge, QCD has three colour charges known as red, green, and blue.  
+As previously mentioned, \gls{QCD} describes the strong force, which affects particles carrying colour charge much like the electric force affects particles carrying an electric charge.  
+Unlike the electromagnetism which only has one charge, the electric charge, \gls{QCD} has three colour charges known as red, green, and blue.  
 Another notable difference between the two is that while the force mediator of the electric force (the photon) contains no electric charge itself, this is not the case for the force carriers of the strong interaction (gluons).  
 One important consequence of this difference is that the strength of the strong force does not weaken with increasing distance between the particles in question.  
 This difference means that quarks cannot be found as individual particles but come in bound `colour neutral' states, a phenomenon known as confinement.  
@@ -96,13 +96,29 @@ As a result of these complicated bound states the masses of the quarks cannot be
 The Standard Model and all of it's predictions can be studied in a variety of settings.  
 One category of experiment involves accelerating long lived stable particles and bringing them to collision inside of a detector, allow for the study of the shorter lived particles of the Standard Model.  
 The particles being accelerated can be both elementary (electrons for example) or composite (like protons), with difference the different choices effecting the types of collisions which will be observed.  
-A relevant example of such an accelerator/detector combination is the Large Hadron Collider (LHC), a proton-proton machine producing collisions inside the ATLAS (A Torroidal LHC ApparatuS) detector, both of which will be covered in Chapter~\ref{Experiment}.  \\
+A relevant example of such a detector/accelerator combination is \gls{ATLAS} at the \gls{LHC}.  \\
+
+The \gls{LHC} is a machine which straddles the border of Switzerland and France at \gls{CERN}.  
+While it can produce high ion collisions, it is most know for its ability to produce higher energy proton-proton collisions than any other acceleration facility in the world.   
+Bringing protons from a stand still to within a few meters per second away from the speed of light is a multi-step process, a description of which can be found in the LHC Design Report~\cite{LHCDesignReport} while a summary can be found in section~\ref{Sec:LHC}.  \\
+
+\gls{ATLAS} is a general purpose detector which has been placed in the LHC acceleration ring to observe collisions along with three other detectors.  
+There is another general purpose detector know as \gls{CMS}, along with two more specialized detectors called \gls{LHCb} and \gls{ALICE}.  
+Detectors like \gls{ATLAS} and \gls{CMS} are designed to be able to accurately measure a wide variety of signals allowing them to more fully explore the collisions provided by the \gls{LHC} to push the Standard Model to its limit and search for potential new physics beyond the Standard Model.  
+Details on how this is accomplished in ATLAS will be provided in section~\ref{Sec:ATLAS}.  \\
+
+As the \gls{LHC} collides protons the most commonly produced objects in the \gls{ATLAS} detector are collimated sprays of particles called jets.  
+Jets are the result of a compromise between a high energy colour charged particle being ejected from a collision and the confinement property of the Strong Force allowing only colour neutral particles to exist.  
+With this large abundance of jets they are inevitably a signature for a large number of final states being searched for or studied in ATLAS, with many requiring a very accurate energy and momentum calibration for these jets.  
+This This thesis will present a technique for measuring the jet energy scale in-situ using events where jets are produced along with other well measured objects (photons, electrons and muons).  \\
 
 \section{Units and Conventions}
  
-
-
-
-
+For the remainder of this thesis it will be worth keeping a few particle physics conventions in mind as they will be used throughout.  
+The most commonly used will be the non-SI unit of energy, the \gls{eV}, which is the amount of energy a particle with the same charge as an electron gains after being accelerated across a potential of 1 Volt.  
+One eV is the equivalent of 1.602$\times 10^{-19}$ Joules.  
+Energies in this thesis will typically be much larger than a single eV, so gigaelectronvolt (GeV, $10^9$ eV) and teraelectronvols  (TeV, $10^12$ eV) are more commonly used.  
+Traditionally electronvolts are also used to describe mass and momentum.  
+This is made possible using another particle physics convention which is to set the speed of light c to be unitless and equal to one, allowing mass to be described in terms of eV/c$^2$ (see tables~\ref{table:Fermions} and \ref{table:Bosons}), and momentum to be referenced in terms of eV/c.  \\
 
 
