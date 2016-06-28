@@ -55,7 +55,47 @@ Pseudorapidity is equal to the rapidity in the case of a massless particle so it
 
 \subsection{ATLAS Detector: Overview}
 
+ATLAS is a multipurpose detector, meaning it must be able to simultaneously measure the large number and variety of particles produced in each collision provided by the LHC at a high enough rate to take advantage of all of the data being provided.  
+The ATLAS detector is made up of individual layers, with each layer being designed to optimize the measurement of a different types of signals.  
+Going from the interaction point outwards these layers are known as the inner detector, the electromagnetic (EM) calorimeter, the hadronic calorimeter, and the muon spectrometer.   
+
 \subsection{ATLAS Hardware: Inner Detector}
+
+The inner detector is made up of three subdetectors: the pixel detector, the semiconductor tracker (SCT), and the transition radiation tracker (TRT).  
+These three subdetectors are all immersed in a 2 Tesla magnetic field that is being supplied by a solenoidal magnet which encompasses the entire inner detector.  
+This magnetic field bends the trajectories of charged particles by an amount that is proportional to their momentum.  
+The main purpose of the inner detector is to make non destructive measurements of this bending, allowing the momentum of charged particles to be measured.  
+It is also possible to track the trajectories of multiple particles back to a single origin, a so called vertex.  
+Vertices along the beam axis may indicate an individual proton-proton collision event, while vertices off of the beam axis may indicate the location where some heavy particle produced in the original collision further decays into lighter secondaries.  
+ 
+The way these trajectories are measured is by having a large number of small detectors with well known positions surrounding the interaction point.  
+When a particle passes through these small detectors a signal is measured (a hit).  
+A reconstruction algorithm is then run over all of these hits to recreate all the paths the particles have travelled (known as tracks).  
+It's this track reconstruction that leads the inner detector to more colloquially be known as the tracked.  
+
+The first two subdetectors of the tracker are both semiconductor detectors, a type of detector that measures the electron-hole pairs that are produced as a charged particle passes through a silicon sensors that are segmented into either squares (pixels) or strips.  
+Both are made up of 4 concentric cylinders in the central region, with circular endcaps further extending the $\eta$ acceptance of the detectors.  
+For the 2011 and 2012 data taking periods the pixel detector consisted of three layers situated 50.5, 88.5 and 122.5 mm from the centre of the beam pipe.  
+The layers are made up of 22, 38 and 52 staves, with each stave containing 6 x $10^5$ pixels.  
+This detector was capped at both ends by 3 layers of endcap, with each endcap having a further 4.4 x $10^6$ pixels.  
+The resolution of a tracking detector is parameterized by A $\oplus$ B/p$_{\mathrm{T}}$, where A is the intrinsic resolution of the detector and B describes the effect of multiple scatterings on the resolution.  
+This setup allowed for an intrinsic resolution of 10 $\mu$m in 10 $\mu$m in the transverse impact parameter d$_{0}$ and 115 $\mu$m in the longitudinal impact parameter (z$_{0}$ sin$\theta$)~\cite{ID3}.  
+
+During the first long shutdown of the LHC a fourth additional layer was added closer to the beam, known as the Insertable B-Layer (IBL).  
+This layer was designed to both withstand high levels of radiation while enabling the ATLAS tracking performance to avoid degradation up to the potentially very high luminosities the LHC will be delivering by the year 2020 (2-3 x $10^{34}$ cm$^{-2}$s$^{-1}$)~\cite{IBL1}.  
+This new layer has 14 staves which are arranged in an overlapping circular pattern 33 mm away from the centre of the beam pipe, adding a further 6 x $10^{6}$ individual readout pixels to the pixel detector.  
+The IBL improves the intrinsic resolution of the pixel detector by a factor of 1.7 in longitudinal impact parameter and by 1.2 in transverse impact parameter.  
+It also reduces the p$_{\mathrm{T}}$ dependence of the resolution by a factor of 1.8 in both directions~\cite{IBL2}.  
+This improved resolution benefits many measurements, for example without pileup it increases the light jet rejection rate of a 60\% efficient b-tagger by nearly a factor of 2.  
+
+As mentioned above the SCT is also a semiconductor detector, consisting of 4088 modules tiling 4 cylinders and two endcaps, with each endcap consisting of 9 layers~\cite{JOIATLAS}.  
+In the barrel these modules consist of four sensors, two on the top and two on the bottom with a stero angle of 40 mrad to increase the resolution of the modules.  
+The endcap modules use the same strategy, having two sensors glued back to back once again with a stero angle of 40 mrad.  
+The SCT has a nominal resolution of 17 $\mu$m in R-$\phi$ and 580 $\mu$m in $z$.  
+
+ 
+
+
 
 \subsection{ATLAS Hardware: Calorimeter}
 
