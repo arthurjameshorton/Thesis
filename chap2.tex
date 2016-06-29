@@ -61,7 +61,7 @@ Going from the interaction point outwards these layers are known as the inner de
 
 \subsection{ATLAS Hardware: Inner Detector}
 
-The inner detector is made up of three subdetectors: the pixel detector, the semiconductor tracker (SCT), and the transition radiation tracker (TRT).  
+The inner detector is made up of three subdetectors: the pixel detector, the \gls{SCT}, and the \gls{TRT}.  
 These three subdetectors are all immersed in a 2 Tesla magnetic field that is being supplied by a solenoidal magnet which encompasses the entire inner detector.  
 This magnetic field bends the trajectories of charged particles by an amount that is proportional to their momentum.  
 The main purpose of the inner detector is to make non destructive measurements of this bending, allowing the momentum of charged particles to be measured.  
@@ -81,19 +81,26 @@ This detector was capped at both ends by 3 layers of endcap, with each endcap ha
 The resolution of a tracking detector is parameterized by A $\oplus$ B/p$_{\mathrm{T}}$, where A is the intrinsic resolution of the detector and B describes the effect of multiple scatterings on the resolution.  
 This setup allowed for an intrinsic resolution of 10 $\mu$m in 10 $\mu$m in the transverse impact parameter d$_{0}$ and 115 $\mu$m in the longitudinal impact parameter (z$_{0}$ sin$\theta$)~\cite{ID3}.  
 
-During the first long shutdown of the LHC a fourth additional layer was added closer to the beam, known as the Insertable B-Layer (IBL).  
+During the first long shutdown of the LHC a fourth additional layer was added closer to the beam, known as the \gls{IBL}.  
 This layer was designed to both withstand high levels of radiation while enabling the ATLAS tracking performance to avoid degradation up to the potentially very high luminosities the LHC will be delivering by the year 2020 (2-3 x $10^{34}$ cm$^{-2}$s$^{-1}$)~\cite{IBL1}.  
 This new layer has 14 staves which are arranged in an overlapping circular pattern 33 mm away from the centre of the beam pipe, adding a further 6 x $10^{6}$ individual readout pixels to the pixel detector.  
 The IBL improves the intrinsic resolution of the pixel detector by a factor of 1.7 in longitudinal impact parameter and by 1.2 in transverse impact parameter.  
 It also reduces the p$_{\mathrm{T}}$ dependence of the resolution by a factor of 1.8 in both directions~\cite{IBL2}.  
 This improved resolution benefits many measurements, for example without pileup it increases the light jet rejection rate of a 60\% efficient b-tagger by nearly a factor of 2.  
 
-As mentioned above the SCT is also a semiconductor detector, consisting of 4088 modules tiling 4 cylinders and two endcaps, with each endcap consisting of 9 layers~\cite{JOIATLAS}.  
+As mentioned above the \gls{SCT} is also a semiconductor detector, consisting of 4088 modules tiling 4 cylinders and two endcaps, with each endcap consisting of 9 layers~\cite{JOIATLAS}.  
 In the barrel these modules consist of four sensors, two on the top and two on the bottom with a stero angle of 40 mrad to increase the resolution of the modules.  
 The endcap modules use the same strategy, having two sensors glued back to back once again with a stero angle of 40 mrad.  
 The SCT has a nominal resolution of 17 $\mu$m in R-$\phi$ and 580 $\mu$m in $z$.  
 
- 
+The final subsystem in the tracker is the TRT which uses up to 73 layers of gas filled `straws' in the barrel and as many as 160 straw planes in the endcaps.  
+Each straw is filled with a mixture of 70\% xenon gas (for x-ray absorption), 27\% CO$_{2}$, and 3\% O$_{2}$ (for increasing the electron drift velocity and photon quenching).  
+Charged particles ionize the gas mixture as they pass through and the charge is collected by a central gold plated tungsten anode within each straw.  
+Each straw is 144 cm long so they only provide information R-$\phi$ information, for which they have an intrinsic accuracy of 130 $\mu$m.  
+In addition to the ionization of the gas within the straws the TRT is also able to detect the low energy transition radiation photons created as the charged particles travel back and forth between the gas, the layers within the straw walls, and the inter straw medium (polypropylene foils or fibres).  
+The amount of radiation emitted during each transition is a function of the Lorentz factor of the particle.  
+By having two detection thresholds for each straw, a low ionization threshold and a high transition radiation threshold, and counting the number of high threshold hits belonging to a given reconstruct track information about the particle creating the track can be obtained.  
+Tracks with a large number of high threshold hits can be assumed to be highly boosted light particles, namely electrons.  
 
 
 
