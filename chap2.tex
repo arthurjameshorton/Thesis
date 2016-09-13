@@ -102,17 +102,211 @@ The amount of radiation emitted during each transition is a function of the Lore
 By having two detection thresholds for each straw, a low ionization threshold and a high transition radiation threshold, and counting the number of high threshold hits belonging to a given reconstruct track information about the particle creating the track can be obtained.  
 Tracks with a large number of high threshold hits can be assumed to be highly boosted light particles, namely electrons.  
 
-
-
 \subsection{ATLAS Hardware: Calorimeter}
+
+Calorimeters, in contrast to tracking systems, absorb the energy of incoming particles through destructive processes and produce signals which are proportional to the initial incoming energy.  
+In addition to pure energy measurements calorimeters which are segmented into $\eta$ x $\phi$ x $r$ cells can also provide information on how the energy from a given particle was deposited, which helps both particle identification and calibration.  
+With a large coverage in both $\eta$ and $\phi$ one can also determine the expected location in $\phi$ where signals may be expected due to the conservation of momentum in the transverse plane but nothing is detected.  
+These imbalances in measured energy may interpreted as a miscalibration of the observed energy or as particles having passed through the detector without interacting like a neutrino.  
+
+The ATLAS calorimeter is broken up into three $\eta$ sections, the central barrel region, the endcaps and the forward calorimeter (FCal).  
+In all three regions the ATLAS calorimeter is split into two well defined longitudinal segments, the \gls{EM} calorimeter, and the hadronic calorimeter.   
+This devision is to take advantage of the relatively shallow showering depth of electromagnetic particles while still ensuring that the much deeper hadronic showers are still fully measured.  
+
+The remainder of this section will be roughly split into four sections.  
+The first section will describe particles which result in electromagnetic showers and how electromagnetic showers are propagated.  
+This will be followed by a description of the technology used in the EM calorimeters in ATLAS.  
+The same two stage approach will then be used to explain hadronic showers and how they are measured in ATLAS.  
 
 \subsubsection{Electromagnetic Calorimeter}
 \label{EMCalo} 
 
+Electromagnetic calorimeters are focused on measuring the energy of photons and electrons, which interact with matter through a variety of processes which are all results of the electromagnetic interaction.  
+The photon for example has four primary processes through which it interacts with matter: Rayleigh scattering, the photoelectric effect, Compton scattering, and pair production.  
+The contribution of each of these processes to the overall energy loss of the photon depends on the energy of the photon itself.  
+
+\begin{figure}[!ht]
+    \begin{center}
+      \scalebox{0.5}{
+        \includegraphics{plots/Chap2/PhotonInteractionCrossSectionInLead.ps}
+      }
+    \end{center}
+        \caption[Contributions to the photon interaction cross section]
+        {\small Contributions to the photon interaction cross section as a function of the photon energy.  $\tau/\rho$ is the photoelectric effect, $\sigma/\rho$ is Compton scattering, $\kappa/\rho $ is pair production and $\sigma_{\mathrm{R}}/\rho$ is Rayleigh scattering.  $\mu/\rho$ is the sum of all other contributions. \cite{:/content/aip/journal/jpcrd/9/4/10.1063/1.555629} 
+}
+            \label{Photon}
+\end{figure}
+
+For low energy photons the photoelectric effect, where a photon is absorbed by the material and either a photon or electron is emitted, dominates.  
+The strong energy dependence of the cross section for this process (goes as E$^{-3}$) means the importance of this process is largely suppressed for higher energy particles.  
+Rayleigh scattering, which is the coherent scattering of photons by atomic nuclei and the second most important process at low energy, also dies out very quickly with increasing photon energies.  
+In most materials for photons with energies between $\mathcal{O}\left(\mathrm(10 \mathrm{KeV})\right)$ to $\mathcal{O}\left(\mathrm(10 \mathrm{MeV})\right)$ the largest contribution to the photon interaction cross section is Compton scattering.  
+Compton scattering is where a portion of the photon's energy is used to excite an atomic electron into an unbound state.  
+For photons with even larger energies the dominant interaction mechanism for photons is pair production where a photon, while interacting with either an atomic nuclei or an electron, creates an electron/positron pair.  
+Pair production is possible for photons with energies above twice the mass of an electron (2 x 511 KeV), with the cross section growing rapidly before leveling off at higher energies.  
+Figure~\ref{Photon} shows the rise and fall of the importance of these various interaction mechanisms for photons in lead.  
+An important quantity which measures the amount of interactions a photon will experience while travelling through a material is the mean distance traveled between each interaction, or the mean free path ($\lambda\left(E\right)$).  
+By measuring the amount of material present in a given detector in terms on $\lambda$ one can more readily compare the amount of energy which will pass through a detector unmeasured between two experiments.  
+
+
+The primary electromagnetic mechanism through which charged particles (electrons and positrons for example) lose their energy is also energy dependent.  
+Lower energy particles primarily lose energy by ionizing the material they are travelling through (with processes like M{\o}ller scattering or Bhanha scattering also contributing), while particles with higher energy tend to lose energy by radiating photons (bremsstrahlung).  
+The energy at which the average energy loss due to ionization is equal to the average energy loss due to bremsstrahlung is called the critical energy $\epsilon_{\mathrm{C}}$.  
+The critical energy depends both on the atomic number Z of the material, and more strongly, on the mass of the particle in question.  
+The dependence on the mass of the particle grows as m$^2$, meaning that for energies typically reached in experiment the bremsstrahlung component to the energy loss can be very insignificant for particles with masses even as low as 100 MeV (muons and pions for example).  
+While photons are usually discussed in terms in mean free path, electron interactions with matter are spoken of in terms of the energy lost per unit distance which is also a function of energy($-\frac{dE}{dx}=\frac{E}{\chi_{0}}$).  
+
+\begin{figure}[!ht]
+    \begin{center}
+      \scalebox{0.5}{
+        \includegraphics{plots/Chap2/rpp_icru49_cu_col.eps}
+      }
+    \end{center}
+        \caption[Stopping power for positive muons in copper.]
+        {\small Stopping power ($\frac{-dE}{dx}$) for positive muons in copper as a function of $\beta\gamma=\frac{p}{Mc}$, see ref.~\cite{PDG}.} 
+            \label{StoppingMuon}
+\end{figure}
+
+It is now worth noticing that the dominant interaction mechanism for high energy photons is pair production, which results in a high energy electron/positron pair, and that high energy charged particles lose energy primarily by emitting photons.  
+With this in mind it's easy to imagine that a single high energy EM particle will lead to a large cascade of lower energy EM particles while travelling through a material.  
+These cascading events (known as electromagnetic showers) tend to remain in a narrow cone around the trajectory of the instigating particle, with the tightness of the cone being independent of the initial energy of the particle (see Moli{\`e}re radium in~\cite{grupen_shwartz_2011}).  
+Another feature of electromagnetic showers is that, relatively speaking, they do not penetrate very deeply into the material.   
+These are some variables that will be useful in identifying EM showers, with how they identified within ATLAS being briefly discussed in Sec.~\ref{EMReco}. 
+
+\begin{table}
+  \centering
+  \begin{tabular}{ |c|c|c|}
+  \hline
+  \multicolumn{3}{|c|}{\textbf{EM calorimeter}} \\
+  \hline
+  \hline
+  \multicolumn{3}{|c|}{Longitudinal layers, $\eta$ coverage} \\
+  \hline
+  Presampler  & 1, $\mid\eta\mid<1.52$            & 1, $1.5<\mid\eta\mid<1.8$ \\
+  \hline
+  Calorimeter & 3, $\mid\eta\mid<1.35$            & 2, $.1375<\mid\eta\mid1.5$ \\
+              & 2, $1.35<\mid\eta\mid<1.475$      & 3, $1.5<\mid\eta\mid<2.5$ \\
+              &                                   & 2, $2.5<\mid\eta\mid<3.2$ \\
+  \hline
+  FCal        &                                   & 1, $3.1<\mid\eta\mid < 4.9$ \\
+  \hline
+  \multicolumn{3}{|c|}{Granularity $\Delta\eta x \Delta\phi$} \\
+  \hline
+  Presampler  & 0.025 x 0.1, $\mid\eta\mid<1.52$                & 0.025 x 0.1, $1.5<\mid\eta\mid<1.8$ \\
+  \hline
+  Calorimeter layer 1 & 0.003 x 0.1, $\mid\eta\mid<1.4$         & 0.05 x 0.1,  $1.375<\mid\eta\mid<1.425$ \\
+                      & 0.025 x 0.025, $1.4<\mid\eta\mid<1.475$ & 0.025 x 0.1, $1.425<\mid\eta\mid<1.5$ \\
+                      &                                         & 0.003 x 0.1, $1.5<\mid\eta\mid<1.8$ \\
+                      &                                         & 0.004 x 0.1, $1.8<\mid\eta\mid<2.0$ \\
+                      &                                         & 0.006 x 0.1, $2.0<\mid\eta\mid<2.4$ \\
+                      &                                         & 0.025 x 0.1, $2.4<\mid\eta\mid<2.5$ \\
+                      &                                         & 0.1 x 0.1,   $2.5<\mid\eta\mid<3.2$ \\
+  \hline
+  Calorimeter layer 2 & 0.025 x 0.025, $\mid\eta\mid<1.4$       & 0.05 x 0.025,$1.375<\mid\eta\mid<1.425$ \\
+                      & 0.075 x 0.025, $1.4<\mid\eta\mid<1.475$ & 0.025 x 0.025, $1.425<\mid\eta\mid<2.5$ \\
+                      &                                         & 0.1 x 0.1, $2.5<\mid\eta\mid<3.2$ \\
+  \hline
+  Calorimeter layer 3 & 0.05 x 0.025, $\mid\eta\mid<1.35$       & 0.05 x 0.025, $1.5<\mid\eta\mid<2.5$ \\
+  \hline
+  FCal                &                                         & 0.2 x 0.2, $3.1<\mid\eta\mid < 4.9$ \\
+  \hline
+  \end{tabular}
+  \caption[Main parameters of the electromagnetic calorimeter system. ]
+        {\small Main parameters of the electromagnetic calorimeter system in ATLAS.\cite{1748-0221-3-08-S08003} }
+\label{table:EMCalo}
+\end{table}
+
+The ATLAS detector makes use of what are known as sampling calorimeters.  
+A sampling calorimeter is a calorimeter which alternates back and forth between a dense material which is used to advance the particle shower (absorbers) and an active material which measures the shower deposits.  
+While there is a disadvantage to this design with energy deposited in the absorber being invisible to the detector, having the full energy of the particle being deposited in a shorter length of material allows for a reduction in size of any additional detectors beyond the calorimeter.  
+In both the barrel and endcaps the absorber for the EM calorimeter is lead and the active material is liquid argon (LAr), while in the forward region a copper/LAr detector is used.  
+When charged particles pass through the active medium the liquid argon is ionized and the charge is collected on kapton electrodes, which is how the energy measurement is made.  
+A breakdown of how the number of sampling layers and the resolution of the EM calorimeter vary with $\eta$ in the central and endcap regions can be seen in Table~\ref{table:EMCalo}.  
+
+
 \subsubsection{Hadronic Calorimeter}
 \label{Had}
+It is very easy to see many similarities between EM calorimeters and hadronic calorimeters.  
+Hadronic calorimeters rely on both electromagnetic and strong interactions between the particles to be measured and the detector, where these interactions produce secondary particles.  
+This process, known as a hadronic shower, continues until the secondary particles reach a low enough energy that they are fully absorbed by the material and their energy measured.  
+The differences between hadronic and electromagnetic showers tend to be in the size, both in depth and width, of the showers (with hadronic showers being larger in both dimensions) and the event by event variations of the showers (with hadronic showers being subject to much larger fluctuations).  
+
+As the lowest mass hadron is over 200 times more massive than the electrons ($\pi^{0}$ at 145 MeV) it is save to assume that at energies which will be achieved in the ATLAS detector bremsstrahlung will not be an important energy loss mechanism for hadrons.  
+Ionization and excitation on the other hand are still relevant contributors to the overall energy loss of hadrons.  
+The rate at which energy is lost via these mechanisms for particles which are heavier than an electron is described by the Bethe-Bloch formula,  
+\begin{equation}
+-\frac{\mathrm{d}E}{\mathrm{d}x}=\frac{2CZz^2}{A\beta^2}\left[\mathrm{ln}\left(a\gamma^2\beta^2\right)-\beta^2-\frac{\delta}{2}\right], 
+\end{equation}
+where $C$ is some constant, $z$ is the charge of the particle in question, $Z$ and $A$ are the atomic number and weight of the material being ionized, $\beta$ and $\gamma$ are the velocity and Lorentz factor of the incident particle, $\delta$ is a parameter describing density effects, and $a$ depends on the electron mass and ionization energy of the absorber.  
+
+While these particles do interact electromagnetically it is the interactions between the hadrons and the atomic nuclei via the strong force (resulting in secondary hadrons) which account for the majority of the energy loss.  
+The average distance between these interactions is much larger than the radiation length which is the cause of the extra penetration depth of these showers when compared to their EM counterparts.  
+To get an idea of the difference in penetration depth between hadronic and electromagnetic showers one needs only to pick a material, say copper, and compare the average distance between hadronic interactions $\lambda_{\mathrm{int}}$ (15 cm in copper) to the radiation length $\chi_{0}$ in the same material (1.4 cm)~\cite{Wigmans2008}.  
+The large width of hadronic showers is caused by large transverse momentum transfers in these nuclear interactions.  
+
+\begin{table}
+  \centering
+  \begin{tabular}{ |c|c|c|}
+  \hline
+  \multicolumn{3}{|c|}{\textbf{Hadronic calorimeter}} \\
+  \hline
+  \hline
+  \multicolumn{3}{|c|}{Tile calorimeter} \\
+  \hline 
+                     & Barrel                                   & Extended barrel \\
+  Coverage           & $\mid\eta\mid<1.0$                       & $0.8<\mid\eta\mid<1.7$ \\
+  \hline 
+  Number of layers   & 3                                        & 3 \\
+  \hline 
+  Granularity        & 0.1 x 0.1				& 0.1 x 0.1 \\
+  Last layer only    & 0.2 x 0.1				& 0.2 x 0.1 \\
+  \hline 
+  \hline
+  \multicolumn{3}{|c|}{Hadronic endcaps} \\
+  \hline 
+  Coverage           & 	\multicolumn{2}{|c|}{$1.5<\mid\eta\mid<3.2$} \\
+  \hline
+  Number of layers   &  \multicolumn{2}{|c|}{ 4} \\
+  \hline
+  Granularity        & 	\multicolumn{2}{|c|}{0.1 x 0.1, $1.5<\mid\eta\mid<2.5$} \\
+  		     &  \multicolumn{2}{|c|}{ 0.2 x 0.2, $2.5<\mid\eta\mid<3.2$} \\
+  \hline
+  \hline
+  \multicolumn{3}{|c|}{Forward calorimeter} \\
+  \hline
+  Coverage	     & \multicolumn{2}{|c|}{$3.1<\mid\eta\mid<4.9$} \\
+  \hline
+  Number of layers   & \multicolumn{2}{|c|}{2} \\
+  \hline
+  Granularity        & \multicolumn{2}{|c|}{$\approx$ 0.2 x 0.2} \\
+  \hline
+  \end{tabular}
+  \caption[Main parameters of the hadronic calorimeter system. ]
+        {\small Main parameters of the hadronic calorimeter system in ATLAS.\cite{1748-0221-3-08-S08003} }
+\label{table:HadCalo}
+\end{table}
+
+While a large number of the particles resulting from the nuclear interactions will be pions ($\approx$ 90 \%), other particles like protons, neutrons, kaons, etc. are also produced.  
+On average the three pion flavours ($\pi^0$, $\pi^{+}$, and $\pi^{-}$) are produced in with equal frequency, with large variations in make up of the secondaries being possible between any two given interactions.  
+Interestingly charged pions interact with matter much differently than their neutral counterparts.  
+Where charged pions have a mean lifetime $\tau$ of 2.6 x $10^{-8}$ s ($\tau c$ = 7.8 m) and will tend to have a further nuclear interactions before decaying, neutral pions have a much shorter lifetime ($\tau c$ = 25 nm) leading them to quickly decay into a pair of photons which will initiate EM showers within the hadronic shower~\cite{PDG}.  
+As a result of this important difference the amount of detectable energy deposited in a calorimeter from a hadronic shower can have a strong dependence on what fraction of pions from the first few interactions happen to have been neutral.  
+
+The fraction of the total energy deposited in the calorimeter by these small EM sub showers ($f_{em}$) varies as a function of the energy of the particle initiating the shower, increasing from $\approx$ 30\% for particles at 10 GeV to $\approx$ 50\% for particles at 100 GeV.  
+The rest of the energy can be accounted for as follows: 34\% is used to overcome the atomic binding potential to release protons and neutrons (so called invisible energy), 10\% is in low energy (typically 3 MeV) neutrons which have been released from nuclei, and 56\% is deposited via ionizing particles, where 2/3 of that is via protons~\cite{Wigmans2008}.  
+This is all to say that a large portion of the non-EM energy is deposited in the calorimeter via low energy free nucleons on not relativistic pions.  
+
+The hadronic calorimeter, just like the EM calorimeter, is a sampling calorimeter.  
+The similarities go even further in that in both the FCal and endcaps the active material for the hadronic calorimeter is LAr, with the absorber in the endcaps being copper and the absorber in the forward region being tungsten.  
+In the barrel the hadronic calorimeter uses steel as the absorber material and a plastic scintillator as the active material.  
+The number of sampling layers and the granularity of each of these regions of the hadronic calorimeter can be seen in Table.~\ref{table:HadCalo}. 
 
 \subsection{ATLAS Hardware: Muon Spectrometer}
+Muons are 200 times heavier than electrons, and are therefore typically minimum ionizing at the LHC and therefore do not produce electromagnetic showers.  
+Since muons also do not carry any colour charge they do not produce hadronic showers either.  
+Thankfully as they are charge carriers they do interact with the tracking systems in the inner detector, and with the help of a second tracking system beyond the hadronic calorimeter they become easy to identify as they are the only ionizing particle which will regularly pass through the entire calorimeter.   
+ 
+
 
 \subsection{Triggers}
 \label{Trig}
