@@ -60,7 +60,7 @@ The ATLAS detector is made up of individual layers, with each layer being design
 Going from the interaction point outwards these layers are known as the inner detector, the electromagnetic (EM) calorimeter, the hadronic calorimeter, and the muon spectrometer.   
 
 \subsection{ATLAS Hardware: Inner Detector}
-
+\label{Sec.ID}
 The inner detector is made up of three subdetectors: the pixel detector, the \gls{SCT}, and the \gls{TRT}.  
 These three subdetectors are all immersed in a 2 Tesla magnetic field that is being supplied by a solenoidal magnet which encompasses the entire inner detector.  
 This magnetic field bends the trajectories of charged particles by an amount that is proportional to their momentum.  
@@ -212,7 +212,7 @@ These are some variables that will be useful in identifying EM showers, with how
   \hline
   \end{tabular}
   \caption[Main parameters of the electromagnetic calorimeter system. ]
-        {\small Main parameters of the electromagnetic calorimeter system in ATLAS.\cite{1748-0221-3-08-S08003} }
+        {\small Main parameters of the electromagnetic calorimeter system in ATLAS.\cite{JOIATLAS} }
 \label{table:EMCalo}
 \end{table}
 
@@ -304,9 +304,47 @@ The number of sampling layers and the granularity of each of these regions of th
 \subsection{ATLAS Hardware: Muon Spectrometer}
 Muons are 200 times heavier than electrons, and are therefore typically minimum ionizing at the LHC and therefore do not produce electromagnetic showers.  
 Since muons also do not carry any colour charge they do not produce hadronic showers either.  
-Thankfully as they are charge carriers they do interact with the tracking systems in the inner detector, and with the help of a second tracking system beyond the hadronic calorimeter they become easy to identify as they are the only ionizing particle which will regularly pass through the entire calorimeter.   
- 
+Thankfully as they are charge carriers they do interact with the tracking systems in the inner detector, and with the help of a second tracking system beyond the hadronic calorimeter they become easy to identify as they are the only ionizing particle which will regularly pass through the entire calorimeter.  
+The magnetic field for the muon spectrometer is provided large superconducting air-core toroids, with the field in the central region ($\mid\eta\mid<$ 1.4) being provided by the barrel toroid and in the forward regions (1.6 $<\mid\eta\mid<$ 2.7) is is provided by two smaller endcap magnets.  
+In the transition regions the magnetic fields are provided by a combination of these three magnets.  
 
+In the central barrel region the muon hits are measured in three separate layers (stations) which arranged in concentric cylinders with radii of about 5, 7.5, and 10 m~\cite{MuonTDR}.  
+These distances are chosen to measure the muons position as they enter, are at the midpoint, and again as they exit the magnetic field to best measure the change in the momentum of the muons.  
+The two endcaps are made up of four wheels at distances of 7.4, 10.8, 14, and 21.5 m, where the additional wheel at 10.8 m is allow for the full three measurements of the muons trajectory in the region which is uncovered by the outermost wheel (see Fig.~\ref{MuonSpectroFig}).  
+
+\begin{figure}[!ht]
+  \begin{center}
+    \scalebox{0.5}{        
+      \includegraphics{plots/Chap2/Muon_rz_large_sect_6.eps}
+    }
+  \end{center}
+  \caption[Stopping power for positive muons in copper.]
+      {\small Cross-section of the muon system in a plane containing the beam axis (bending plane). Infinite-momentum muons would propagate along straight trajectories which are illustrated by the dashed lines and typically traverse three muon stations~\cite{JOIATLAS}.}
+  \label{MuonSpectroFig}
+\end{figure}
+
+Monitored Drift Tubes (MDT's) are used to make these position measurements in the outer two layers of the muon spectrometer over the full eta range ($\mid\eta\mid<$ 2.7), and they are also used in all but the most forward portion of the inner most layer as well ($\mid\eta\mid<$ 2.0).  
+MDT's make use of the trail of ionized particles left behind as a charged particle passes through a material in the same way as the TRT (see Sec.~\ref{Sec.ID}).  
+ 
+ 
 
 \subsection{Triggers}
 \label{Trig}
+During both 2015 and 2016 the LHC has been bringing two bunches of protons to collide at the centre of the ATLAS detector every 25 ns.  
+With each even potentially taking up to 2 MB to store both recording and storing all of this data can be a problem.  
+To further extend the problem the large majority of these collision events will be elastic collisions or low Pt dijet events which are of little interest in this high energy environment.  
+The solution to this problem is to only record a certain fraction of the total number of events that have been provided.  
+This must be done in a way which maximizes the number of rare events recorded while simultaneously removing as many low interest events as possible.  
+The triggering system uses a combination of hardware and software decision makers to perform exactly this task~\cite{Run2Triggers}.  
+
+The trigger system is broken down into two parts with the first part being the L1 trigger.  
+The L1 trigger is hardware based and reduces the number of events to be considered from 40 million per second down to 10$^5$/second.  
+It uses a more course object definition than the full reconstruction, but selections can still be made based on energy thresholds for given objects, as well as topological requirements like isolation requirements and the invariant mass of a combination of objects.  
+
+The second stage of the trigger system is known as the higher level trigger, or HLT.  
+In the HLT some full offline like unseeded reconstruction algorithms can be run, including topoclustering and muon reconstruction.  
+This is not always the case, for example time considerations necessitate the use of an offline like track reconstruction algorithm that makes use of some L1 tracking information.  
+The HLT is designed to reduce the event rate from the 100 kHz output of the L1 trigger down to 600 Hz, which can be increased to 1-1.5 kHz at peak luminosities.  
+
+
+
