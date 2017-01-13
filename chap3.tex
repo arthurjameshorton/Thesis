@@ -1,0 +1,74 @@
+\chapter{Physics Object Reconstruction}
+\label{Reco}
+
+\section{Electron/Photon}
+The reconstruction of electrons and photons with the ATLAS detector involves measurements by both the electromagnetic calorimeter and the inner detector.  
+The process begins with a list of clusters found using a sliding window with a size equal to 3 x 5 cells ($\eta$ x $\phi$) in the second layer of the EM calorimeter.  
+A modified list of tracks from the inner detector is also used, with tracks containing only hits in the TRT being simply copied over and tracks with silicon hits being refit to account for the potentially large radiative energy loss the electrons can experience during their flight~\cite{ATLAS-CONF-2012-047}.  
+Tracks become associated with a cluster if they are close enough (0.05 x 0.05 with Si, 0.35 x 0.02 without) and pass some quality criteria.  
+Clusters with tracks are candidates for either electrons or converted photons (single or double track).  
+
+At this stage clusters are expanded to 3 x 7 (5 x 5) in the barrel (endcap).  
+Clusters with two tracks without pixel layer hits or no single track with more than 4 Si hits are labeled as photon candidates, while clusters with single tracks with pixel hits are labeled as electron candidates.  
+The energy of these larger clusters is used as the input energy of the object for calibration, while the $\eta$ and $\phi$ is taken from the track(s) (if present) or the cluster (with no tracks).  
+
+\section{Muons}
+\label{Muons}
+
+Muons are reconstructed using information from both the muon spectrometer and the inner detector.  
+Muon reconstruction begins by creating station by station muon track segments which are then fit into a combined track.  
+The fit takes into account the magnetic field from the toroid magnets and a detailed description of the material density throughout the detector.  
+These spectrometer only muon tracks are then propagated through the calorimeter (again taking the energy the muons will deposit into account) back into the inner detector.  
+Here they are are combined with tracks left by the muon in the tracking detector which have been reconstructed using the regular all-purpose track reconstruction algorithm that is used.  
+
+\section{Jets}
+\label{jets}
+
+A result of confinement (see Sec.~\ref{SM}) is that single particles with colour charge cannot be observed.  
+This does not actually eliminate collision where a large amount of energy is transfered to a single quark or gluon.  
+When these types of collision do occur (which they do quite frequently at a p-p collider) what is seen is a large `spray' of hadrons all traveling along roughly the same path that the original single particle was moving.  
+This spray of particles is the outcome of two processes.  
+First as the charged colour particle moves away from its counterparts the energy stored in the colour field builds until a new particle/anti-particle pair is produced.  
+The creation of these new particle pairs along with the gluons which are radiated by the initial/secondary particles is known as the parton shower.  
+When the amount of energy per particle drops below the pair creation threshold a second stage known as hadronization takes over, where these secondary coloured particles combine into colour neutral particles.  
+Collectively these two stages are known as fragmentation.  
+
+As was mentioned in Sec.~\ref{Had} the interactions between hadrons and detectors tend to lead to wide and deep showers that are subject to large fluctuation.  
+The large number of hadrons moving in the same direction combined with this showering profile means that accurately measuring the properties of these sprays in the calorimeter can be quite tricky.  
+The strategy that is generally used is two staged.  
+First a stage where individual particle candidates are constructed followed by a second stage where these particle candidates are combined into groups of nearby particles (the second stage is jet finding).  
+Multiple options are available for each stage.  
+
+ATLAS has previously used calorimeter towers (stacks of cells in the calorimeter) and `TopoTowers' (towers with additional noise suppression) as inputs to jet finding algorithms, but they aren't necessarily a good representation of a single particle.  
+Tracks in the inner detector are also used, although using only tracks ignores all neutral particle information obtained by the calorimeter.  
+The most commonly used input to jet finding algorithms in ATLAS begin with topological clusters.  
+ 
+\subsection{Topological Clusters}
+
+In the context of high energy physics detectors topological (topo) clustering is an algorithm where individual calorimeter cells are grouped together based on how significant the energy deposited within a given cells is relative to the expected noise.  
+Togo clusters have the ability to take on a wide variety of three dimensional shapes, which allows them to include a large fraction of the energy deposited by incoming particles while ignoring much of the noise.  
+
+Topo clustering begins by determining the significance of the energy deposited withing each cell, which is defined as the absolute value of the measured energy divided by the average expected noise for that cell.  
+All cells above some predetermined threshold, $t_{\mathrm{seed}}$, are then put into a list proto-clusters.  
+At this stage any cell above some second threshold, $t_{\mathrm{neighbor}}$, which are `neighbors' to a proto-cluster are added to that proto-cluster.  
+In this case neighbors consist of the eight neighbors and nearest neighbors in the same layer of the calorimeter as the cell in question, as well as all cells in adjacent layers which overlap or partially overlap with any of these nine cells.  
+This step is repeated until there are no longer any neighbors above $t_{\mathrm{neighbor}}$.  
+The final stage of cluster building involves adding a single final layer around each proto-cluster of all neighboring cells above some third threshold, $t_{\mathrm{cell}}$~\cite{1603.02934}.  
+The thresholds used in topoclustering are usually reported as $t_{\mathrm{seed}}-t_{\mathrm{neighbor}}-t_{\mathrm{cell}}$, where ATLAS uses a 4-2-0 configuration.  
+
+After all clusters have been fully formed there is an additional stage where clusters are split.  
+This begins by looking for local maxima within a given cluster, which are defined as having energy above 500 MeV with at least four neighbours, none of which have a higher energy than the cell in question.  
+The clustering is run again only considering cells within the larger cluster, only this time instead of merging sub clusters as they meet the cells have their energy split between sub clusters.  
+ 
+While topo clusters do a relatively good job of representing the visible energy deposited in the detector by a given particle they are not perfect.  
+Clustering may leave some visible energy outside of the bounds of a cluster, energy may be deposited in dead material, or the energy may simply be mis measured as the response to EM energy of the ATLAS detector (e) is not equal tot he response of hadronic energy deposits ($\pi$).  
+These are the factors which motivate the second collection of clusters used by ATLAS.  
+This second collection of clusters begins with the original (EM scale) clusters and applies a series of cell by cells weights in an attempt to correct these vary problems at the cluster level.  
+This calibration step is known as local hadronic cell weighting, or LCW.  
+The applied corrections may depend on moments of the cluster, the depth and density of the cluster is used for EM/Had identification for example, as well as the physical location of the cluster to estimate the energy lost to dead material.  
+This calibration is Monte Carlo based.  
+
+\subsectio{Jet Finding}
+
+
+\section{Missing Transverse Energy}
