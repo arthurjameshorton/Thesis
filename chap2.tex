@@ -1,17 +1,17 @@
 \chapter{Experimental setup}
 \label{Experiment}
-The \gls{LHC} was able to keep its first protons circulating within its 27 km of underground tunnel on the 10th of September, 2008.  
-On the 23rd of November the following year the first collisions were recorded~\cite{FirstCollisions} signalling the beginning of the LHC's era at the forefront of the high energy frontier.  
+The \gls{LHC} successfully began circulating its first protons within its 27 km of underground tunnel on the 10th of September, 2008.  
+On the 23rd of November the following year the first collisions were recorded~\cite{FirstCollisions}, signalling the beginning of the LHC's era at the forefront of the high energy frontier.  
 In the years that have passed since the LHC has been consistently pushing to more frequent collisions at higher energies, allowing the experiments along its ring to explore and extend the boundaries of human knowledge.  
 
 This chapter will describe the technology that allows these studies to be performed.  
-First the LHC acceleration complex will be provided.  
+First a walk through of the LHC acceleration complex will be provided.  
 This will be followed by a description of the ATLAS detector which will be broken into the various subdetectors which make up ATLAS and the methods they use to accomplish their given tasks.   
 
 \section{The Large Hadron Collider}
 \label{Sec:LHC}
 
-The parts of a particle accelerator can be broken down into two functional categories: rf cavities which use electric fields to accelerate particles and magnets which are used to confine the accelerated particles.  
+The parts of a particle accelerator can be broken down into two functional categories: rf cavities which use electric fields to accelerate particles, and magnets which are used to confine the accelerated particles.  
 Circular accelerators come in two distinct flavours: cyclotrons which contain the beam using a fix strength magnetic field but allow for the radius of the circle to increase, and synchrotrons which maintain a fixed radius by increasing the magnetic field strength to compensate for the increasing energy of the accelerating particles.  
 The LHC fits into the second of these categories.  
 
@@ -339,12 +339,21 @@ The triggering system uses a combination of hardware and software decision maker
 
 The trigger system is broken down into two parts with the first part being the L1 trigger.  
 The L1 trigger is hardware based and reduces the number of events to be considered from 40 million per second down to 10$^5$/second.  
-It uses a more course object definition than the full reconstruction, but selections can still be made based on energy thresholds for given objects, as well as topological requirements like isolation requirements and the invariant mass of a combination of objects.  
+It uses a more course object definition than the full reconstruction, but selections can still be made based on energy thresholds for given objects, as well as more topological information like isolation requirements or a specified range for the invariant mass of a combination of objects.  
 
 The second stage of the trigger system is known as the higher level trigger, or HLT.  
 In the HLT some full offline like unseeded reconstruction algorithms can be run, including topoclustering and muon reconstruction.  
 This is not always the case, for example time considerations necessitate the use of an offline like track reconstruction algorithm that makes use of some L1 tracking information.  
 The HLT is designed to reduce the event rate from the 100 kHz output of the L1 trigger down to 600 Hz, which can be increased to 1-1.5 kHz at peak luminosities.  
+
+While these triggers can be very efficient at selection relatively rare more `interesting' events to be recorded for future study, not all event topologies desired by the various physics groups in the ATLAS collaboration are infrequent enough that every instance of that event can be stored.  
+The compromise that's made for these high rate events is that for a given trigger an additional requirement is added to the trigger which is satisfied randomly with only a preset probability of passing (prescaling).  
+The true number of events of these types which have actually occurred can then be approximated using that random acceptance rate.  
+ 
+ 
+ 
+
+
 
 
 

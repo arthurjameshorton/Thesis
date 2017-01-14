@@ -36,7 +36,7 @@ Collectively these two stages are known as fragmentation.
 As was mentioned in Sec.~\ref{Had} the interactions between hadrons and detectors tend to lead to wide and deep showers that are subject to large fluctuation.  
 The large number of hadrons moving in the same direction combined with this showering profile means that accurately measuring the properties of these sprays in the calorimeter can be quite tricky.  
 The strategy that is generally used is two staged.  
-First a stage where individual particle candidates are constructed followed by a second stage where these particle candidates are combined into groups of nearby particles (the second stage is jet finding).  
+First a stage where individual particle candidates are constructed followed by a second stage where these particle candidates are combined into groups of nearby particles into what are known as jets.  
 Multiple options are available for each stage.  
 
 ATLAS has previously used calorimeter towers (stacks of cells in the calorimeter) and `TopoTowers' (towers with additional noise suppression) as inputs to jet finding algorithms, but they aren't necessarily a good representation of a single particle.  
@@ -68,7 +68,40 @@ This calibration step is known as local hadronic cell weighting, or LCW.
 The applied corrections may depend on moments of the cluster, the depth and density of the cluster is used for EM/Had identification for example, as well as the physical location of the cluster to estimate the energy lost to dead material.  
 This calibration is Monte Carlo based.  
 
-\subsectio{Jet Finding}
+\subsection{Jet Finding}
 
+In order for it to be possible to meaningfully compare experimental results and fixed order QCD calculation jet algorithms must behave in a way that follows certain criteria~\cite{Blazey:2000qt}.  
+These criteria are infrared and collinear safety, which mean that the reconstruction should be insensitive to soft and collinear radiation, respectively.  
+A family of jet finding algorithms that satisfies these criteria and are used within the ATLAS collaboration is the $k_t$ family~\cite{Cacciari:2008gp}.  
+More specifically the members of this family that are used are $k_t$ jets, Cambridge/Aachen jets, and the most commonly used member anti-$k_t$.  
+Objects which are used as inputs to these algorithms within ATLAS include tracks, truth particles (in Monte Carlo samples), cluster, etc.  
+
+These algorithms all begin by constructing a list of pseudo jets, which consists of four vectors representing all of the inputs at the desired scale.  
+Next a `distance' between every pair of jets is calculated, where the distance is defined as:
+
+\begin{equation}
+  d_{ij}=min\left(p_{T,i}^{2n}, p_{T,j}^{2n}\right)\frac{\Delta_{ij}^2}{R^2}, 
+\end{equation}
+
+where $\Delta_{ij}$ is difference in rapidity and the difference in $\phi$ of the two pseudo jets summed in quadrature, $R$ is a tunable size parameter.  
+$n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms respectively.  
+Additionally for each pseudo jet a distance to the beam pipe is calculated using:
+
+\begin{equation}
+  d_{iB} = p_{T,i}^{2n}.
+\end{equation}  
+
+The jet building is then performed by finding the smallest distance parameter.  
+If if corresponds to a pseudo jet/beam pipe distance that pseudo jet is promoted to being a full jet, while if it is a pseudo jet pair those jets are removed from the list and combined into a new pseudo jet which is added to the list.  
+While there exists different combination schemes ($p_T$ weighted, $p_T^2$ weighted) ATLAS uses a simple addition of the four-vectors of the pseudo jets using the FastJet implementation~\cite{Cacciari:2011ma}.
 
 \section{Missing Transverse Energy}
+
+While large multipurpose detectors like ATLAS are great at detecting a large range of particles they do not and cannot measure 100\% of the energy of every particle produced in every collision.  
+Some of this missed energy is from particles interacting with the detector and having a response lower than one, sometimes the more interesting energy with is missed comes from particles which do not interact with the detector at all (eg. neutrinos).  
+As one can imagine it's not always straightforward to measure how much energy your calorimeter did not detect.  
+Thankfully in a p-p collider all of the initial momentum of the collision is along the beam line, with the exception of a small (effectively negligible) amount of transverse momentum within the protons themselves.  
+Using the conservation of momentum one can use an imbalance in momentum along any given axis in the transverse plane and interpret the missing energy which would balance the momentum as a measurement in itself.  
+
+
+
