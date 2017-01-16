@@ -102,6 +102,14 @@ Some of this missed energy is from particles interacting with the detector and h
 As one can imagine it's not always straightforward to measure how much energy your calorimeter did not detect.  
 Thankfully in a p-p collider all of the initial momentum of the collision is along the beam line, with the exception of a small (effectively negligible) amount of transverse momentum within the protons themselves.  
 Using the conservation of momentum one can use an imbalance in momentum along any given axis in the transverse plane and interpret the missing energy which would balance the momentum as a measurement in itself.  
+This quantity is known as the missing transverse energy (MET or $E_T^{miss}$).  
+
+The MET, like jets, can be build using a number of different inputs at various scales.  
+For many analyses in ATLAS the most appropriate MET to use is one where all physics objects are used at their fully calibrated scales.  
+This is done by starting with some base collection (EM clusters, LCW clusters, tracks, etc.) then adding physics objects while removing overlapping base objects to avoid double counting.  
+The final MET is calculated by taking the negative vector sum of the transverse momentum of the remaining base objects and all physics objects.  
+This thesis will be using topo cluster based METs with only photons, electrons, and muons being replaced with the full calibrated objects.  
+
 
 
 
