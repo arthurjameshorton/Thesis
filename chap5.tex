@@ -1,0 +1,145 @@
+\chapter{Determining the Jet Energy Scale}
+\label{JES2}
+
+\section{Samples}
+As seen in Sec.~\ref{ATLASJES} the ATLAS collaboration uses a multistaged calibration approach to calibrate jets, where the final stage corrects for any measured response differences observe between collected data and simulated samples.  
+The results presented will primarily be derived using 34.7 fb$^{-1}$ of 13 TeV data taken between April 22nd and October 26th 2016. 
+Some results using 3.9 fb$^{-1}$ of 13 TeV data taken between June 3rd and November 3rd 2015 will also be presented.  
+The measured response in data is compared to results derived using simulated samples.  
+In $\gamma$+jet the nominal simulated sample has been generated using {\sc pythia} 8 while for Z+jet the nominal sample has been generate using {\sc powheg}.  
+{\sc pythia} 8 provides the fragmentation for both of these samples.  
+These generated events are propagated through a simulation of the ATLAS detector based on GEANT4, using the Bertini Cascade model up to 5 GeV, with a smooth transition into the FTFP model for higher energies.  
+
+
+\section{Selection Criteria}
+
+\subsection{Reference Selection}
+{\textit{In-situ}} jet calibration techniques require that the jet to be measured is balanced back-to-back with a well measured reference object.  
+Requiring the presence of these objects along with additional criteria to ensure that they are in fact well measured is therefor a well motivated place to begin the event selection requirements used in these studies.  
+
+\subsubsection{Photons}
+The first requirement used to select $\gamma$+jet events is that the event must have fired a fully efficient single photon trigger.  
+In each event which passes this trigger requirement the leading photon (the photon with the highest energy) is considered to be a reference object candidate.  
+The photon must be in the central region of the detector ($\mid\eta\mid<$1.37) and have a transverse momentum greater than 25 GeV.  
+ 
+Each reconstructed photon has a tag associated with it giving some indication of how the photon was reconstructed.  
+For this study this tag is required to be either AuthorPhoton or AuthorAmbiguous.  
+AuthorPhoton means that no tracks with more than 4 Si hits have been associated with the electromagnetic cluster or that any associated track has no hits in the pixel layers and is associated with a two track vertex in the silicon detector, leading to either unconverted or converted photons.  
+AuthorAmbiguous is a tag for all electromagnetic objects which by reconstruction alone cannot be identified as either a photon or an electron.  
+
+In addition to this reconstruction level identification there is a second, more thorough set of identification criteria used to ensure that the object in question is in fact a photon~\cite{ATL-PHYS-PUB-2016-014}.  
+This identification puts requirements on how the energy is distributed within the EM cluster.  
+Included are cuts on the fraction of the total energy in the hadronic calorimeter to help eliminate hadrons which fluctuate to have a high EM content, and the energy in any secondary maxima in the strip layer to remove neutral pions.  
+Differences in the distributions of these shower shape variables have been observed between data and Monte Carlo samples.  
+This effect is compensated for by applying additional corrections the shower shape variables in the Monte Carlo samples before performing this selection.  
+
+To further reduce the number of jets faking photons an additional $p_{\mathrm{T}}$ dependent isolation criteria is applied to the photon.  
+This cut requires that the amount of energy in topoclusters within a distance $\Delta R=\sqrt{\eta^2+\phi^2}$ = 0.4 from the photon must be less than 0.022 $p_{\mathrm{T}}$ + 2.45 GeV.  
+There is also a requirement that the sum of the momentum of tracks within $\Delta R$ = 0.2 is less than 5\% of the momentum of the photon.  
+Finally it has been found that the purity of the converted photons can be further enhanced by applying a requirement that the amount of energy reconstructed in the cluster roughly matches the energy in the track.  
+For this study we require that for a for a two track converted photon the energy of the cluster divided by the momentum of the track must be between 0.5 and 1.5, with the requirement loosened to be less than two for single track converted photons.  
+
+
+%Author, ID, Pt, eta, isolation, etc.
+%Fudge factors for shower shapes in MC
+\subsubsection{Z}
+To create a Z candidate this study requires exactly two `good' leptons which are both the same flavour (electrons or muons) with opposite charge (one particle, one anti-particle). 
+These two leptons must reconstruct to have a mass between 66 GeV and 116 GeV.  
+The requirements for being a `good' electron or muon will be described below.  
+
+\subsubsection{Electrons}
+Electrons are required to be within the range of the tracking detector ($\mid\eta\mid<$2.47) while excluding the transition region between the barrel and the endcap (1.37 $<\mid\eta\mid<$ 1.52).  
+A minimum $p_{\mathrm T}$ requirement of 20 GeV is also applied to the electrons.  
+In ATLAS electrons are identified by applying a cut on the output of a multivariate likelihood function, where the inputs to this likelihood are many of the same variables that are used in photon identification~\cite{ATL-PHYS-PUB-2015-041}.  
+ATLAS has a number of difference predefined selection levels (tight, medium, loose, loose+b layer, very loose) providing a range of signal acceptance/background rejection levels.  
+For this study the loose electron selection criteria is used.  
+Finally there is also an isolation cut applied to electrons, where the loose isolation working point is used.  
+This loose working point is set to keep 99\% of all electrons and includes both cuts on the relative energy and momentum within $\Delta R$ = 0.2 of the electron.  
+
+%not in crack, quality cuts, isolation, etc.
+
+\subsubsection{Muons}
+Z$\rightarrow\mu\mu$ events are triggered using the lowest unprescaled dimuon trigger, which was for two 10 GeV or 14 GeV muons depending on the period.   
+Muons are required to be within $\mid\eta\mid<$2.4 and the have a transverse momentum greater than 20 GeV.  
+Muons also have predefined identification levels~\cite{ATL-PHYS-PUB-2015-037}, where this study uses the loose identification.  
+An loose recommended isolation cut is also used for muons, where the isolation area is within $\Delta R$ = 0.2 for the calorimeter and $\Delta R$ = 0.3 for the tracking detector.  
+
+\subsection{Jet Selection}
+Jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topo clusters as input at both the EM and LC scale.  
+As jets are found by searching for large concentrated deposits of energy photons and electrons are expected to appear in collection of reconstructed jets for any given event and therefor must be removed.  
+Jets within $\Delta R$ = 0.2 of a photon are not considered, and neither are jets within $\Delta R$ = 0.35 of a lepton.  
+
+Clusters, and therefore jets, can be effected by calorimeter noise bursts, cosmic ray showering, pathological cells in the calorimeter, and other backgrounds.  
+The ATLAS collaboration has predefined levels of cleaning which are in place to identify exactly these types of events~\cite{ATLAS-CONF-2015-029}.  
+As this study will be using MET, any events with a jet above 20 GeV which fail to pass the `BadLoose' requirement will be vetoed.  
+
+In 2016 the average number of interactions per bunch crossing in the LHC in a single run reached as high as 52.2 (Oct 14th, 2016).  
+With such a high luminosity the possibility for misidentifying jet as being part of the hard scattering interaction of interests becomes quite high.  
+ATLAS uses ghost association~\cite{ATLAS-CONF-2013-083} to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}\cite{ATLAS-CONF-2014-018}.  
+The output is a single continuous variable, where 1 corresponds to a perfect match to the primary vertex and 0 corresponds to a pileup jet.  
+The recommended JVT cut of 0.59 is used in this study, which corresponds to an average signal efficiency rate of 92\%.  
+Events are required to have at least one jet passing this criteria, known as the leading jet, and the second highest $p_{\mathrm T}$ jet (if it exists) is known as the subleading jet.  
+
+%Well measured jet, JVT
+
+\subsection{Event Topology Requirements}
+Back to back and subleading J2 cuts help remove ISF and FSR, respectively 
+
+
+\section{Measuring the Jet Energy Scale}
+\label{MeasureJES}
+
+Can show single response distribution along with the fit \\
+$\gamma$+jet response as a function of Pt at EM scale (leave LC for appendix) \\
+Z$\rightarrow$ee, Z$\rightarrow\mu\mu$ compared to show they can be combined \\
+Z+jet and $\gamma$+jet to show the complementary ranges \\
+
+\section{Systematic Uncertainties}
+
+Use double ratios to measure stability of the data/MC ratio \\
+Pseudo experiments to get stat uncertainty on shifts, re binning to reduce double counting of stat uncertainties.  
+
+\subsection{Initial- and Final-state Radiation}
+in-situ response measurements depend on the back-to-back topology \\
+imperfect radiation modeling could artificially lead to increased/decrease data/MC agreement. \\
+Vary both radiation suppressing cuts to measure sensitivity of the response to any possible mis modelling. \\
+\subsubsection{Variation of the Sub-leading Jet Cut}
+Describe loose/tight cuts\\
+Show double ratio before and after re binning, probably just for one bin at one scale with one reference object, say gamma+jet, EM scale ~100 GeV? \\
+Can also show data/MC ratio as a function of the subleading jet cut in a given Pt bin. \\
+\subsubsection{Variation of the Delta Phi Cut}
+Pretty much just a mirror copy of the J2 section?
+
+\subsection{Reference Related Uncertainties}
+
+\subsubsection{E/Gamma Energy Scale and Resolution}
+
+Scale and resolution measured using Z$\rightarrow$ee~\cite{ATL-PHYS-PUB-2016-015}\\
+scale corrected in data using a scale factor \\
+MC has better resolution than data so it is smeared, uncertainties associated with the amount of smearing. \\
+More double ratio plots, maybe resolution for gamma+jet to show it's tiny, and then scale for both gamma and Z+jet so I can talk about how it's smaller for Z+jet
+
+\subsubsection{Muon Scale and Resolution}
+Should end up being pretty similar to the E/gamma section
+
+\subsection{JVT}
+Not a whole lot to talk about here, just JVT varied up and down.  
+
+\subsection{Photon Purity}
+
+Response for loose not tight photons compared to tight photons to show that dijets have higher response.  \\
+ABCD purity estimate \\
+MC based signal leakage correction \\
+Background correlation correction \\
+
+\subsection{Monte Carlo Generator}
+
+The basic JES, GSC, and in-situ corrections are all made using pythia, but are applied to all generators. \\
+Use Sherpa as probe to determine how large this effect could be
+
+
+\subsection{Results}
+
+Plots with the full uncertainty.  
+
+
