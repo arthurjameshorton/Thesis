@@ -29,7 +29,7 @@ AuthorAmbiguous is a tag for all electromagnetic objects which by reconstruction
 
 In addition to this reconstruction level identification there is a second, more thorough set of identification criteria used to ensure that the object in question is in fact a photon~\cite{ATL-PHYS-PUB-2016-014}.  
 This identification puts requirements on how the energy is distributed within the EM cluster.  
-Included are cuts on the fraction of the total energy in the hadronic calorimeter to help eliminate hadrons which fluctuate to have a high EM content, and the energy in any secondary maxima in the strip layer to remove neutral pions.  
+Included are cuts on the fraction of the total energy in the hadronic calorimeter to help eliminate hadrons which fluctuate to have a high EM content and the energy in any secondary maxima in the strip layer to remove neutral pions.  
 Differences in the distributions of these shower shape variables have been observed between data and Monte Carlo samples.  
 This effect is compensated for by applying additional corrections the shower shape variables in the Monte Carlo samples before performing this selection.  
 
@@ -48,13 +48,14 @@ These two leptons must reconstruct to have a mass between 66 GeV and 116 GeV.
 The requirements for being a `good' electron or muon will be described below.  
 
 \subsubsection{Electrons}
+The trigger used in this channel searches for events with e loose electrons with energy above 15 GeV.  
 Electrons are required to be within the range of the tracking detector ($\mid\eta\mid<$2.47) while excluding the transition region between the barrel and the endcap (1.37 $<\mid\eta\mid<$ 1.52).  
 A minimum $p_{\mathrm T}$ requirement of 20 GeV is also applied to the electrons.  
 In ATLAS electrons are identified by applying a cut on the output of a multivariate likelihood function, where the inputs to this likelihood are many of the same variables that are used in photon identification~\cite{ATL-PHYS-PUB-2015-041}.  
 ATLAS has a number of difference predefined selection levels (tight, medium, loose, loose+b layer, very loose) providing a range of signal acceptance/background rejection levels.  
 For this study the loose electron selection criteria is used.  
 Finally there is also an isolation cut applied to electrons, where the loose isolation working point is used.  
-This loose working point is set to keep 99\% of all electrons and includes both cuts on the relative energy and momentum within $\Delta R$ = 0.2 of the electron.  
+This loose working point is set to keep 99\% of all electrons and includes both cuts on the relative energy in the calorimeter and momentum in the tracker within $\Delta R$ = 0.2 of the electron.  
 
 %not in crack, quality cuts, isolation, etc.
 
@@ -73,9 +74,9 @@ Clusters, and therefore jets, can be effected by calorimeter noise bursts, cosmi
 The ATLAS collaboration has predefined levels of cleaning which are in place to identify exactly these types of events~\cite{ATLAS-CONF-2015-029}.  
 As this study will be using MET, any events with a jet above 20 GeV which fail to pass the `BadLoose' requirement will be vetoed.  
 
-In 2016 the average number of interactions per bunch crossing in the LHC in a single run reached as high as 52.2 (Oct 14th, 2016).  
+In 2016 the average number of interactions per bunch crossing in the LHC in a single run reached as high as 52.2 (achieved on Oct. 14th, 2016).  
 With such a high luminosity the possibility for misidentifying jet as being part of the hard scattering interaction of interests becomes quite high.  
-ATLAS uses ghost association~\cite{ATLAS-CONF-2013-083} to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}\cite{ATLAS-CONF-2014-018}.  
+ATLAS uses ghost association~\cite{ATLAS-CONF-2013-083} to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}~\cite{ATLAS-CONF-2014-018}.  
 The output is a single continuous variable, where 1 corresponds to a perfect match to the primary vertex and 0 corresponds to a pileup jet.  
 The recommended JVT cut of 0.59 is used in this study, which corresponds to an average signal efficiency rate of 92\%.  
 Events are required to have at least one jet passing this criteria, known as the leading jet, and the second highest $p_{\mathrm T}$ jet (if it exists) is known as the subleading jet.  
@@ -83,7 +84,17 @@ Events are required to have at least one jet passing this criteria, known as the
 %Well measured jet, JVT
 
 \subsection{Event Topology Requirements}
-Back to back and subleading J2 cuts help remove ISF and FSR, respectively 
+As the goal of this study is to measure the \gls{JES} in the central region of the calorimeter we require that the leading jet has $\mid\eta\mid<$0.8.  
+Beyond this choice the MPF derivation assumes that the system in question consists solely of the reference object back-to-back.  
+Only considering the selection choices outlined above this will not always be the case.  
+It can be spoiled by and hard radiation emitted by the incoming particles before the hard scattering known as \gls{ISR}, or by radiation emitted by the outgoing parton known as \gls{FSR}.  
+These effects can be severely minimized by explicitly requiring that the leading jet is back-to-back with the reference object.  
+These troublesome topologies can be further remove by requiring that the subleading jet, if present, contains only a small fraction of the total momentum in the system.  
+It has been shown in the past that a back-to-back requirement removes almost all of the \gls{ISR} while the subleading jet requirement removes a large fraction of the \gls{FSR}.  
+
+In this study the back-to-back requirement used was $\Delta \phi \left({\mathrm {leading jet, ref}}\right)>$2.9.  
+The subleading jet, if present, was required to have $p_{\mathrm T}<$ min(12 GeV, 0.3*$p_{\mathrm T}^{\mathrm {Ref}}$.  
+Back-to-back and subleading jet cuts help remove ISR and FSR, respectively 
 
 
 \section{Measuring the Jet Energy Scale}

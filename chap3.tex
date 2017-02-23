@@ -2,9 +2,10 @@
 \label{Reco}
 
 \section{Electron/Photon}
+\label{EMReco}
 The reconstruction of electrons and photons with the ATLAS detector involves measurements by both the electromagnetic calorimeter and the inner detector.  
 The process begins with a list of clusters found using a sliding window with a size equal to 3 x 5 cells ($\eta$ x $\phi$) in the second layer of the EM calorimeter.  
-A modified list of tracks from the inner detector is also used, with tracks containing only hits in the TRT being simply copied over and tracks with silicon hits being refit to account for the potentially large radiative energy loss the electrons can experience during their flight~\cite{ATLAS-CONF-2012-047}.  
+A modified list of tracks from the inner detector is also used, with tracks containing only hits in the TRT being simply copied over and tracks with silicon hits being refit to account for the potentially large radiative energy loss that electrons can experience during their flight~\cite{ATLAS-CONF-2012-047}.  
 Tracks become associated with a cluster if they are close enough (0.05 x 0.05 with Si, 0.35 x 0.02 without) and pass some quality criteria.  
 Clusters with tracks are candidates for either electrons or converted photons (single or double track).  
 
@@ -51,21 +52,22 @@ Togo clusters have the ability to take on a wide variety of three dimensional sh
 Topo clustering begins by determining the significance of the energy deposited withing each cell, which is defined as the absolute value of the measured energy divided by the average expected noise for that cell.  
 All cells above some predetermined threshold, $t_{\mathrm{seed}}$, are then put into a list proto-clusters.  
 At this stage any cell above some second threshold, $t_{\mathrm{neighbor}}$, which are `neighbors' to a proto-cluster are added to that proto-cluster.  
-In this case neighbors consist of the eight neighbors and nearest neighbors in the same layer of the calorimeter as the cell in question, as well as all cells in adjacent layers which overlap or partially overlap with any of these nine cells.  
+In this case neighbors consist of the eight nearest neighbors and next to nearest neighbors in the same layer of the calorimeter as the cell in question, as well as all cells in adjacent layers which overlap or partially overlap with any of these nine cells.  
 This step is repeated until there are no longer any neighbors above $t_{\mathrm{neighbor}}$.  
 The final stage of cluster building involves adding a single final layer around each proto-cluster of all neighboring cells above some third threshold, $t_{\mathrm{cell}}$~\cite{1603.02934}.  
 The thresholds used in topoclustering are usually reported as $t_{\mathrm{seed}}-t_{\mathrm{neighbor}}-t_{\mathrm{cell}}$, where ATLAS uses a 4-2-0 configuration.  
+4-3-0 topo clusters are also used in ATLAS to reconstruct low $p_T$ electrons, but they will not be used in this thesis.   
 
 After all clusters have been fully formed there is an additional stage where clusters are split.  
 This begins by looking for local maxima within a given cluster, which are defined as having energy above 500 MeV with at least four neighbours, none of which have a higher energy than the cell in question.  
 The clustering is run again only considering cells within the larger cluster, only this time instead of merging sub clusters as they meet the cells have their energy split between sub clusters.  
  
 While topo clusters do a relatively good job of representing the visible energy deposited in the detector by a given particle they are not perfect.  
-Clustering may leave some visible energy outside of the bounds of a cluster, energy may be deposited in dead material, or the energy may simply be mis measured as the response to EM energy of the ATLAS detector (e) is not equal tot he response of hadronic energy deposits ($\pi$).  
+Clustering may leave some visible energy outside of the bounds of a cluster, energy may be deposited in dead material, or the energy may simply be mis measured as the response to EM energy of the ATLAS detector (e) is not equal tot he response of hadronic energy deposits ($h$).  
 These are the factors which motivate the second collection of clusters used by ATLAS.  
 This second collection of clusters begins with the original (EM scale) clusters and applies a series of cell by cells weights in an attempt to correct these vary problems at the cluster level.  
-This calibration step is known as local hadronic cell weighting, or LCW.  
-The applied corrections may depend on moments of the cluster, the depth and density of the cluster is used for EM/Had identification for example, as well as the physical location of the cluster to estimate the energy lost to dead material.  
+This calibration step is known as local hadronic cell weighting, or the LC scale.  
+The applied corrections depend on moments of the cluster, the depth and density of the cluster is used for EM/Had identification for example, as well as the physical location of the cluster to estimate the energy lost to dead material.  
 This calibration is Monte Carlo based.  
 
 \subsection{Jet Finding}
@@ -80,7 +82,7 @@ These algorithms all begin by constructing a list of pseudo jets, which consists
 Next a `distance' between every pair of jets is calculated, where the distance is defined as:
 
 \begin{equation}
-  d_{ij}=min\left(p_{T,i}^{2n}, p_{T,j}^{2n}\right)\frac{\Delta_{ij}^2}{R^2}, 
+  d_{ij}=min\left(p_{\mathrm T,i}^{2n}, p_{\mathrm T,j}^{2n}\right)\frac{\Delta_{ij}^2}{R^2}, 
 \end{equation}
 
 where $\Delta_{ij}$ is difference in rapidity and the difference in $\phi$ of the two pseudo jets summed in quadrature, $R$ is a tunable size parameter.  
@@ -88,7 +90,7 @@ $n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_t$, 
 Additionally for each pseudo jet a distance to the beam pipe is calculated using:
 
 \begin{equation}
-  d_{iB} = p_{T,i}^{2n}.
+  d_{iB} = p_{\mathrm T,i}^{2n}.
 \end{equation}  
 
 The jet building is then performed by finding the smallest distance parameter.  
