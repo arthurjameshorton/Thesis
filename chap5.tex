@@ -2,155 +2,764 @@
 \label{JES2}
 
 \section{Samples}
-As seen in Sec.~\ref{ATLASJES} the ATLAS collaboration uses a multistaged calibration approach to calibrate jets, where the final stage corrects for any measured response differences observe between collected data and simulated samples.  
-The results presented will primarily be derived using 34.7 fb$^{-1}$ of 13 TeV data taken between April 22nd and October 26th 2016. 
-Some results using 3.9 fb$^{-1}$ of 13 TeV data taken between June 3rd and November 3rd 2015 will also be presented.  
+As seen in Sec.~\ref{ATLASJES} the ATLAS collaboration uses a multistaged approach to calibrate jets, where the final step corrects for any measured response differences observed between selected data and simulated samples.  
+The results presented in this thesis are primarily derived using 34.7 fb$^{-1}$ of 13 TeV data taken between April 22nd and October 26th 2016. 
+Some results using 3.9 fb$^{-1}$ of 13 TeV data taken between June 3rd and November 3rd 2015 are also presented.  
 The measured response in data is compared to results derived using simulated samples.  
-In $\gamma$+jet the nominal simulated sample has been generated using {\sc pythia} 8 while for Z+jet the nominal sample has been generate using {\sc powheg}.  
-{\sc pythia} 8 provides the fragmentation for both of these samples.  
+In $\gamma$+jet the nominal simulated sample has been generated using the leading order event generator{\sc pythia} 8~\cite{Sjostrand:2007gs} and the NNPDF2.3LO PDF set~\cite{Ball:2013hta}.  
+For Z+jet the nominal sample the hard scattering is simulated as a 2$\rightarrow$3 scattering event using the next-to-leading-order generator {\sc powheg}~\cite{Nason:2004rx, Frixione:2007vw, Alioli:2010xd} and the CTEQ6L1 PDF set~\cite{Pumplin:2002vw}.   
+{\sc pythia} 8 provides the fragmentation for both of these samples using the Lund String Model~\cite{ANDERSSON198331}.  
 These generated events are propagated through a simulation of the ATLAS detector based on GEANT4, using the Bertini Cascade model up to 5 GeV, with a smooth transition into the FTFP model for higher energies.  
+In the Bertini Cascade model the incident particle enters the target neucleus (modeled as a set of spherical shells) and creates secondaries based on the free-space cross sections for that collision.  
+These secondaries move in straight lines about the neucleus, reflecting or transmitting through these shells and producing secondary and tertiary collisions.  
+The cascade ends when all particles, which are kinematically able to, have left the shells.  
+The FTFP model simulates the inelastic scattering of hadrons using the FRITIOF, where one or two QCD string connect partons within the two nuclei.  
+These strings are excited by momentum exchange, and the masses of the strings are chosen randomly.  
+These strings then decay into secondary particles using the Precompound model.  
+ 
 
 
-\section{Selection Criteria}
 
+\section{Event and Physics Object Selection Criteria}
+\label{Sec:SelectionCriteria}
 \subsection{Reference Selection}
 {\textit{In-situ}} jet calibration techniques require that the jet to be measured is balanced back-to-back with a well measured reference object.  
-Requiring the presence of these objects along with additional criteria to ensure that they are in fact well measured is therefor a well motivated place to begin the event selection requirements used in these studies.  
+Criteria are applied to select events with the correct topology, as well as to ensure that the required objects are well measured.  
 
 \subsubsection{Photons}
-The first requirement used to select $\gamma$+jet events is that the event must have fired a fully efficient single photon trigger.  
-In each event which passes this trigger requirement the leading photon (the photon with the highest energy) is considered to be a reference object candidate.  
+\label{Sec:Photons}
+The first requirement used to select $\gamma$+jet events is that the event must have satisfied a fully efficient single photon trigger.  
+In each event that passes this trigger requirement the leading photon (the photon with the highest energy) is considered to be a reference object candidate.  
 The photon must be in the central region of the detector ($\mid\eta\mid<$1.37) and have a transverse momentum greater than 25 GeV.  
- 
+
 Each reconstructed photon has a tag associated with it giving some indication of how the photon was reconstructed.  
 For this study this tag is required to be either AuthorPhoton or AuthorAmbiguous.  
-AuthorPhoton means that no tracks with more than 4 Si hits have been associated with the electromagnetic cluster or that any associated track has no hits in the pixel layers and is associated with a two track vertex in the silicon detector, leading to either unconverted or converted photons.  
-AuthorAmbiguous is a tag for all electromagnetic objects which by reconstruction alone cannot be identified as either a photon or an electron.  
+AuthorPhoton means that no tracks with more than 4 Si hits have been associated with the electromagnetic cluster.  
+It can also mean that any associated track has no hits in the pixel layers and is associated with a two track vertex in the silicon detector, leading to either unconverted or converted photons.  
+AuthorAmbiguous is a tag for all electromagnetic objects that by reconstruction alone cannot be identified as either a photon or an electron.  
 
-In addition to this reconstruction level identification there is a second, more thorough set of identification criteria used to ensure that the object in question is in fact a photon~\cite{ATL-PHYS-PUB-2016-014}.  
+In addition to this reconstruction-level identification there is a second, more thorough set of criteria used to ensure that the object in question is in fact a photon~\cite{ATL-PHYS-PUB-2016-014}.  
 This identification puts requirements on how the energy is distributed within the EM cluster.  
-Included are cuts on the fraction of the total energy in the hadronic calorimeter to help eliminate hadrons which fluctuate to have a high EM content and the energy in any secondary maxima in the strip layer to remove neutral pions.  
+Included are cuts on the fraction of the total energy in the hadronic calorimeter to help eliminate hadrons that fluctuate to have large EM content, and the energy in any secondary maximum in the preshower layer to remove neutral pions.  
 Differences in the distributions of these shower shape variables have been observed between data and Monte Carlo samples.  
-This effect is compensated for by applying additional corrections the shower shape variables in the Monte Carlo samples before performing this selection.  
+This effect is compensated by applying additional corrections to shower shape variables in the Monte Carlo samples before performing this selection, colloquially known as the `fudge factors'.  
 
-To further reduce the number of jets faking photons an additional $p_{\mathrm{T}}$ dependent isolation criteria is applied to the photon.  
-This cut requires that the amount of energy in topoclusters within a distance $\Delta R=\sqrt{\eta^2+\phi^2}$ = 0.4 from the photon must be less than 0.022 $p_{\mathrm{T}}$ + 2.45 GeV.  
-There is also a requirement that the sum of the momentum of tracks within $\Delta R$ = 0.2 is less than 5\% of the momentum of the photon.  
-Finally it has been found that the purity of the converted photons can be further enhanced by applying a requirement that the amount of energy reconstructed in the cluster roughly matches the energy in the track.  
-For this study we require that for a for a two track converted photon the energy of the cluster divided by the momentum of the track must be between 0.5 and 1.5, with the requirement loosened to be less than two for single track converted photons.  
+To further reduce the number of jets faking photons an additional $p_{\mathrm{T}}$ dependent isolation criterion is applied to the photon, capitalizing on the fact that energy deposits from jets are more diffuse than those from photons.  
+This cut requires that the amount of energy in topoclusters within a distance $\Delta R=\sqrt{\eta^2+\phi^2}$ = 0.4 of the photon must be less than 0.022 $p_{\mathrm{T}}$ + 2.45 GeV.  
+There is also a requirement that the sum of the momentum of tracks within $\Delta R$ = 0.2 of the candidate photon is less than 5\% of the momentum of the photon.  
+Finally it has been found that the purity of the converted photons can be further enhanced by applying a requirement that the amount of energy reconstructed of the cluster roughly matches the energy in the track.  
+For this study we require that for a two-track converted photon the energy of the cluster divided by the momentum of the track must be between 0.5 and 1.5, with the requirement loosened to be less than 2.0 for single track converted photons.  
 
 
 %Author, ID, Pt, eta, isolation, etc.
 %Fudge factors for shower shapes in MC
-\subsubsection{Z}
-To create a Z candidate this study requires exactly two `good' leptons which are both the same flavour (electrons or muons) with opposite charge (one particle, one anti-particle). 
-These two leptons must reconstruct to have a mass between 66 GeV and 116 GeV.  
-The requirements for being a `good' electron or muon will be described below.  
+\subsubsection{Z Bosons}
+To create a Z candidate this study requires exactly two `good' leptons are required which are both the same flavour (electrons or muons) with opposite charge (one particle, one anti-particle). 
+These two leptons must reconstruct to have a mass between 66 GeV and 116 GeV, an interval loosely centered around the Z-boson mass (91.19 GeV).  
+The requirements for being a `good' electron or muon is described below.  
 
 \subsubsection{Electrons}
-The trigger used in this channel searches for events with e loose electrons with energy above 15 GeV.  
+The trigger used in this channel searches for events with two loose (see below) electrons\footnote{In this context `electron' refers to both electrons and positrons} with energy above 15 GeV.  
 Electrons are required to be within the range of the tracking detector ($\mid\eta\mid<$2.47) while excluding the transition region between the barrel and the endcap (1.37 $<\mid\eta\mid<$ 1.52).  
 A minimum $p_{\mathrm T}$ requirement of 20 GeV is also applied to the electrons.  
-In ATLAS electrons are identified by applying a cut on the output of a multivariate likelihood function, where the inputs to this likelihood are many of the same variables that are used in photon identification~\cite{ATL-PHYS-PUB-2015-041}.  
-ATLAS has a number of difference predefined selection levels (tight, medium, loose, loose+b layer, very loose) providing a range of signal acceptance/background rejection levels.  
-For this study the loose electron selection criteria is used.  
+In ATLAS electrons are identified by applying a cut on the output of a multivariate likelihood function, where the inputs are many of the same variables that are used in photon identification~\cite{ATL-PHYS-PUB-2015-041}.  
+ATLAS has a number of predefined selection levels (tight, medium, loose, loose+b layer, very loose) providing a range of signal acceptance/background rejection levels.  
+For this study the loose electron selection criteria are used to maximize statistics.  
 Finally there is also an isolation cut applied to electrons, where the loose isolation working point is used.  
-This loose working point is set to keep 99\% of all electrons and includes both cuts on the relative energy in the calorimeter and momentum in the tracker within $\Delta R$ = 0.2 of the electron.  
+This loose working point is set to keep 99\% of all electrons and includes both cuts on the relative energy in the calorimeter and the momentum in the tracker within $\Delta R$ = 0.2 of the electron.  
 
 %not in crack, quality cuts, isolation, etc.
 
 \subsubsection{Muons}
 Z$\rightarrow\mu\mu$ events are triggered using the lowest unprescaled dimuon trigger, which was for two 10 GeV or 14 GeV muons depending on the period.   
-Muons are required to be within $\mid\eta\mid<$2.4 and the have a transverse momentum greater than 20 GeV.  
-Muons also have predefined identification levels~\cite{ATL-PHYS-PUB-2015-037}, where this study uses the loose identification.  
-An loose recommended isolation cut is also used for muons, where the isolation area is within $\Delta R$ = 0.2 for the calorimeter and $\Delta R$ = 0.3 for the tracking detector.  
+Muons are required to be within $\mid\eta\mid<$2.4 and have a transverse momentum greater than 20 GeV.  
+Muons also have predefined identification levels~\cite{ATL-PHYS-PUB-2015-037}; this study uses the loose identification.  
+A loose isolation cut is also used for muons, where the isolation area is within $\Delta R$ = 0.2 for the calorimeter and $\Delta R$ = 0.3 for the tracking detector.  
 
 \subsection{Jet Selection}
-Jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topo clusters as input at both the EM and LC scale.  
-As jets are found by searching for large concentrated deposits of energy photons and electrons are expected to appear in collection of reconstructed jets for any given event and therefor must be removed.  
-Jets within $\Delta R$ = 0.2 of a photon are not considered, and neither are jets within $\Delta R$ = 0.35 of a lepton.  
+Jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topo clusters as input at both the EM and LC scale and size parameter $R$=0.4.  
+As jets are found by searching for large concentrated deposits of energy in the calorimeter, without further conditions imposed, photons and electrons are also expected to appear in the collection of reconstructed jets and must therefore be removed.  
+Jets within $\Delta R$ = 0.2 of a photon identified by a separate algorithm (see Sec.~\ref{Sec:Photons}) are not considered, and neither are jets within $\Delta R$ = 0.35 of a lepton.  
 
-Clusters, and therefore jets, can be effected by calorimeter noise bursts, cosmic ray showering, pathological cells in the calorimeter, and other backgrounds.  
-The ATLAS collaboration has predefined levels of cleaning which are in place to identify exactly these types of events~\cite{ATLAS-CONF-2015-029}.  
+Clusters, and therefore jets, can be affected by calorimeter noise bursts, cosmic ray showering, pathological cells in the calorimeter, and other backgrounds.  
+The ATLAS collaboration has predefined levels of data cleaning that are in place to identify these types of events~\cite{ATLAS-CONF-2015-029}.  
+These cleaning levels make used of a pulse quality variable $Q$ which is a quantitative measure of the difference between the measured and expected shape of the signal in the LAr calorimeter cells.  
+Both the average of this value for cells within a jet (which is then normalized to the range [0,1]) and the fraction of cells in the jet in the EM/hadronic calorimeter which are 'bad' (defined as $Q$ > 4000) are used in jet cleaning.  
 As this study will be using MET, any events with a jet above 20 GeV which fail to pass the `BadLoose' requirement will be vetoed.  
+`BadLoose' requires that there is not a large amount of negative energy in the jet (no more than 60 GeV), removing jets strictly from noise.   
+It also requires that the most energetic layer of the jet cannot contain more than 99\% of the total energy of the jet.   
+The normalized measure of the pulse shape quality must be less than 0.8, and if a significant portion of the jets energy is in either the EM/hadronic calorimeter (defined as more than 95\% and 50\%) most of the energy in that calorimeter must originate from well described pulse (80\% or 50\%).  
+Lastly the total track momentum within a jet is compared to the energy in the calorimeter.  
+If the energy in the tracks represents less than 5\% of the total energy in the jet one would expect a large fraction of neutral pions in the jet, so it is required that more than 5\% of the total energy of the jet is collected by the EM calorimeter.  
 
-In 2016 the average number of interactions per bunch crossing in the LHC in a single run reached as high as 52.2 (achieved on Oct. 14th, 2016).  
-With such a high luminosity the possibility for misidentifying jet as being part of the hard scattering interaction of interests becomes quite high.  
-ATLAS uses ghost association~\cite{ATLAS-CONF-2013-083} to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}~\cite{ATLAS-CONF-2014-018}.  
+In 2016 the average number of interactions per bunch crossing in the LHC in a single lumiblock (a period of time of about 1 minute) reached as high as 52.2 (achieved on Oct. 14th, 2016).  
+With such a high luminosity the possibility for misidentifying a pileup jet as being part of the hard scattering interaction of interest becomes quite high.  
+ATLAS uses ghost association (as explained in Sec.~\ref{JES})~\cite{ATLAS-CONF-2013-083} to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}~\cite{ATLAS-CONF-2014-018}.  
 The output is a single continuous variable, where 1 corresponds to a perfect match to the primary vertex and 0 corresponds to a pileup jet.  
 The recommended JVT cut of 0.59 is used in this study, which corresponds to an average signal efficiency rate of 92\%.  
-Events are required to have at least one jet passing this criteria, known as the leading jet, and the second highest $p_{\mathrm T}$ jet (if it exists) is known as the subleading jet.  
+Events are required to have at least one jet passing this criterion.  
+The jet with the largest $p_{\mathrm T}$ is called the leading jet, while the second highest $p_{\mathrm T}$ jet (if it exists) is known as the subleading jet (J2).  
 
 %Well measured jet, JVT
 
 \subsection{Event Topology Requirements}
-As the goal of this study is to measure the \gls{JES} in the central region of the calorimeter we require that the leading jet has $\mid\eta\mid<$0.8.  
+\label{Sec:EventTopology}
+As the goal of this study is to measure the \gls{JES} in the central region of the calorimeter the leading jet is required to have $\mid\eta\mid<$0.8.  
 Beyond this choice the MPF derivation assumes that the system in question consists solely of the reference object back-to-back.  
-Only considering the selection choices outlined above this will not always be the case.  
-It can be spoiled by and hard radiation emitted by the incoming particles before the hard scattering known as \gls{ISR}, or by radiation emitted by the outgoing parton known as \gls{FSR}.  
+Considering only the selection criteria outlined above this will not always be the case.  
+It can be spoiled by any hard radiation emitted by the incoming particles before the hard scattering known as \gls{ISR}, or by radiation emitted by the outgoing parton known as \gls{FSR}.  
 These effects can be severely minimized by explicitly requiring that the leading jet is back-to-back with the reference object.  
-These troublesome topologies can be further remove by requiring that the subleading jet, if present, contains only a small fraction of the total momentum in the system.  
-It has been shown in the past that a back-to-back requirement removes almost all of the \gls{ISR} while the subleading jet requirement removes a large fraction of the \gls{FSR}.  
+The troublesome topologies can be further removed by requiring that the subleading jet, if present, contains only a small fraction of the total momentum in the system.  
+It has been shown in the past that a back-to-back requirement removes almost all of the ISR while the subleading jet requirement removes a large fraction of the FSR.  
 
-In this study the back-to-back requirement used was $\Delta \phi \left({\mathrm {leading jet, ref}}\right)>$2.9.  
-The subleading jet, if present, was required to have $p_{\mathrm T}<$ min(12 GeV, 0.3*$p_{\mathrm T}^{\mathrm {Ref}}$.  
-Back-to-back and subleading jet cuts help remove ISR and FSR, respectively 
+In this study the back-to-back requirement used was $\Delta \phi \left({\mathrm {leading jet, ref}}\right)>\pi-0.25$.  
+The subleading jet, if present, was required to have $p_{\mathrm T}<$ min(12 GeV, 0.3$\times p_{\mathrm T}^{\mathrm {Ref}}$) at JES+GSC scale.  
+As previously mentioned these requirements can be looser for an MPF analysis than for a direct balance analysis thanks to the MPF's robustness to ISR/FSR.  
+
+
+\section{MET Selection}
+As mentioned in Sec.~\ref{METProj}, the appropriate MET at the same energy scale as the jets to be calibrated must be used in the MPF method.  
+This thesis will use EM and LC scale cluster based MET to calibrate both EM and LC scale jets.  
+In addition to this correct MET scale requirement the MPF derivation presented in this thesis assumes that all reference objects are well measured at the scales used to construct the MET.  
+In reality this is not necessarily the case and therefore corrections have been applied to these base METs to correct for this fact.  
+Electromagnetic objects (electrons, photons) are not perfectly calibrated after reconstruction (despite being reconstructed at EM scale).  
+This means that any subsequent calibrations to their energy must be propagated through to the MET.  
+As muons are not stopped in the calorimeter a larger correction is needed.  
+This correction involves removing any potential energy deposits in the calorimeter which may have been left by the muons determined by the muon spectrometer and the ID and then adding in the full $p_{\mathrm T}$ of the muon into the MET.  
+
+
+One additional complication arises from the GSC calibration (explained in Sec.~\ref{ATLASJES}).  
+The MPF as presented has no built-in mechanisms for testing how such a calibration step might affect any residual corrections to JES in data caused by data/Monte Carlo discrepancies in the variables used in the GSC.  
+A number of methods for incorporating some test of the GSC were explored, including scaling the measured MPF response in each event by the GSC scale factor for the leading jet, propagating the GSC scale factor for the leading jet to the MET before measuring the response, and propagating the GSC scale factor for all jets above 20 GeV through to the MET before making the measurement.  
+In the end all three of these methods agreed well with each other, and showed that the GSC has very little to no effect on the residual {\textit in-situ} calibration measurement.  
+The decision was made by the jet/EtMiss group to continue to test the GSC using the second of these methods (propagating the GSC of the leading jet to the MET).  
+This correction will be used throughout this thesis and the measured response will be labeled as either EM+GSC or LC+GSC, depending on the scale of the clusters used to build the MET.  
 
 
 \section{Measuring the Jet Energy Scale}
 \label{MeasureJES}
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.6}{
+  \includegraphics{plots/Chap5/Data2016_PhotonEMResponseBins/Response_bin_0_25.00.eps}
+}
+\end{center}
+\caption[Example response distribution]
+{\small The distribution of the measured response in ATLAS using $\gamma$+jet events in the 2016 dataset.  The response shown here is at EM scale and for events where the photon has a transverse momentum between 25 and 45 GeV. }
+\label{ExampleRespDist}
+\end{figure}
 
-Can show single response distribution along with the fit \\
-$\gamma$+jet response as a function of Pt at EM scale (leave LC for appendix) \\
-Z$\rightarrow$ee, Z$\rightarrow\mu\mu$ compared to show they can be combined \\
-Z+jet and $\gamma$+jet to show the complementary ranges \\
+
+The average response of a jet is a function of the true energy of that jet (see Sec.~\ref{sec:JetResponse}).  
+In order to capture this energy dependence the response must be measured in bins of energy or some other quantity that follows energy.  
+The steeply falling cross section for both $\gamma$ and Z+jets and the large jet by jet fluctuations in visible energy deposited in the calorimeter would conspire to bias the response high if one were to use the most obvious choice and simply bin in measured jet energy.  
+Instead what is used is the $p_{\mathrm T}$ of the reference object, a sensible choice as it is already being used in the response measurement itself as a measure of the truth jet's $p_{\mathrm T}$.  
+To remove the effects of any potential pathological issues leading to an excess of high or low response measurements the mean response for a given distribution is taken from a Gaussian fit.  
+In practice the distribution is fit once with a Gaussian over the full range followed by two additional fitting stages where each subsequent fit is performed within a widow centred on the mean of the previous fit and a width of 1.6 times the sigma of the previous fit.  
+An example showing the response distribution in $\gamma$+jet at EM scale for photon with transverse momentum between 25 and 45 GeV in the 2016 dataset is shown in Fig.~\ref{ExampleRespDist}.  
+
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.6}{
+  \includegraphics{plots/Chap5/MappingVsPt_Photon_EM_Data_2016.eps}
+}
+\end{center}
+\caption[Average measured jet momentum Vs. refence $p_{\mathrm T}$]
+{\small The average transverse momentum of the leading jet after the JES and GSC are applied as a function of the energy of the leading photon.  The jets are initially reconstructed using EM scale clusters.  The dotted line is included along the line $p_{\mathrm T}^{\mathrm {ref}}=p_{\mathrm T}^{\mathrm{JES+GSC}}$ to help guide the eye.}
+\label{plot:MappingExample}
+\end{figure}
+
+
+Finally as jets have a predetermined size there is no guarantee that a given jet will contain the full hadronic recoil in the 2$\rightarrow$2 type events used in this study.  
+This is especially true at lower energies where jets tend to be wider, and on average $\sim$20\% of the energy is deposited outside of an anti-$k_t$ R=0.4 jet~\cite{ATLAS-CONF-2015-057}.  
+In order to remove the effect this imperfect match in $p_{\mathrm T}$ will have on the binning the average jet $p_{\mathrm T}$ after the JES and GSC are applied is measured in each bin.  
+After the response within each reference $p_{\mathrm T}$ bin is fit and measured the result is then scaled down to the average measured jet $p_{\mathrm T}$ within that bin.  
+The average jet $p_{\mathrm T}$ as a function of reference $p_{\mathrm T}$ can be seen in Fig.~\ref{plot:MappingExample}.  
+
+
+It should be noted that due to data storage constraints during event reconstruction only jets above a predetermined transverse momentum threshold are kept.  
+During the 2015 and 2016 runs at the LHC this threshold for ATLAS is 6 GeV before any calibration.  
+For low $p_{\mathrm T}$ V+jet events this threshold has the effect of removing all events where the jet response happened to have fluctuated low.  
+This biases the measured response to be higher than it should be leading to an unphysical rise in the response at low energies as can be seen in Fig.~\ref{eemumuCompare2016EM} and Fig.~\ref{GammaZCompare2016EM}.  
+While this rise is not the result of some detector behaviour it is a feature in the data we wish to calibrate, and as such should not be ignore.  
+This rise in the measured response at low $p_{\mathrm T}$, combined with the higher response in Monte Carlo and the fact that the reconstruction threshold is at the uncalibrated scale, lead to the dip in the relative data/MC response at low $p_{\mathrm T}$ as well.  
+
+
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.6}{
+   \includegraphics{plots/Chap5/Photon_IssueFix/mpf_Ratio_EM_2016.eps}
+  }
+ \end{center}
+ \caption[EM scale response using $\gamma$+jet in 2016]
+ {\small The EM scale response measured using the MPF technique in $\gamma$+jet events.  Shown in black is the response measured using data from the 2016 dataset, in red is the nominal Monte Carlo sample and in blue is an additional Monte Carlo sample for comparison.  See text for details on the Monte Carlo models.  The low inset shows the data to Monte Carlo ratio, with the colour of the points corresponding to the simulated sample used in the ratio.  }
+ \label{Fig:GammaJetEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.6}{
+  \includegraphics{plots/Chap5/ElectronMuonCompare.eps}
+}
+\end{center}
+\caption[Comparing EM scale response between Z$\rightarrow$ee and Z$\rightarrow\mu\mu$]
+{\small The MPF response as measured using both Z$\rightarrow$ee and Z$\rightarrow\mu\mu$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are Z$\rightarrow$ee and filled points are Z$\rightarrow\mu\mu$.  Measured at EM+GSC scale using 2016 data.  }
+\label{eemumuCompare2016EM}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.6}{
+  \includegraphics{plots/Chap5/PhotonZCompare.eps}
+}
+\end{center}
+\caption[Comparing EM scale response between Z+jet and $\gamma$+jet]
+{\small The MPF response as measured using both Z+jet and $\gamma$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are $\gamma$+jet and filled points are Z+jet.  Measured at EM+GSC scale using 2016 data.   }
+\label{GammaZCompare2016EM}
+\end{figure}
+
 
 \section{Systematic Uncertainties}
 
-Use double ratios to measure stability of the data/MC ratio \\
-Pseudo experiments to get stat uncertainty on shifts, re binning to reduce double counting of stat uncertainties.  
+While {\textit in-situ} techniques are used to measure the difference in response between data and MC a number of other factors unrelated to the absolute response difference may also affect this measurement.  
+These factors include mismodelling of any ISR/FSR, mismodelling of the response of any reference objects, background processes contaminating the measurement in data and so on.  
+The potential effect of many of these issues is measured by varying some selection criteria and measuring how these variations affect the central data to Monte Carlo ratio.  
+These individual cut variations will all be explored in the following sections.  
+
+When using this technique to estimate uncertainties with statistically limited samples one risks inflated systematics caused by statistical fluctuations appearing in multiple measurements.  
+Dynamic rebinning of the results is used to reduce the effects of these fluctuations.  
+The statistical significance of a given shift in a given bin is determined using pseudo-experiments.  
+For the nominal response and each variation N copies of the response are made, where for each event and each copy a weight chosen from a Poisson distribution with a mean of one is applied.  
+The bin by bin statistical uncertainty on each variation is then taken as the RMS of the arithmetic means of these N copies.  
+Bin merging is then done by beginning with the first bin determining if $\left(data/MC\right)_{\mathrm nominal}/\left(data/MC\right)_{\mathrm varied}\neq1$ by more than 1.5 times the statistical uncertainty.  
+If this is not true this bin is combined one by one with subsequent bins until this criterion is true, at which point the process moves on to the next bin.  
+This procedure is done starting both from the highest and lowest $p_{\mathrm T}$ bin, where in the end the direction yielding the largest number of merged bins is used.  
+An example of these pseudo-experiments is shown in Fig.~\ref{ExamplePseudo} while an example of the effect of the entire rebinning process can be seen in Fig.~\ref{Fig:J2GJetEM2016}.  %Fig:rebinningGJetEM2016_J2down}.
+
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.5}{
+  \includegraphics{plots/Chap5/PseudoExperients_GJet_EM_J2down_Data_105-125GeV.eps}
+}
+\end{center}
+\caption[Example pseudo-experiment distribution]
+{\small Distribution of the 100 pseudo-experiments used to estimate the statistical uncertainty on the effect of loosening the subleading jet cut.  This particular distribution was used to determine the uncertainty of this effect at EM scale in 2016 data for $\gamma$+jet events with a photon $p_{\mathrm T}$ between 105 and 125 GeV.  }
+\label{ExamplePseudo}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the subleading jet $p_{\mathrm T}$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+\label{Fig:J2GJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.39}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_45-65.eps}
+}
+\caption{45-65 GeV}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.39}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_400-500.eps}
+}
+\caption{400-500 GeV}
+\end{subfigure}
+\caption{Response as a function of the fraction of the photon energy contained in the subleading jet (J2) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  At lower reference $p_{\mathrm T}$ a jet with a small fraction of the reference objects $p_{\mathrm T}$ falls below the reconstruction threshold.  That leads to a large numbe of events which appear to have no subleading jet.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
+\label{Fig:RespVsJ2GJetEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{    \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the subleading jet $p_{\mathrm T}$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+\label{Fig:dPhiGJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_45-65.eps}
+}
+\caption{45-65 GeV}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_400-500.eps}
+}
+\caption{400-500 GeV}
+\end{subfigure}
+\caption{Response as a function of the opening angle in azimuth between the reference object and the leading jet ($\Delta\phi$) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
+\label{Fig:RespVsdPhiGJetEM2016}
+\end{figure}
 
 \subsection{Initial- and Final-state Radiation}
-in-situ response measurements depend on the back-to-back topology \\
-imperfect radiation modeling could artificially lead to increased/decrease data/MC agreement. \\
-Vary both radiation suppressing cuts to measure sensitivity of the response to any possible mis modelling. \\
+As mentioned in Sec.~\ref{Sec:EventTopology} cuts restricting the maximum transverse momentum of any secondary jets and the opening angle between the jet and the reference object are very good at reducing the effects of FSR and ISR.
+However the amount by which these requirements suppress additional radiation is not guaranteed to be well modeled.
+Any radiation mismodelling has the possibility of affecting the relative response between data and Monte Carlo, and this effect is measured by varying the associated selection cuts. 
+
+
 \subsubsection{Variation of the Sub-leading Jet Cut}
-Describe loose/tight cuts\\
-Show double ratio before and after re binning, probably just for one bin at one scale with one reference object, say gamma+jet, EM scale ~100 GeV? \\
-Can also show data/MC ratio as a function of the subleading jet cut in a given Pt bin. \\
+The subleading jet $p_{\mathrm T}$ cut is used mostly to remove FSR.
+This cut is varied to both a looser value of $p_{\mathrm T}<$ min(12 GeV, 0.4$\times p_{\mathrm T}^{\mathrm {Ref}}$) and a tighter one of $p_{\mathrm T}<$ min(10 GeV, 0.2$\times p_{\mathrm T}^{\mathrm {Ref}}$).
+The effect of this cut variation on the ratio of the measured response in data and MC is found to be quite small (less than half of a percent) as can be seen in Fig.~\ref{Fig:J2GJetEM2016}.
+Further insight into the effects of varying the amount of ISR allowed by the selection criteria can be gained by observing how well the MC models the response in data as a function 
+of ratio of the energy in the subleading jet to the energy in the reference object.
+As seen in Fig.~\ref{Fig:RespVsJ2GJetEM2016} the absolute value of the measured response does in fact vary as a function of the energy in the subleading jet.
+This effect is well modeled by the Monte Carlo, with the data/MC response ratio varying only by a percent or so over between events with no subleading jets and events with subleading jets containing 45\% of the energy of the photon.
+This percent level effect is suppressed as the rest of the selection criteria even without the subleading jet or the $\Delta\phi$ cuts favour a 2$\rightarrow$2 event topology, causing the majority of events to have a soft subleading jet if one exists at all.
+
+
 \subsubsection{Variation of the Delta Phi Cut}
-Pretty much just a mirror copy of the J2 section?
+The $\Delta\phi$ cut is used mostly to remove ISR.
+Just like the subleading jet cut, this cut is varied to both a looser ($\Delta\phi>\pi-0.35$) and a tighter ($\Delta\phi>\pi-0.15$) requirement.
+Once again insight can be gained into the effects of this variation by observing the response as a function of $\Delta\phi$ and measuring how well the MC models this behaviour (see Fig.\ref{Fig:RespVsdPhiGJetEM2016}).  
 
-\subsection{Reference Related Uncertainties}
+The MPF has a smaller but still present dependence on the $\Delta\phi$ cut than it does on the subleading jet cut.  
+This dependence is well modeled for configurations where $\Delta\phi>\pi-0.15$.  
+As mentioned in the context of the subleading jet cut simply requiring a `good' photon and a jet in the event tends to force them to be back-to-back, even without any explicit cuts forcing this configuration.  
+This can be seen in Fig.~\ref{Fig:RespVsdPhiGJetEM2016}, where even without applying any cuts to J2 or $\Delta\phi$ a large number of events have $\Delta\phi>\pi-0.15$.  
+This is especially true at higher $p_{\mathrm T}^{\gamma}$, reducing the importance of the $\Delta\phi$ cut and therefore the impact of the cut variation as seen in Fig.~\ref{Fig:dPhiGJetEM2016}.  
 
+\subsection{Uncertainties Related to the Reference Object}
+With \textit{in-situ} jet calibration techniques making use of a well measured reference object to estimate the energy of the particle jet it is easy to see how strongly the quality of the calibration depends on the accuracy of the reference calibration.  
+It also means that any differences in the behaviour of the reference objects in data compared to the simulated samples will directly effect the measured JES.  
+This section will first describe both scale and resolution uncertainties associated with electromagnetically interacting objects (both electrons and photons).  
+This will be followed by a description of these uncertainties for the muons used in the Z$\rightarrow\mu\mu$+jet channel.  
 \subsubsection{E/Gamma Energy Scale and Resolution}
 
-Scale and resolution measured using Z$\rightarrow$ee~\cite{ATL-PHYS-PUB-2016-015}\\
-scale corrected in data using a scale factor \\
-MC has better resolution than data so it is smeared, uncertainties associated with the amount of smearing. \\
-More double ratio plots, maybe resolution for gamma+jet to show it's tiny, and then scale for both gamma and Z+jet so I can talk about how it's smaller for Z+jet
+Beginning at the EM scale does not guarantee that EM objects will be properly calibrated after reconstruction.  
+It also does not guarantee that the distribution of the energy deposited in the calorimeter will be well modeled in simulated samples.  
+As is the case for jets, the ATLAS collaboration uses a number of different steps to fully calibrate both electrons and photons.  
+These calibrations include a simulation based multivariate regression that corrects for both energy missed by the reconstruction as well as accounting for where the energy was deposited in the calorimeter~\cite{ATL-PHYS-PUB-2016-015}.  
+Also included is a \textit{in-situ} based calibration that corrects for the difference in response between data and simulation which has been derived using the known mass peak of the Z in Z$\rightarrow$ee decays.  
 
+The uncertainties from these corrections are propagated through to the jet calibration by measuring the effect of varying the correction up and down by one sigma.  
+The effect of this variation is shown in Fig.~\ref{Fig:EGScaleGJetEM2016} for $\gamma$+jet, and is found to be approximately 1\% over the full $p_{\mathrm T}$ range considered.  
+It is worth noting that the effect of this variation is much smaller when using Z+jet events.  
+This is due to a combination of the uncertianties for electrons being smaller than for photons, the electrons being produced back-to-back cancelling a portion of the scale variations, and because in events where the Z decays into a pair of muons the variation had no effect (see Fig.~\ref{Fig:EGScaleZJetEM2016}).
+
+In addition to the calibration factors used to bring both electrons and photons back to their truth level energy the electron/photon performance group also measures the energy resolution.  
+These studies have shown that the resolution is better for the simulation than it is for data.  
+To account for this discrepancy a Gaussian smearing factor is applied to the measured energy in the simulated samples.  
+The uncertainty on the relative difference in resolution is propagated to the measured JES by varying this smearing up and down by one sigma.  
+The effect of this smearing on the EM+GSC response as measured in $\gamma$+jet is shown in Fig.~\ref{Fig:EGResolutionGJetEM2016}.  
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.40}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.40}{    
+  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the photon energy scale up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+\label{Fig:EGScaleGJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.40}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.40}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the electron energy scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning.  Note that the y-axis scale is different from Fig.~\ref{Fig:EGScaleGJetEM2016}. } 
+\label{Fig:EGScaleZJetEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{    
+  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the photon energy smearing up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+\label{Fig:EGResolutionGJetEM2016}
+\end{figure}
+
+\Needspace{5\baselineskip}
 \subsubsection{Muon Scale and Resolution}
-Should end up being pretty similar to the E/gamma section
+Muons, like electrons and photon, have a smearing applied to improve the agreement in measured resolution between data and Monte Carlo.  
+Muons also have uncertainties associated with both the momentum scale and the smearing applied to the momentum in MC samples~\cite{Aad:2016jkr}.  
+The momentum smearing is done independently for both the inner detector and the muon spectrometer.  
+The impact of each of these three variations is at most on the order of 0.1\% over the full energy range measured, with the exception of one large fluctuation in the lowest $p_{\mathrm T}$ bin for the muon spectrometer smearing (see Figs.~\ref{Fig:MuonsScaleZJetEM2016}, \ref{Fig:MuonsIDZJetEM2016}, and~\ref{Fig:MuonsMSZJetEM2016}).  
+
 
 \subsection{JVT}
-Not a whole lot to talk about here, just JVT varied up and down.  
+
+The effect of misidentifying pileup jets as part of the hard scattering is measured by varying the JVT requirement to both a more restrictive (0.91) and a less restrictive (0.11) value.  
+These values have average signal acceptance rates of 85\% and 97\%, respectively.  
+The choice of a JVT working point has very little effect on the data/Monte Carlo agreement, changing by less than 0.02\% over most of the $p_{\mathrm T}$ range considered.  
+This illustrates the relative immunity of the MPF technique to pileup in general.  
+There is a small potential effect at low $p_{\mathrm T}$ where the numerous low energy pileup jets would have a larger effect, but even in this region the agreement never changes by more than a third of a percent.  
+
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.40}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the muon momentum scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+\label{Fig:MuonsScaleZJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the momentum smearing in the ID up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+\label{Fig:MuonsIDZJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the momentum smearing in the MS up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+\label{Fig:MuonsMSZJetEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+\centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_original.eps}
+}
+\caption{No rebinning}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}  \centering
+\scalebox{0.4}{
+  \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_rebinned.eps}
+}
+\caption{With rebinning}
+\end{subfigure}
+\caption{Effect of varying the JVT requirement to be more/less strict in rejecting pileup jets on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+\label{Fig:GJetJVTEM2016}
+\end{figure}
 
 \subsection{Photon Purity}
 
-Response for loose not tight photons compared to tight photons to show that dijets have higher response.  \\
-ABCD purity estimate \\
-MC based signal leakage correction \\
-Background correlation correction \\
+In Sec.~\ref{sec:JetResponse} a simplified model of jet showering was presented where after each interaction new pions are created, and on average 1/3 of the pions are $\pi^0$'s which rapidly decay into a photon pair.  
+While it's true that on average each pion flavour will be produced in roughly equal proportions, this is not necessarily true for any given jet.  
+From time to time a jet will have a very large number of neutral pions at some early stage in its development, leading to a dense deposit of EM energy.  
+This is exactly what the photon/electron reconstruction algorithms look for, and removing this jet is the reason for the strict identification requirements.  
+Even with all of the strict identification criteria described earlier in this chapter, the sheer number of dijet events compared to $\gamma$+jet events means that a non negligible number of jets will be misidentified as photons.  
+These jets have a lower response than true photons, meaning these events will lead to a higher jet response being derived than in true$\gamma$+jet events (see Eq.~\ref{EQ:MPFSimple}).  
+An uncertainty is added to the $\gamma$+jet response measurement to account for this.  
+
+The size of this effect, and therefore the size of the uncertainty that should be assigned to cover it, depends on how large the jet contamination of the photon sample is.  
+The purity of the photon sample must therefore be quantified.  
+To estimate the background (dijet fakes) that  satisfies the selection criteria used in this study, sideband regions, which are dominated by dijet fakes, are used.  
+Two cuts are chosen which ideally have a large impact on the signal acceptance while at the same time the probability of a background event passing or failing one of these cuts must be independent of whether it passes the other cut.  
+In this study the relative energy/momentum isolation cut and the photon identification cut are used (see Fig.~\ref{ABCD}).  
+
+\begin{figure}[!ht]
+\begin{center}
+\scalebox{0.6}{
+  \includegraphics{plots/Chap5/Purity/IsEMIsolCone_25_to_45_GeV_ditributions.eps}
+}
+\end{center}
+\caption[Sideband method]
+{\small Diagram showing the signal region and sidebands that are used in the photon signal purity measurement.    }
+\label{ABCD}
+\end{figure}
+
+Unfortunately the photon ID cut does have an impact on the fraction of background events that pass the isolation cut.  
+In order to resolve this issue a looser photon ID selection criterion is applied before beginning the process.  
+This means that in this section events that fail the tight criteria will have passed a loose one, and these events will be labelled as `loose-not-tight', or LNT.  
+
+The events that pass both of these cuts are labelled as being in region $A$, a region that has both signal and background events.
+Events that fail both cuts will fall into region $D$, with regions $B$ and $C$ corresponding to events that pass one cut and fail the other (see Fig.~\ref{ABCD}) .   
+Using this labeling and the fact that we have made sure that the background distribution is independent of these cuts, it can be said that
+\begin{equation}
+ \frac{A_{\mathrm{data}}^{\mathrm{background}}}{B_{\mathrm{data}}^{\mathrm{background}}} = \frac{C_{\mathrm{data}}^{\mathrm{background}}}{D_{\mathrm{data}}^{\mathrm{background}}},
+\end{equation}
+
+\begin{equation}
+ A_{\mathrm{data}}^{\mathrm{background}} =  \frac{C_{\mathrm{data}}^{\mathrm{background}}B_{\mathrm {data}}^{\mathrm{background}}}{D_{\mathrm {data}}^{\mathrm{background}}}. 
+\end{equation}
+\noindent 
+Now if we assume that regions $B$, $C$, and $D$ contain only background events, we can set $X_{\mathrm{data}}^{\mathrm{background}}=X_{\mathrm{data}}$ for $X=$ $B$, $C$, and $D$, leading to.   
+
+\begin{equation}
+ \label{eq:PureSimple}
+ \mathrm{Purity} = \frac{A_{\mathrm{data}}^{\mathrm{signal}}}{A_{\mathrm{data}}} = 1-\frac{A_{\mathrm{data}}^{\mathrm{background}}}{A_{\mathrm{data}}} =1- \frac{C_{\mathrm{data}}B_{\mathrm{data}}}{D_{\mathrm {data}}A_{\mathrm {data}}}
+\end{equation}
+\noindent
+
+This very simple derivation assumes that regions $B$, $C$, and $D$ contain only background, which is not necessarily true.  
+This `signal leakage' is accounted using a signal only MC sample and measuring the amount of signal in each background region relative to the amount in the signal region.  
+That is to say for each region $X$ a correction $\lambda_X\equiv\frac{X_{\mathrm{signal}}^{\mathrm{MC}}}{A_{\mathrm{signal}}^{\mathrm{MC}}}$ can be defined.  
+Assuming that the distribution of signal events is the same in data and it is in MC we can say that
+
+\begin{equation}
+ X_{\mathrm{data}}^{\mathrm{background}} = X_{\mathrm{data}} - \lambda_XA_{\mathrm{data}}^{\mathrm{signal}}
+\end{equation}
+\noindent
+Using this definition Eq.~\ref{eq:PureSimple} will lead to 
+
+\begin{equation}
+ \label{eq:PureLeakage}
+ \mathrm{Purity} = \frac{A_{\mathrm{data}}^{\mathrm{signal}}}{A_{\mathrm{data}}} = 1-\frac{\left(C_{\mathrm{data}}-\lambda_CA_{\mathrm{data}}^{\mathrm{signal}}\right)\left(B_{\mathrm{data}}-\lambda_BA_{\mathrm{data}}^{\mathrm{signal}}\right)}{\left(D_{\mathrm{data}}-\lambda_DA_{\mathrm{data}}^{\mathrm{signal}}\right)A_{\mathrm{data}}}.  
+\end{equation}
+\noindent
+Rearranging one gets and expression that is quadratic in $A_{\mathrm{data}}^{\mathrm{signal}}$ with the solutions being
+
+\begin{equation}
+ a=\lambda_B\lambda_C-\lambda_D 
+\end{equation}
+\begin{equation}
+ b=D_{\mathrm{data}}+\lambda_DA_{\mathrm{data}}-\lambda_CD_{\mathrm{data}}-\lambda_DC_{\mathrm{data}} \\
+\end{equation}
+\begin{equation}
+ c=C_{\mathrm{data}}B_{\mathrm{data}}-A_{\mathrm{data}}D_{\mathrm{data}}
+\end{equation}
+\begin{equation}
+ A_{\mathrm{data}}^{\mathrm{signal}} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}, 
+\end{equation}
+\noindent 
+where the lower of the two solutions is chosen.  
+
+Another potential issue is that even when requiring that photons must pass the loose requirement before being included the background shape is still effected by the two cuts.  
+The size is of this correlation is measured using background only MC and looking at 
+\begin{equation}
+ R^{\mathrm{MC}}_{\mathrm {background}}= \left(A_{\mathrm{MC}}^{\mathrm{background}}D_{\mathrm{MC}}^{\mathrm{background}}\right)/\left(B_{\mathrm{MC}}^{\mathrm{background}}C_{\mathrm{MC}}^{\mathrm{background}}\right) 
+\end{equation} 
+which would modify Eq.\ref{eq:PureLeakage} to read as
+\begin{equation}
+  \mathrm{Purity} = \frac{A_{\mathrm{data}}^{\mathrm{signal}}}{A_{\mathrm{data}}} = 1-R^{\mathrm{MC}}_{\mathrm {background}}\frac{\left(C_{\mathrm{data}}-\lambda_CA_{\mathrm{data}}^{\mathrm{signal}}\right)\left(B_{\mathrm{data}}-\lambda_BA_{\mathrm{data}}^{\mathrm{signal}}\right)}{\left(D_{\mathrm{data}}-\lambda_DA_{\mathrm{data}}^{\mathrm{signal}}\right)A_{\mathrm{data}}}.  
+\end{equation}
+With the loose photon ID criteria used in this thesis $R^{\mathrm{MC}}_{\mathrm {background}}$ was found to be 1.45.  
+This once again gives an expression that is quadratic in $A_{\mathrm{data}}^{\mathrm{signal}}$ and can be solved the same way.  
+The base line purity measurement (labeled as `simple') as well as the purity with the two corrections (signal leakage and signal leakage+background correlation) can be seen in Fig.~\ref{fig:PurityMeas}.  
+\begin{figure}[!ht]
+ \begin{center}
+ \scalebox{0.6}{
+  \includegraphics{plots/Chap5/Purity/PurityPlots.eps}
+ }
+ \end{center}
+ \caption[$\gamma$+jet purity measurement]
+ {\small Measured photon purity in the $\gamma$+jet channel.  The baseline purity is shown in black, the red points include the signal leakage correction, and the green points include both the signal leakage correction and the background correlation correction. }
+ \label{fig:PurityMeas}
+\end{figure}
+
+If the measured response in dijet events was identical to that measured in $\gamma$+jet events it would not matter how much dijet contamination was left in the signal region.  
+This difference in measured response is the second factor affecting the size of this contamination effect.  
+It has been studied in the past using backgrond only MC samples, where it was found that the relative response difference between signal and background could conservatively be covered by assuming a flat 5\% difference across all $p_{\mathrm T}$~\cite{ATLAS-CONF-2012-063}.  
+This conservative estimate is still used.  
+It can be helpful to study the difference in response between the tight photon selection and the loose-not-tight selection as well (see Fig.~\ref{fig:RespTightLNTEMGSC}).  
+%Unfortunately there is a small number of events passing the loose-not-tight selection at low $p_{\mathrm T}$ leading to large statistical uncertainties,  
+
+
+\begin{figure}[!ht]
+ \begin{center}
+ \scalebox{0.6}{
+  \includegraphics{plots/Chap5/Purity/ResponseLNTVsPt.eps}
+ }
+ \end{center}
+ \caption[Response using tight photons compared to using loose-not-tight photons, EM+GSC scale]
+ {\small Comparison of the EM+GSC scale MPF response using the tight photons selection compared to using the loose-not-tight (LNT) selection.  }
+ \label{fig:RespTightLNTEMGSC}
+\end{figure}
 
 \subsection{Monte Carlo Generator}
 
-The basic JES, GSC, and in-situ corrections are all made using pythia, but are applied to all generators. \\
-Use Sherpa as probe to determine how large this effect could be
+To asses the impact of the modeling choices made to derive this calibration (parton showering, fragmentation, etc.) a second simulated sample is used.  
+The second samples used in this study have both been generated and showered using {\sc SHERPA}~\cite{Gleisberg:2008ta}, which uses the cluster fragmentation model as described in~\cite{1983NuPhB.214..201G}.  
+For the $\gamma$+jet sample the CT10 PDF set~\cite{Lai:2010vv} is used while NNPDF3.0 NNLO~\cite{Ball:2014uwa} is used for Z+jet.  
+The detector simulation used is still the default ATLAS setup, which uses GEANT4 with the Bertini Cascade model transitioning into the FTFP model.   
+The EM+GSC scale response as measured using $\gamma$+jet in the {\sc SHERPA} sample can be seen in Fig.~\ref{Fig:GammaJetEM2016}, while the response in {\sc SHERPA} using Z+jet can be seen in Fig.~\ref{Fig:ZJetEM2016}
+The difference in response between these two samples is used as an uncertainty, which can also be interpreted as accounting for potential differences in MC based samples used within the ATLAS collaboration.  
 
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.6}{
+   \includegraphics{plots/Chap5/Z/EM/mpf_Ratio_ZJet_EM_2016.eps}
+  }
+ \end{center}
+ \caption[EM scale response using Z+jet in 2016]
+ {\small The EM scale response as measured using the MPF in $\gamma$+jet events.  Shown in black is the response as measured using data from the 2016 dataset, in red is the nominal Monte Carlo sample and in blue is an additional Monte Carlo sample for comparison.  The low inset shows the data to Monte Carlo ratio, with the colour of the points corresponding to the simulated sample used in the ratio.  }
+ \label{Fig:ZJetEM2016}
+\end{figure}
 
 \subsection{Results}
 
-Plots with the full uncertainty.  
+The various systematic uncertainties discussed in this chapter are added in quadrature (along with the statistical uncertainty on the central values) to obtain the total uncertainty on the residual data/MC correction.  
+The uncertainties on the EM+GSC scale response using $\gamma$+jet events can be seen in Fig.~\ref{Fig:gJetSystsEM2016}.  
+Above 60 GeV the total uncertainty is approximately flat at 1\%, with the single largest component over the majority of that range being the photon energy scale uncertainty.  
+Below 60 GeV the uncertainty grows to about 6\% with increasing contributions from the MC based uncertainty and the photon purity uncertainty.  
+The uncertainty on the EM+GSC using Z+jet events can be seen in ~\ref{Fig:ZJetSystsEM2016}, which is on the order of 0.5\% between $\sim$ 30 GeV and 500 GeV.  
+In this range the largest component to the uncertainty varies between the MC generator uncertainty and the statistical uncertainty.  
+Above 500 GeV the Z+jet calibration becomes statistically limited while for lower energies (below 30 GeV) the MC generator uncertainty sets the scale (up to 4\%). 
+
+The LC+GSC scale uncertainties using $\gamma$+jet and Z+jet can be seen in Figs.~\ref{Fig:gJetSystsLC2016} and ~\ref{Fig:ZJetSystsLC2016}, respectively.  
+The uncertainties using $\gamma$+jet are once again approximately flat at around 1\% above 60 GeV, with the largest component being the photon energy scale.  
+Below 60 GeV the largest components are photon purity and the generator uncertainty, which is slightly larger at LC scale leading to a larger overall uncertainty (up to $\sim$ 7\%).  
+Using Z+jets the LC+GSC scale uncertianty is also quite similar to the EM+GSC scale uncertainty, dropping as low as $\sim$ 0.5\% between 30 GeV and 500 GeV and growing to slightly more than 5\% at the lowest energies due to a slightly larger disagreement between the two generators at LC scale.  
+
+\begin{figure}[!ht]
+\captionsetup[subfigure]{labelformat=empty}
+ \begin{center}
+   \begin{subfigure}{0.55\textwidth}
+     \hspace{-3cm}
+     \includegraphics[width=1.7\linewidth]{plots/Chap5/Photon_IssueFix/SystsTwoSided_EM_2016.eps}
+   \end{subfigure}
+   \begin{subfigure}{0.55\textwidth}
+     \vspace{-0.2cm}
+     \includegraphics[width=1\linewidth]{plots/Chap5/Photon_IssueFix/Legend.eps}
+   \end{subfigure} 
+ \end{center}
+ \caption[Uncertainty on the EM+GSC scale response measurement using $\gamma$+jet]
+ {\small The total uncertainty (both statistical and systematic) on the measurement of the relative EM+GSC scale response between data and MC using $\gamma$+jet events.  It is broken down into the various uncertainty sources which go into the total uncertainty.  }
+ \label{Fig:gJetSystsEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\captionsetup[subfigure]{labelformat=empty}
+ \begin{center}
+   \begin{subfigure}{0.55\textwidth}
+     \hspace{-3cm}
+     \includegraphics[width=1.7\linewidth]{plots/Chap5/Z/EM/SystsTwoSided_EM_2016.eps}
+   \end{subfigure}
+   \begin{subfigure}{0.55\textwidth}
+     \vspace{-0.2cm}
+     \includegraphics[width=1\linewidth]{plots/Chap5/Z/EM/Legend.eps}
+   \end{subfigure}
+ \end{center}
+ \caption[Uncertainty on the EM+GSC scale response measurement using Z+jet]
+ {\small The total uncertainty (both statistical and systematic) on the measurement of the relative EM+GSC scale response between data and MC using Z+jet events.  It is broken down into the various uncertainty sources which go into the total uncertainty.  }
+ \label{Fig:ZJetSystsEM2016}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\captionsetup[subfigure]{labelformat=empty}
+ \begin{center}
+   \begin{subfigure}{0.55\textwidth}
+     \hspace{-3cm}
+     \includegraphics[width=1.7\linewidth]{plots/Chap5/Photon/LC/SystsTwoSided.eps}
+   \end{subfigure}
+   \begin{subfigure}{0.55\textwidth}     \vspace{-0.2cm}
+     \includegraphics[width=1\linewidth]{plots/Chap5/Photon/LC/Legend.eps}
+   \end{subfigure}
+ \end{center}
+ \caption[Uncertainty on the LC+GSC scale response measurement using $\gamma$+jet]
+ {\small The total uncertainty (both statistical and systematic) on the measurement of the relative LC+GSC scale response between data and MC using $\gamma$+jet events.  It is broke
+n down into the various uncertainty sources which go into the total uncertainty.  }
+ \label{Fig:gJetSystsLC2016}
+\end{figure}
+
+\begin{figure}[!ht]
+\captionsetup[subfigure]{labelformat=empty}
+ \begin{center}
+   \begin{subfigure}{0.55\textwidth}
+     \hspace{-3cm}
+     \includegraphics[width=1.7\linewidth]{plots/Chap5/Z/LC/SystsTwoSided.eps}
+   \end{subfigure}
+   \begin{subfigure}{0.55\textwidth}
+     \vspace{-0.2cm}
+     \includegraphics[width=1\linewidth]{plots/Chap5/Z/LC/Legend.eps}
+   \end{subfigure}
+ \end{center}
+ \caption[Uncertainty on the LC+GSC scale response measurement using Z+jet]
+ {\small The total uncertainty (both statistical and systematic) on the measurement of the relative LC+GSC scale response between data and MC using Z+jet events.  It is broken down into the various uncertainty sources which go into the total uncertainty.  }
+ \label{Fig:ZJetSystsLC2016}
+\end{figure}
+
 
 

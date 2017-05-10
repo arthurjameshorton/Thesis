@@ -1,0 +1,54 @@
+\chapter{Additional Jet Studies}
+
+
+Even with a jet calibration firmly in hand additional studies on jet phenomenology can go a long way towards advancing our knowledge of the jet response and potential moving towards better future calibrations.  
+In this chapter we will explore how the energy from the hadronic recoil in the 2$\rightarrow$2 systems used in {\textit in-situ} calibration schemes is distributed around the jet axis.  
+The flow of energy across the boundary of the jet definition will be explored (see the showering correction in Sec.~\ref{sec:ShoweringIntro}).  
+Finally some key assumptions uses in the derivation of the MPF will be explored, including the relationship between the response of the recoil and the response of the jet, as well as the effect of the underlying event on the derivation of the MPF.  
+ 
+
+\section{Expanded MPF Derivation}
+
+In Sec.~\ref{METProj} a derivation of the MPF was presented which considered only the hard scattering event, ignoring any potential effects of the underlying event.  
+This potential deficiency in the derivation was justified by arguing that the underlying event is on symmetric in $\phi$ and therefor will not contribute on average to the measured MPF response.  
+In this section this assumption will be tested.  
+
+
+We will begin using the definition of the MPF as seen in Eq.~\ref{EQ:MPFSimple}, with the addition of a term we will call $\Delta^{\mathrm{OA}}$ which will encompass the effect of the other activity on the MPF, 
+\begin{equation}
+  \label{Eq:MPFWithDelta}
+  R_{\mathrm{recoil}}=1+\frac{\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}\cdot\hat{p}_{\mathrm T}^{\mathrm{ref}}}{E_{\mathrm T}^{\mathrm{ref}}} + \Delta^{\mathrm{OA}}, 
+\end{equation}
+\noindent
+where we explicitly show that the original derivation assumed that the MET originated completely from the mismeasurement of the energy of the recoil.  
+In an effort to obtain an expression in terms of measurable quantities we will now express $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ as 
+
+\begin{equation}
+  \vec{E}_{\mathrm T}^{\mathrm{recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}} + \vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}.   
+\end{equation}
+\noindent 
+We will now use 
+\begin{equation}
+  R_{\mathrm{recoil}}\vec{E}_{\mathrm T}^{\mathrm{recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}, 
+\end{equation}
+\noindent
+which leads to 
+\begin{equation}
+  \vec{E}_{\mathrm T}^{\mathrm{miss, recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}\left(\frac{1-R_{\mathrm{recoil}}}{R_{\mathrm{recoil}}}\right).  
+\end{equation}
+\noindent
+Using this definition of $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ in Eq.~\ref{Eq:MPFWithDelta} and rearranging to solve for $\Delta^{\mathrm{OA}}$ we obtain 
+\begin{equation}
+  \Delta^{\mathrm{OA}}=\left(R_{\mathrm{recoil}}-1\right)\left(1+\frac{\hat n_{\mathrm{ref}}\cdot \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}}{R_{\mathrm{recoil}}{E}_{\mathrm T}^{\mathrm{meas, recoil}}}\right).  
+\end{equation} 
+This leads to an expression which describes the effect of the underlying event on the MPF technique.  
+To use this expression we must have at both the response of the recoil and the measured recoil energy, both of which we do not have exactly.  
+We can assume that to first order the effect of this other activity will be small (as the MPF has been successfully used in jet calibration schemes in the past), allowing us to use the MPF itself as a measure of the response of the recoil.  
+Obtaining a measurement of the full energy of the hadronic recoil, with the underlying event remove, at the detector level is also a difficult issue.  
+As the MPF technique already intimately connects the energy of the recoil to the energy of the jet this strategy will be used again.  
+A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which container the vast majority of the hard scattering along with a significant amount of underlying event.   
+
+
+
+
+
