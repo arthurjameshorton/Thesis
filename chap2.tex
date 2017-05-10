@@ -130,34 +130,34 @@ The SCT has a nominal resolution of 17~$\mu$m in R-$\phi$ and 580~$\mu$m in z.
 The final subsystem in the tracker is the TRT which uses up to 73 layers of gas filled `straws' in the barrel and as many as 160 straw planes in the endcaps.  
 Each straw is filled with a mixture of 70\% xenon gas (for x-ray absorption), 27\% CO2, and 3\% O2 (for increasing the electron drift velocity and photon quenching).  
 Charged particles ionize the gas mixture as they pass through and the charge is collected by a central gold plated tungsten anode wire within each straw.  
-Each straw is 144~cm long so that only R-$\phi$ information is provided, for which the intrinsic accuracy is 130~$\mu$m.  
-In addition to the ionization of the gas within the straws the TRT is also able to detect the low energy transition radiation photons created as the charged particles travel between the gas, the layers within the straw walls, and the inter-straw medium (polypropylene foils or fibres).  
+Each of these 144~cm long straws provides only information in R-$\phi$, for which the intrinsic accuracy is 130~$\mu$m.  
+In addition to providing position measurements the TRT is also able to detect the low energy transition radiation photons created as the charged particles travel between the gas, the layers within the straw walls, and the inter-straw medium (polypropylene foils or fibres).  
 The amount of radiation emitted during each transition is a function of the Lorentz factor of the particle.  
 By having two detection thresholds for each straw, a low ionization threshold and a high transition radiation threshold, and counting the number of high threshold hits belonging to a given reconstructed track, information about the type of particle creating the track can be obtained.  
 Tracks with a large number of high threshold hits can be assumed to be highly boosted light particles, namely electrons.  
 
 \subsection{ATLAS Hardware: Calorimeter}
 Calorimeters, in contrast to tracking systems, absorb the energy of incoming particles through destructive processes and produce signals which are proportional to the initial incoming energy.  
-In addition to pure energy measurements calorimeters which are segmented into $\eta$ x $\phi$ x r cells can also provide information on how the energy from a given particle was deposited, which helps both particle identification and calibration.  
+In addition to pure energy measurements calorimeters which are segmented into $\eta$ x $\phi$ x r cells can also provide information on how the energy from a given particle is deposited, which helps both particle identification and energy calibration.  
 With a large coverage in both $\eta$ and $\phi$ one can also determine the location in $\phi$ where signals may be expected due to the conservation of momentum in the transverse plane but nothing is detected.  
-These imbalances in measured energy may interpreted as a miscalibration of the observed energy or as particles having passed through the detector without interacting such as a neutrino.
+These imbalances in measured momentum may interpreted as a miscalibration of the observed energy or as particles having passed through the detector without interacting such as a neutrino.
 
 The ATLAS calorimeter is broken up into three $\eta$ sections: the central barrel region, the endcaps and the forward calorimeters (FCal).  
 In all three regions the ATLAS calorimeter is split into two well defined longitudinal segments, the \gls{EM} calorimeter, and the hadronic calorimeter.   
-This division is to take advantage of the relatively shallow showering depth of electromagnetic particles while still ensuring that the much deeper hadronic showers are still fully measured.  
+This division is to take advantage of the relatively shallow showering depth of electromagnetic particles while ensuring that the much deeper hadronic showers are still fully measured.  
 These differences will be further explained in the following sections.  
 
-The remainder of this section will be divided into four subsections.  
-The first subsection will describe particles which result in electromagnetic showers and how electromagnetic showers are propagated.  
-This will be followed by a description of the technology used in the EM calorimeters in ATLAS.  
-The same two stage approach will then be used to explain hadronic showers and how they are measured in ATLAS.  
+The remainder of this section is divided into four subsections.  
+The first subsection describes particles which result in electromagnetic showers and how electromagnetic showers are propagated.  
+This is followed by a description of the technology used in the EM calorimeters in ATLAS.  
+The same two stage approach is also used to explain hadronic showers and how they are measured in ATLAS.  
 
 \subsubsection{Electromagnetic Calorimeter}
 \label{EMCalo} 
 
 Electromagnetic calorimeters are focused on measuring the energy of photons and electrons, which interact with matter through a variety of processes which are all results of the electromagnetic interaction~\cite{grupen2008particle}~\cite{Wigmans2008}.  
 The photon for example has four primary processes through which it interacts with matter: Rayleigh scattering, the photoelectric effect, Compton scattering, and pair production.  
-The contribution of each of these processes to the overall energy loss of the photon depends on the energy of the photon itself.  
+The contribution of each of these processes to the overall energy loss of the photon depends on the energy of the photon.  
 
 \begin{figure}[!ht]
     \begin{center}
@@ -171,8 +171,8 @@ The contribution of each of these processes to the overall energy loss of the ph
             \label{Photon}
 \end{figure}
 
-For low energy photons (less than $\sim$ 100 KeV) the photoelectric effect, where a photon is absorbed by an atom and either a photon or electron is emitted, dominates.  
-The strong energy dependence of the cross section for this process (goes as E$^{-3}$) it is largely suppressed for higher energy photons.   
+For low energy photons (less than $\sim$ 100 KeV) the photoelectric effect, where a photon is absorbed by an atom and an electron is emitted, dominates.  
+Due to the strong energy dependence of the cross section for this process (goes as E$^{-3}$) it is largely suppressed for higher energy photons.   
 Rayleigh scattering, which is the coherent scattering of photons by atomic nuclei and is the second most important process at low energy, also dies out very quickly with increasing photon energies.  
 In most materials for photons with energies between $\mathcal{O}\mathrm(10 \mathrm{KeV})$ to $\mathcal{O}\mathrm(10 \mathrm{MeV})$ the largest contribution to the photon interaction cross section is Compton scattering.  
 In Compton scattering a portion of the photon's energy is used to excite an atomic electron into an unbound state.  
@@ -180,17 +180,17 @@ For even larger energies the dominant interaction mechanism is pair production w
 Pair production is possible for photons with energies above twice the mass of an electron (2 x 511 KeV), with the cross section growing rapidly before leveling off at higher energies.  
 Figure~\ref{Photon} shows the cross-section for these various interaction mechanisms for photons in lead.  
 An important measure of the number of interactions a photon will experience while travelling through a material is the mean distance traveled between each interaction, or the mean free path ($\lambda\left(E\right)$).  
-By measuring the amount of material present in a given detector in terms on $\lambda$ one can more readily compare the amount of energy that will pass through a detector unmeasured between two calorimeters made with different materials.  
+By measuring the amount of material present in a given detector in terms of $\lambda$ one can more readily compare two calorimeters made with different materials.  
 
 
 The primary electromagnetic mechanism through which charged particles (electrons and positrons for example) lose their energy is also energy dependent.  
 Lower energy particles primarily lose energy by ionizing the material they are travelling through (with processes like M{\o}ller scattering or Bhabha scattering also contributing).  
-While particles with higher energy tend to lose energy by radiating photons (bremsstrahlung).  
+Particles with higher energy tend to lose energy by radiating photons (bremsstrahlung).  
 The energy at which the average energy loss due to ionization is equal to the average energy loss due to bremsstrahlung is called the critical energy $\epsilon_{\mathrm{C}}$.  
 The critical energy depends both on the atomic number Z of the material, and more strongly, on the mass of the particle in question.  
 The critical energy is proportional to m$^2$, meaning that for energies typically reached in experiment the bremsstrahlung component to the energy loss can be insignificant for particles with masses even as low as 100 MeV (muons and pions for example).  
 While photons are usually discussed in terms of mean free path, electron interactions with matter are characterized by the energy lost per unit distance which is also a function of energy($-\frac{dE}{dx}=\frac{E}{\chi_{0}}$).  
-$\chi_{0}$, known as the radiation length, defines this energy loss rate and is the average distance on average an electron will travel before radiating a photon.  
+$\chi_{0}$, known as the radiation length, defines this energy loss rate and is the average distance an electron will travel before radiating a photon.  
 
 \begin{figure}[!ht]
   \begin{center}
@@ -199,7 +199,7 @@ $\chi_{0}$, known as the radiation length, defines this energy loss rate and is 
     }
   \end{center}
   \caption[Stopping power for positive muons in copper.]
-  {\small Stopping power ($\frac{-dE}{dx}$) for positive muons in copper as a function of $\beta\gamma=\frac{p}{Mc}$, see ref.~\cite{PDG}.} 
+  {\small Stopping power ($\frac{-dE}{dx}$) for positive muons in copper as a function of $\beta\gamma=\frac{p}{Mc}$, see ref.~\cite{PDG}.  Here $\delta$ is to account for the muon polarizing the material near itself which screens out charges further from the away from the muon (dependent on density).  } 
   \label{StoppingMuon}
 \end{figure}
 
