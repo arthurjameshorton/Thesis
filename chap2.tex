@@ -127,7 +127,7 @@ In the barrel these modules consist of four sensors, two on the top and two on t
 The endcap modules use the same strategy, having two sensors glued back-to-back once again with a stereo angle of 40~mrad.  
 The SCT has a nominal resolution of 17~$\mu$m in R-$\phi$ and 580~$\mu$m in z.  
 
-The final subsystem in the tracker is the TRT which uses up to 73 layers of gas filled `straws' in the barrel and as many as 160 straw planes in the endcaps.  
+The final subsystem in the tracker is the TRT which uses up to 73 layers of gas filled ``straws'' in the barrel and as many as 160 straw planes in the endcaps.  
 Each straw is filled with a mixture of 70\% xenon gas (for x-ray absorption), 27\% CO2, and 3\% O2 (for increasing the electron drift velocity and photon quenching).  
 Charged particles ionize the gas mixture as they pass through and the charge is collected by a central gold plated tungsten anode wire within each straw.  
 Each of these 144~cm long straws provides only information in R-$\phi$, for which the intrinsic accuracy is 130~$\mu$m.  
@@ -203,12 +203,12 @@ $\chi_{0}$, known as the radiation length, defines this energy loss rate and is 
   \label{StoppingMuon}
 \end{figure}
 
-It is now worth noticing that the dominant interaction mechanism for high energy photons is pair production, which results in a high energy electron/positron pair, and that light high energy charged particles lose energy primarily by emitting photons.  
-With this in mind it's easy to imagine that a single high energy EM particle will lead to a large cascade of lower energy EM particles while travelling through a material.  
+The dominant interaction mechanism for high energy photons is pair production, which results in a high energy electron/positron pair, and light high energy charged particles lose energy primarily by emitting photons.  
+With this in mind it is easy to imagine that a single high energy EM particle will lead to a large cascade of lower energy EM particles while travelling through a material.  
 These cascading events (known as electromagnetic showers) tend to remain in a narrow cone around the trajectory of the initiating particle, with the tightness of the cone being independent of the initial energy of the particle (see Moli{\`e}re radius in~\cite{grupen2008particle}).  
 Another feature of electromagnetic showers is that, relatively speaking, they do not penetrate very deeply into the material.   
 These are properties that will be useful in identifying EM showers.  
-How they identified within ATLAS being briefly discussed in Sec.~\ref{EMReco}. 
+See Sec.~\ref{EMReco}. 
 
 \begin{table}
   \centering
@@ -253,11 +253,12 @@ How they identified within ATLAS being briefly discussed in Sec.~\ref{EMReco}.
 \label{table:EMCalo}
 \end{table}
 
-The ATLAS detector makes use of what are known as sampling calorimeters.  
-A sampling calorimeter is one that alternates between a dense material used to create the particle shower (absorbers) and an active material that measures the energy deposits.  
+The ATLAS detector makes use of sampling calorimeters.  
+In a sampling calorimeter a dense material used to create the particle shower (absorber) alternating with an active material that measures the energy deposited.  
 While there is a disadvantage to this design with energy deposited in the absorber being invisible to the detector, having the full energy of the particle being deposited in a shorter length of material allows for a reduction in size of any additional detectors beyond the calorimeter.  
-In both the barrel and endcaps the absorber for the EM calorimeter is lead and the active material is liquid argon (LAr), while in the forward region a copper/LAr detector is used.  
-When charged particles pass through the active medium the liquid argon is ionized and the charge is collected on kapton electrodes.  
+It is also typically cheaper.  
+In both the barrel and endcaps the absorber for the EM calorimeter is lead and the active material is liquid argon (LAr), while in the forward region a copper/LAr combination is used.  
+When charged particles, both primary and secondary, pass through the active medium the liquid argon is ionized and the charge is collected on kapton electrodes.  
 A breakdown of how the number of sampling layers and the resolution of the EM calorimeter vary with $\eta$ in the central and endcap regions is shown in Table~\ref{table:EMCalo}.  
 
 \begin{figure}[!ht]
@@ -274,11 +275,12 @@ A breakdown of how the number of sampling layers and the resolution of the EM ca
 \subsubsection{Hadronic Calorimeter}
 \label{Had}
 There are many similarities between EM calorimeters and hadronic calorimeters.  
-Hadronic calorimeters rely on both electromagnetic and nuclear interactions between the particles to be measured and the detector, where these interactions produce secondary particles.  
-This process, known as a hadronic shower, continues until the secondary particles reach a low enough energy that they are fully absorbed by the material and their energy is measured.  
-The differences between hadronic and electromagnetic showers tend to be in the size, both in depth and width, of the showers (with hadronic showers being larger in both dimensions) and the event by event variations of the showers (with hadronic showers being subject to much larger fluctuations because of the large number of available types and the character of nuclear interactions).  
+Hadronic calorimeters rely on both electromagnetic and nuclear interactions between the particles to be measured and the detector.  
+These interactions produce secondary particles, which go on to have subsequent interactions with the material in the calorimeter.  
+This process, known as a hadronic shower, continues until the secondary particles reach a low enough energy that they are fully absorbed by the material and their energy is measured through ionization.  
+The differences between hadronic and electromagnetic showers are the size of the shower, both in depth and width (with hadronic showers being larger in both dimensions) and the event by event variations of the showers (with hadronic showers being subject to much larger fluctuations because of the large number of available types and the character of nuclear interactions).  
 
-As the lowest mass hadron is over 200 times more massive than the electron ($\pi^{0}$ at 135 MeV) it is safe to assume that at energies which will be achieved in the ATLAS detector bremsstrahlung will not be an important energy loss mechanism for hadrons.  
+As the lowest mass charged hadron is over 200 times more massive than the electron ($\pi^{\pm}$ at 140 MeV) it is safe to assume that at energies which will be achieved in the ATLAS detector bremsstrahlung will not be an important energy loss mechanism for hadrons.  
 Ionization and excitation on the other hand are still relevant contributors to the overall energy loss of hadrons.  
 The rate at which energy is lost via these mechanisms for particles which are heavier than an electron is described by the Bethe-Bloch formula,  
 \begin{equation}
@@ -287,9 +289,9 @@ The rate at which energy is lost via these mechanisms for particles which are he
 where $C$ is a constant, $z$ is the charge of the incident particle, $Z$ and $A$ are the atomic number and weight of the material being ionized, $\beta$ and $\gamma$ are the velocity and Lorentz factors of the incident particle, $\delta$ is a parameter describing density effects, and $a$ depends on the electron mass and the ionization energy of the absorber.  
 
 While these particles do interact electromagnetically it is the interactions between the hadrons and the atomic nuclei via the nuclear force (resulting in secondary hadrons) that account for the majority of the energy loss.  
-The average distance between these interactions is much larger than the radiation length which is the cause of the extra penetration depth of these showers when compared to EM showers.  
-To get an idea of the difference in length of hadronic and electromagnetic showers one needs only to pick a material, say copper, and compare the average distance between hadronic interactions $\lambda_{\mathrm{int}}$ (15 cm in copper) to the radiation length $\chi_{0}$ in the same material (1.4 cm)~\cite{Wigmans2008}.  
-The large width of hadronic showers is caused by large transverse momentum transfers in the nuclear interactions.  
+The average distance between these interactions is much larger than the radiation length which is the cause of the extra penetration depth of these showers compared to EM showers.  
+To get an idea of the difference in length of hadronic and electromagnetic showers one needs only to pick a material, say copper, and compare the hadronic interaction length $\lambda_{\mathrm{int}}$ (15 cm in copper) to the radiation length $\chi_{0}$ in the same material (1.4 cm)~\cite{Wigmans2008}.  
+The large width of hadronic showers is caused by large transverse momentum transfer in the nuclear interactions.  
 
 \begin{table}
   \centering
@@ -334,10 +336,10 @@ The large width of hadronic showers is caused by large transverse momentum trans
 \label{table:HadCalo}
 \end{table}
 
-While a large number of the particles resulting from the nuclear interactions are pions ($\approx$ 90 \%), other particles like protons, neutrons, kaons, etc. are also produced.  
-On average the three pion flavours ($\pi^0$, $\pi^{+}$, and $\pi^{-}$) are produced with equal frequency, with large variations in make up of the secondaries being possible between any two given interactions.  
-Interestingly, charged pions interact with matter much differently than their neutral counterparts.  
-Where charged pions have a mean lifetime $\tau$ of 2.6 x $10^{-8}$ s ($\tau c$ = 7.8 m) and will tend to have further nuclear interactions before decaying, neutral pions have a much shorter lifetime ($\tau c$ = 25 nm) leading them to quickly decay into a pair of photons which will initiate EM showers within the hadronic shower~\cite{PDG}.  
+While a large fraction of the particles resulting from the nuclear interactions is pions ($\approx$ 90 \%), other particles like protons, neutrons, kaons, etc. are also produced.  
+On average the three pion flavours ($\pi^0$, $\pi^{+}$, and $\pi^{-}$) are produced with equal frequency, with large variations being possible between any two given interactions.  
+Charged pions interact with matter much differently than their neutral counterparts.  
+Where charged pions have a mean lifetime $\tau$ of 2.6 x $10^{-8}$ s ($c\tau$ = 7.8 m) and tend to have further nuclear interactions before decaying, neutral pions have a much shorter lifetime ($c\tau$ = 25 nm) and quickly decay into a pair of photons which initiate EM showers within the hadronic shower~\cite{PDG}.  
 As a result of this important difference the amount of detectable energy deposited in a calorimeter from a hadronic shower can have a strong dependence on the fraction of neutral pions from the first few interactions.  
 
 The fraction of the total energy deposited in the calorimeter by these small EM sub-showers ($f_{em}$) varies as a function of the energy of the particle initiating the shower, increasing from $\approx$ 30\% for particles at 10 GeV to $\approx$ 50\% for particles at 100 GeV.  
@@ -346,7 +348,7 @@ Therefore, a large portion of the non-EM energy is deposited in the calorimeter 
 
 The hadronic calorimeter is also a sampling calorimeter.  
 The similarities with the EM calorimeter go even further in that in both the FCal and endcaps the active material for the hadronic calorimeter is LAr, with the absorber in the endcaps being copper and the absorber in the forward region being tungsten.  
-In the barrel the hadronic calorimeter uses steel as the absorber material and a plastic scintillator as the active material.  
+In the barrel the hadronic calorimeter uses steel as the absorber material and plastic scintillator as the active material.  
 The number of sampling layers and the granularity of each of the regions of the hadronic calorimeter are shown in Table.~\ref{table:HadCalo}. 
 
 
@@ -364,7 +366,7 @@ The number of sampling layers and the granularity of each of the regions of the 
 
 \subsection{ATLAS Hardware: Muon Spectrometer}
 
-Muons are 200 times heavier than electrons, and are therefore typically minimum ionizing at the LHC (see Fig.~\ref{StoppingMuon}) and therefore do not produce electromagnetic showers.  
+Muons are 200 times heavier than electrons, are typically minimum ionizing at the LHC (see Fig.~\ref{StoppingMuon}) and therefore do not produce electromagnetic showers.  
 Since muons also do not interact via the nuclear force, they do not produce hadronic showers either.  
 Thankfully as they are charge carriers they do interact with the tracking systems in the inner detector, and with the help of a second tracking system beyond the hadronic calorimeter the are easy to identify as they are the only ionizing particles that regularly pass through the entire calorimeter.  
 The magnetic field for the muon spectrometer is provided by large superconducting air-core toroids, with the field in the central region ($\mid\eta\mid$< 1.4) being provided by the barrel toroid and in the forward regions (1.6 <$\mid\eta\mid$< 2.7) by two relatively smaller endcap magnets.  
@@ -372,8 +374,8 @@ In the transition regions the magnetic fields are provided by a combination of t
 
 In the central barrel region the muon hits are measured in three separate layers (stations) that are arranged in concentric cylinders with radii of about 5, 7.5, and 10~m~\cite{MuonTDR}.  
 These distances are chosen to measure the muons' position as they enter, are at the midpoint, and again as they exit the magnetic field to best measure the deflection of the muons and hence their momentum.  
-The two endcaps consist of four wheels at distances of 7.4, 10.8, 14, and 21.5~m. 
-The additional wheel at 10.8~m is to allow for the full three measurements of the muons trajectory in the region that is uncovered by the outermost wheel (see Fig.~\ref{MuonSpectroFig}).
+The two endcaps consist of four wheels at distances of 7.4, 10.8, 14, and 21.5~m from the interaction point. 
+The additional wheel at 10.8~m is to allow for the full three measurements of the muon trajectory in the region that is uncovered by the outermost wheel (see Fig.~\ref{MuonSpectroFig}).
 
 
 \begin{figure}[!ht]
@@ -387,8 +389,8 @@ The additional wheel at 10.8~m is to allow for the full three measurements of th
   \label{MuonSpectroFig}
 \end{figure}
 
-Monitored Drift Tubes (MDT's) are used to make the position measurements in the outer two layers of the muon spectrometer over the full eta range ($\mid\eta\mid<$ 2.7), and they are also used in all but the most forward portion of the inner most layer as well ($\mid\eta\mid<$ 2.0).  
-MDT's make use of the trail of ionized particles left behind as a charged particle passes through a material in a similar way to the TRT (see Sec.~\ref{Sec.ID}).  
+Monitored Drift Tubes (MDT's) are used to make the position measurements in the outer two layers of the muon spectrometer over the full eta range ($\mid\eta\mid<$ 2.7), and they are also used in all but the most forward portion of the innermost layer as well ($\mid\eta\mid<$ 2.0).  
+MDT's make use of the trail of ionized particles left behind as a charged particle passes through a gas in a similar way to the TRT (see Sec.~\ref{Sec.ID}).  
  
  
 
@@ -396,11 +398,11 @@ MDT's make use of the trail of ionized particles left behind as a charged partic
 \label{Trig}
 During both 2015 and 2016 the LHC used a beam bunch spacing of 25~ns.  
 This resulted in crossing rates of 40~MHz at the centre of the ATLAS detector.  
-With each event potentially taking up to 2 MB to store recording, storing, and analyzing all of these data can be a problem.  
+With each event potentially taking up to 2 MB to store, recording, storing, and analyzing all of these data can be a problem.  
 Moreover, the large majority of the collisions are elastic collisions or low $p_{\mathrm T}$ dijet events which are of little interest in this high energy environment.  
 The solution to this problem is to only record a certain fraction of the total number of events that have been produced.  
 This must be done in a way that maximizes the number of rare events of interest recorded while simultaneously removing as many low interest events as possible.  
-The triggering system uses a combination of hardware and software tools to perform exactly this task~\cite{Run2Triggers}.  
+The triggering system uses a combination of hardware and software tools to perform this task~\cite{Run2Triggers}.  
 
 The trigger system consists of two parts the first being the L1 trigger.  
 The L1 trigger is hardware based and reduces the number of events to be considered from 40 MHz per second down to 100 kHz.  
@@ -408,15 +410,16 @@ It uses a more course object definition than the full event reconstruction.
 Selections can still be made based on energy thresholds for given objects, as well as more topological information like isolation requirements or a specified range for the invariant mass of a combination of objects.  
 
 The second stage of the trigger system, which is implemented in a software computer farm, is known as the high-level trigger, or HLT.  
-In the HLT some full offline-like unseeded reconstruction algorithms can be run, including topoclustering and muon reconstruction.  
+In the HLT some full offline-like unseeded reconstruction algorithms can be run, including topoclustering (see Sec.~\ref{Sec:Topocluster} and muon reconstruction.  
 This is not always the case.  
-For example time considerations necessitate the use of an offline-like track reconstruction algorithm that makes use of some L1 tracking information.  
+For example LC tracking information is used to seed tracks in the HLT to reduce the reconstruction time.  
 The HLT is designed to reduce the event rate from the 100 kHz output of the L1 trigger down to 600 Hz, which can be increased to 1-1.5 kHz at peak luminosities.  
+Events that pass the HLT criteria are recorded on computer tape for subsequent analysis.   
 
-While these triggers can be very efficient at selecting relatively rare more `interesting' events to be recorded for future study, not all event topologies desired by the various physics groups in the ATLAS collaboration are infrequent enough that every instance of that event can be stored.  
-In these cases, only a randomly selected, bu fixed-fraction, subset of the evenets is stored for subsequent analysis.  
+While these triggers can be very efficient at selecting relatively rare more ``interesting'' events to be recorded for future study, not all event topologies desired by the various physics groups in the ATLAS collaboration are infrequent enough that every instance of that event can be stored.  
+In these cases, only a randomly selected, but fixed-fraction, subset of the events is stored for subsequent analysis.  
 This is called prescaling.  
-The true number of events of these types which have actually occurred can then be approximated using that random acceptance rate.  
+The true number of events of these types which have actually occurred can then be determined using the random acceptance rate.  
  
  
  
