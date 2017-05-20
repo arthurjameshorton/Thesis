@@ -1,33 +1,77 @@
 \chapter{Additional Jet Studies}
 
+Even with a jet calibration firmly in hand additional studies on jet phenomenology can go a long way towards advancing our knowledge of the jet response and potentially moving towards better calibrations in the future.  
+In this chapter the question of how the energy from the hadronic recoil in the 2$\rightarrow$2 systems used in \textit {in-situ} calibration schemes is distributed around the jet axis is explored.  
+The flow of energy across the boundary of the jet definition is also studied (see the showering correction in Sec.~\ref{sec:ShoweringIntro}).  
+Finally some key assumptions used in the derivation of the MPF are examined, including the relationship between the response of the recoil and the response of the jet, as well as the effect of the underlying event on the derivation of the MPF.  
 
-Even with a jet calibration firmly in hand additional studies on jet phenomenology can go a long way towards advancing our knowledge of the jet response and potential moving towards better future calibrations.  
-In this chapter we will explore how the energy from the hadronic recoil in the 2$\rightarrow$2 systems used in {\textit in-situ} calibration schemes is distributed around the jet axis.  
-The flow of energy across the boundary of the jet definition will be explored (see the showering correction in Sec.~\ref{sec:ShoweringIntro}).  
-Finally some key assumptions uses in the derivation of the MPF will be explored, including the relationship between the response of the recoil and the response of the jet, as well as the effect of the underlying event on the derivation of the MPF.  
- 
+\section{Distribution of Hadronic Recoil Energy}
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.55}{
+   \includegraphics{plots/Chap6/Rings/EM/ResponseVsr_17-20_log.eps}
+  }
+ \end{center}
+ \caption[Recoil energy distribution in Z+jet, 17-20 GeV]
+ {\small Average distribution of energy surrounding the leading jet in Z+jet events with $p_{\mathrm T}^{Z}$ between 17 and 20 GeV. }
+ \label{Fig:EMShape17-20}
+\end{figure}
+
+As mentioned in Sec.~\ref{sec:ShoweringIntro} the majority of the energy from the hadronic recoil resides within a narrow energy dense core (the jet).  
+In this section this statement is quantified and the distribution of energy outside of this core is explored.  
+This is done by measuring the average energy density in an annulus with an inner radius of $r-\Delta r$ and an inner radius of $r+\Delta r$, which is defined as
+\begin{equation}
+  \rho\left(r\right)  = \left( \frac{ E\left(r-\Delta r, r+\Delta r\right)}{\pi \left[\left(r +\Delta r\right)^2-\left(r -\Delta r\right)^2\right] E^{\mathrm{jet}}}\right), 
+\end{equation}
+where $E\left(r-\Delta r, r+\Delta r\right)$ is the sum of the energy of all clusters with a distance $R$ from the jet between $r-\Delta r$ and  $r+\Delta r$.  
+As this thesis aims to measure this energy density profile in the context of an MPF based calibration results are obtained using the same selection used in the main analysis (see Sec.~\ref{Sec:SelectionCriteria}), and is also binned in $p_{\mathrm T}^{\mathrm{Ref}}$.  
+The energy distribution using EM scale clusters at three different energies with Z+jet events are shown in Figs.~\ref{Fig:EMShape17-20},~\ref{Fig:EMShape60-80}, and~\ref{Fig:EMShape210-260}.  
+One feature that should be understood is a dip in energy density at the boundary of the jet (in this case at $\Delta R = 0.4$).  
+This dip is not a feature of the recoil or the calorimeter, but of the jet reconstruction algorithm, which creates an object which is centered on the most energetic clusters it contains.  
+
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.55}{
+   \includegraphics{plots/Chap6/Rings/EM/ResponseVsr_60-80_log.eps}
+  }
+ \end{center}
+ \caption[Recoil energy distribution in Z+jet, 60-80 GeV]
+ {\small Average distribution of energy surrounding the leading jet in Z+jet events with $p_{\mathrm T}^{Z}$ between 60 and 80 GeV. }
+ \label{Fig:EMShape60-80}
+\end{figure}
+
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.55}{
+   \includegraphics{plots/Chap6/Rings/EM/ResponseVsr_210-260_log.eps}
+  }
+ \end{center}
+ \caption[Recoil energy distribution in Z+jet, 210-260 GeV]
+ {\small Average distribution of energy surrounding the leading jet in Z+jet events with $p_{\mathrm T}^{Z}$ between 210 and 260 GeV. }
+ \label{Fig:EMShape210-260}
+\end{figure}
 
 \section{Expanded MPF Derivation}
 
 In Sec.~\ref{METProj} a derivation of the MPF was presented which considered only the hard scattering event, ignoring any potential effects of the underlying event.  
-This potential deficiency in the derivation was justified by arguing that the underlying event is on symmetric in $\phi$ and therefor will not contribute on average to the measured MPF response.  
-In this section this assumption will be tested.  
+This potential deficiency in the derivation was justified by arguing that the underlying event is symmetric in $\phi$ when averaged over many events and therefore does not contribute to the measured MPF response.  
+This assumption is tested in this section.  
 
-
-We will begin using the definition of the MPF as seen in Eq.~\ref{EQ:MPFSimple}, with the addition of a term we will call $\Delta^{\mathrm{OA}}$ which will encompass the effect of the other activity on the MPF, 
+The definition of the MPF in Eq.~\ref{EQ:MPFSimple}, is modified by a term $\Delta^{\mathrm{OA}}$ that accounts for the effect of other activity in the event on the MPF, 
 \begin{equation}
   \label{Eq:MPFWithDelta}
   R_{\mathrm{recoil}}=1+\frac{\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}\cdot\hat{p}_{\mathrm T}^{\mathrm{ref}}}{E_{\mathrm T}^{\mathrm{ref}}} + \Delta^{\mathrm{OA}}, 
 \end{equation}
 \noindent
-where we explicitly show that the original derivation assumed that the MET originated completely from the mismeasurement of the energy of the recoil.  
-In an effort to obtain an expression in terms of measurable quantities we will now express $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ as 
+where it is explicitly shown that the original derivation assumed that the MET originated completely from the mismeasurement of the energy of the recoil.  
+In an effort to obtain an expression in terms of measurable quantities $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ is now expressed as 
 
 \begin{equation}
-  \vec{E}_{\mathrm T}^{\mathrm{recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}} + \vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}.   
+  \vec{E}_{\mathrm T}^{\mathrm{miss, recoil}} = \vec{E}_{\mathrm T}^{\mathrm{recoil}} - \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}, 
 \end{equation}
 \noindent 
-We will now use 
+which is to say the amount of energy that isn't measured is equal to the total energy minus the energy that has been measured.  
+Using the response $R_{\mathrm{recoil}}$ of the calorimeter for the recoil, 
 \begin{equation}
   R_{\mathrm{recoil}}\vec{E}_{\mathrm T}^{\mathrm{recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}, 
 \end{equation}
@@ -37,17 +81,17 @@ which leads to
   \vec{E}_{\mathrm T}^{\mathrm{miss, recoil}} = \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}\left(\frac{1-R_{\mathrm{recoil}}}{R_{\mathrm{recoil}}}\right).  
 \end{equation}
 \noindent
-Using this definition of $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ in Eq.~\ref{Eq:MPFWithDelta} and rearranging to solve for $\Delta^{\mathrm{OA}}$ we obtain 
+Using this definition of $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ in Eq.~\ref{Eq:MPFWithDelta} and rearranging to solve for $\Delta^{\mathrm{OA}}$, the following expression is obtained for the contribution of the other activity to the MPF 
 \begin{equation}
   \Delta^{\mathrm{OA}}=\left(R_{\mathrm{recoil}}-1\right)\left(1+\frac{\hat n_{\mathrm{ref}}\cdot \vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}}{R_{\mathrm{recoil}}{E}_{\mathrm T}^{\mathrm{meas, recoil}}}\right).  
 \end{equation} 
-This leads to an expression which describes the effect of the underlying event on the MPF technique.  
-To use this expression we must have at both the response of the recoil and the measured recoil energy, both of which we do not have exactly.  
-We can assume that to first order the effect of this other activity will be small (as the MPF has been successfully used in jet calibration schemes in the past), allowing us to use the MPF itself as a measure of the response of the recoil.  
-Obtaining a measurement of the full energy of the hadronic recoil, with the underlying event remove, at the detector level is also a difficult issue.  
+To use this expression both the response of the recoil and the measured recoil energy must be known, neither of which is true.  
+To first order the effect of the other activity can be assumed to be small (as the MPF has been successfully used in jet calibration schemes in the past).  
+This allows the use of the MPF itself as a measure of the response of the recoil.  
+Obtaining a measurement of the full energy of the hadronic recoil at the detector level with the underlying event removed (and also without including pileup) is also a difficult issue.  
 As the MPF technique already intimately connects the energy of the recoil to the energy of the jet this strategy will be used again.  
-A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which container the vast majority of the hard scattering along with a significant amount of underlying event.   
-
+A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which contains the vast majority of the hard scattering along with a significant amount of underlying event.   
+As these are non-standard jet collections within the ATLAS collaboration the residual pileup correction is not available for all sizes considered, however it is still possible to remove the majority of the pileup from each jet using the jet area subtraction as described in Sec.~\ref{ATLASJES}.  
 
 
 
