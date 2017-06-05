@@ -20,8 +20,12 @@
 %\usepackage{slashbox}
 \usepackage{float}
 \usepackage{amsmath}
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{needspace}
 \usepackage{afterpage}
+\usepackage[sort&compress]{natbib}
 \usepackage[titletoc]{appendix}
 
 % Load the package
@@ -62,7 +66,7 @@
 \author{Arthur James Horton}
 \qualifications{BSc., University of Prince Edward Island 2010}
 \qualifications{MSc., Simon Fraser University 2013}
-\title{IN-SITU MEASUREMENT OF THE JET ENERGY SCALE AT ATLAS}
+\title{IN-SITU MEASUREMENT OF THE JET ENERGY SCALE AND STUDIES OF JET STRUCTURE AT ATLAS}
 \degree{Doctor of Philosophy}
 \department{Physics \\ Faculty of Science}
 \submitdate{????}
@@ -80,12 +84,12 @@ Associate Professor}
 \committee{Dr. Michel Vetterli, Senior Supervisor\\
 Professor}
 \committee{Dr. Dugan O'Neil, Supervisor\\
-Associate Professor}
+Professor}
 \committee{Dr. Bernd Stelzer, Supervisor\\
-Assistant Professor}
-\committee{Dr. Corina Andreoiu, Internal Examiner\\
-Assistant Professor\\
-Department of Chemistry}
+Associate Professor}
+%\committee{Dr. Corina Andreoiu, Internal Examiner\\
+%Assistant Professor\\
+%Department of Chemistry}
 
 \approvaldate{22 March, 2013}
 
@@ -145,20 +149,20 @@ Department of Chemistry}
 \include{chap3}
 \include{chap4}
 \include{chap5}
-%\include{chap6}
+\include{chap6}
 %\include{chap7}
-%\appendix
-%\begin{appendices}
-%\input{appendixA}
+\appendix
+\begin{appendices}
+\input{appendixJetRecoBias}
 %\input{appendixB}
 %\input{appendixC}
 %\input{appendixD}
 %\input{appendixE}
-%\end{appendices}
+\end{appendices}
 
-%\backmatter
-%\newpage
-%\include{appendices}
+\backmatter
+\newpage
+\include{appendices}
 
 
 \backmatter

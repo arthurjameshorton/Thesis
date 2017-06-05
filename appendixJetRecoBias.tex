@@ -1,0 +1,107 @@
+\chapter{Jet Reconstruction Threshold Bias}
+\label{App:LowEBias}
+
+\begin{figure}[!ht]
+  \begin{center}
+  \scalebox{0.6}{
+    \includegraphics{plots/Appendix/JetReco/ExampleDistribution.eps}
+  }
+  \end{center}
+  \caption[Jet reconstruction threshold bias]
+  {\small Example showing how the jet reconstruction bias affects the jet response.  By removing the jets which fluctuate to have the lowest energy in a given bin the mean jet response is raised.  Without the reconstruction threshold the average reconstructed jet energy here is 25 GeV, but with the inclusion of the reconstruction threshold that average reconstructed energy raises to 25.54 GeV. }
+  \label{plot:ThesholdBias}
+\end{figure}
+
+Figure~\ref{plot:ThesholdBias} shows how the reconstruction threshold can affect the average measured jet energy in a given reference object bin.  
+While for higher energies (further from this threshold) it is possible to capture the true mean of the distribution using a Gaussian fit while performing a $p_{\mathrm T}$ balance style calibration this is not the case for the MPF.  
+This is because the MPF measures the response using the MET, so this distribution becomes smeared and remains quite Gaussian down to the lowest energies considered.  
+The bias at low $p_{\mathrm T}$ is a real effect in the ATLAS jet collections, so it must be accounted for when performing calibrations.  
+To account for this bias in the fit to the response the biased response is first written as
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = \frac{\langle E_{\mathrm{jet}}^{\mathrm{measured}}\rangle}{E_{\mathrm{jet}}^{\mathrm{true}}}
+\end{equation}
+\noindent
+or
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = \frac{1}{E_{\mathrm{jet}}^{\mathrm{true}}} \frac{\int_{E_{\mathrm {threshold}}}^{\infty} E\,\mathrm{exp}\left( -\frac{\left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right) dE}{\int_{E_{\mathrm {threshold}}}^{\infty}\mathrm{exp}\left( -\frac{\left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right) dE}, 
+\end{equation}
+\noindent
+where $E_{\mathrm{jet}}^{\mathrm{mean}}$ is the mean measured jet energy in the absence of the jet reconstruction threshold, that is to say
+\begin{equation}
+  E_{\mathrm{jet}}^{\mathrm{mean}} = R_{\mathrm{jet}}E_{\mathrm{jet}}.
+  \label{Eq:MeanJet}
+\end{equation}
+
+
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = R_{\mathrm{jet}} + \frac{1}{E_{\mathrm{jet}}^{\mathrm{true}}} \frac{\int_{E_{\mathrm {threshold}}}^{\infty} \left(E - R_{\mathrm{jet}}E_{\mathrm{jet}}^{\mathrm{true}}\right)\mathrm{exp}\left( -\frac{\left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right) dE}{\int_{E_{\mathrm {threshold}}}^{\infty}\mathrm{exp}\left( -\frac{\left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right) dE} 
+\end{equation}
+
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = R_{\mathrm{jet}} + 
+  \frac{
+    2\sigma^2
+   }{
+     E_{\mathrm{jet}}^{\mathrm{true}}
+   } 
+   \frac{
+     \int_{E_{\mathrm {threshold}}}^{\infty} 
+     \frac{
+       \left(E - E_{\mathrm{jet}}^{\mathrm{mean}}\right)
+     }{
+       2\sigma^2
+     }\mathrm{exp}\left( -
+     \frac{
+       \left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2
+     }{
+       2\sigma^2
+     }\right) dE
+   }{
+     \int_{E_{\mathrm {threshold}}}^{\infty}\mathrm{exp}\left( -
+     \frac{
+       \left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2
+     }{
+      2\sigma^2}\right) dE
+     } 
+\end{equation}
+
+
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = R_{\mathrm{jet}} + 
+    \frac{
+      \sigma^2
+    }
+    {E_{\mathrm{jet}}^{\mathrm{true}}} 
+    \frac{
+      \mathrm{exp}\left( -
+      \frac{
+        \left(E_{\mathrm {threshold}}-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2
+      }
+      {2\sigma^2}\right)
+    }
+    {\int_{E_{\mathrm {threshold}}}^{\infty}\mathrm{exp}\left( -\frac{\left(E-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right) dE} 
+\end{equation}
+
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = R_{\mathrm{jet}} + 
+    \frac{
+      \sqrt{\pi}\sigma^2
+    }
+    {2E_{\mathrm{jet}}^{\mathrm{true}}} 
+    \frac{
+      \mathrm{exp}\left( -
+      \frac{
+        \left(E_{\mathrm {threshold}}-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2
+      }
+      {2\sigma^2}\right)
+    }
+    {\left(1-\mathrm{erf}\left( -\frac{\left(E_{\mathrm {threshold}}-E_{\mathrm{jet}}^{\mathrm{mean}}\right)^2}{2\sigma^2}\right)\right)}
+\end{equation}
+
+\begin{equation}
+  R_{\mathrm{jet}}^{\mathrm{biased}} = R_{\mathrm{jet}} + B.
+\end{equation}
+On a more practical note while using this function to fit the response as a function of $p_{\mathrm T}$ $E_{\mathrm{jet}}^{\mathrm{mean}}$ is replaced using Eq.~\ref{Eq:MeanJet}.  
+$\sigma$ is allowed to be determined while the fit is performed as the resolution is not known \textit{a priori}, and $E_{\mathrm {threshold}}$ is allowed to vary as the jet reconstruction threshold in Run 2 at ATLAS is set at a calibrated scale and not at the reconstructed scale.  
+
+

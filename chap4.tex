@@ -93,13 +93,16 @@ This dependence of the fraction of EM energy on the total energy of the incident
 Another function that has been used to model the EM fraction with success is 
 \begin{equation}
   \label{Wigmans}
-  f_{\mathrm{em}}\left(E\right)=a_0+a_1\mathrm{ln}\frac{E}{E_{\mathrm{scale}}}+a_2\left(\mathrm{ln}\frac{E}{E_{\mathrm{scale}}}\right)^2.
+  f_{\mathrm{em}}\left(E\right)=a_0+a_1\mathrm{ln}\frac{E}{E_{\mathrm{scale}}}, 
+%+a_2\left(\mathrm{ln}\frac{E}{E_{\mathrm{scale}}}\right)^2, 
 \end{equation}
-
+\noindent
+where variations including higher orders of $\mathrm{ln}\frac{E}{E_{\mathrm{scale}}}$ have been used as well, with ATLAS previously including both $\mathrm{ln}\left(\frac{E}{E_{\mathrm{scale}}}\right)^2$ and $\mathrm{ln}\left(\frac{E}{E_{\mathrm{scale}}}\right)^3$ terms into their fit~\cite{ATLAS-CONF-2010-056}~\cite{ATLAS-CONF-2011-032}.  
 The response of an entire jet ($R_{\mathrm{jet}}$) can be expressed as 
 \begin{equation}
   R_{\mathrm{jet}}\left(E\right)=w_h\,r\left(w_h\,E\right)+w_e\,e\left(w_e\,E\right)
 \end{equation}
+\noindent 
 along with Eq.~\ref{SingleParticleResponse} and either Eq.~\ref{Grooms} or Eq.~\ref{Wigmans}, where $w_h$ and  $w_e$ are the fractions of particles in the jet incident on the calorimeter that interact hadronically or electromagnetically, respectively.  
 These quantities are solely dependent on the parton shower and hadronization processes and are independent of any subsequent showering within the detector.   
 
