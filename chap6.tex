@@ -100,50 +100,48 @@ Using this definition of $\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}$ in Eq.~\r
 To use this expression both the response of the recoil and the measured recoil energy must be known, neither of which is true.  
 To first order the effect of the other activity can be assumed to be small (as the MPF has been successfully used in jet calibration schemes in the past).  
 This allows the use of the MPF itself as a measure of the response of the recoil.  
-As the MPF is subject to fluctuations both of the response of the recoil and of the response of the other activity in the event what is used is the average response of the MPF.  
-To do this the binned response (using the procedure described in Sec.~\ref{MeasureJES}) is fit as a function of reference $p_{\mathrm T}$.  
-The function used to fit this dependence is 
-\begin{equation}
-  R_{\mathrm{recoil}}\left(E\right)=a_0+a_1\mathrm{ln}\left(\frac{E}{E_{\mathrm{scale}}}\right) +a_2\mathrm{ln}\left(\frac{E}{E_{\mathrm{scale}}}\right)^2+a_3\mathrm{ln}\left(\frac{E}{E_{\mathrm{scale}}}\right)^3 + B, 
-\end{equation}
-which is the nominal fit function used by ATLAS (see Sec.~\ref{sec:JetResponse}), with $E_{\mathrm{scale}}=100$ and with an additional term $B$ which is to describe the bias in the response at low energy caused by the jet reconstruction threshold.  
-This additional term is introduced elsewhere (see ~\cite{DougPHD}) and the derivation is reproduced in Appendix~\ref{App:LowEBias} for completeness sake.  
-This fit to extract an average recoil response is done for both the data and Monte Carlo samples, as they have been found in Chap~\ref{JES2} to have different responses.  
-An example of the fitted response is shown in Fig.~\ref{Fig:ResponseFitExample}
-
-\begin{figure}[!ht]
- \begin{center}
-  \scalebox{0.55}{
-   \includegraphics{plots/Chap6/OtherActivity/Fit/ResponseVsPt_Z_EM_Data_2016.eps}
-  }
- \end{center}
- \caption[Jet Response fit example]
- {\small EM+GSC scale MPF response in 2016 data using Z+jet events along with fit using the function described in this section.  }
- \label{Fig:ResponseFitExample}
-\end{figure}
-
-
 Obtaining a measurement of the full energy of the hadronic recoil at the detector level with the underlying event removed (and also without including pileup) is also a difficult issue.  
 As the MPF technique already intimately connects the energy of the recoil to the energy of the jet this strategy will be used again.  
 A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which contains the vast majority of the hard scattering along with a significant amount of underlying event.   
 As these are non-standard jet collections within the ATLAS collaboration the residual pileup correction is not available for all sizes considered, however it is still possible to remove the majority of the pileup from each jet using the jet area subtraction as described in Sec.~\ref{ATLASJES}.  
+
+It is worth noting a few limitations of this technique before moving further.  
+Just like in the derivation of the MPF substituting the energy of the leading jet for the energy of the recoil is a sensible substitution only when the leading jet does make up the majority of the recoil (when the balance is not spoils by ISR/FSR).  
+This is ensured once again by applying both a $\Delta\phi$ and subleading jet (J2) requirement.  
+In the case of this analysis $\Delta\phi\left(\mathrm{leading jet, ref}\right)$>2.9 and the $p_{\mathrm T}$ of the subleading jet without calibration must be less than 7\% of the $p_{\mathrm T}$ of the reference object ($p_{\mathrm T}^{J2}<0.07$ $p_{\mathrm T}^{\mathrm{Ref}}$).  
+At low energies pileup becomes a larger issue, first by pileup jets being misidentified as the subleading jet which changes how strict the previous requirement is applied, and then by pileup jets being misidentified as the leading jet causing the event to fail the $\Delta\phi$ requirement.  
+These issues 
+An example of how these effects change the measured response distribution in a $p_{\mathrm T}$ based response measurement can be seen in Fig.~\ref{Fig:BalDistExample}.  
+
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.55}{
+   \includegraphics[width=0.9\linewidth]{plots/Chap6/OtherActivity/Dists/OADist_Cone7_Bin3.eps}
+%BalanceOtherActivity7_bin_3_30.00_log.eps}
+  }
+ \end{center}
+ \caption[Example $\Delta^{\mathrm{OA}}$ distribution]
+ {\small Distribution of $\Delta^{\mathrm{OA}}$ in 2016 data at EM scale using Z+jet events, with 30 GeV $< p_{\mathrm T}^Z <$ 35 GeV.  Made using anti-$k_{\mathrm t}$ $r$=0.7 jets as an estimate for the hadronic recoil energy.  }
+ \label{Fig:BalDistExample}
+\end{figure}
 
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity1_Ratio.eps}
+      \includegraphics{plots/Chap6/OtherActivity/OtherActivity1VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.1}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
-    \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity4_Ratio.eps}
+   \scalebox{0.4}{
+      \includegraphics{plots/Chap6/OtherActivity/OtherActivity4VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.4}
   \end{subfigure}
-  \caption{The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA} and using the leading Anti-$k_\mathrm{t}$ R=0.1/0.4 jet as an estimate for the energy of the full recoil.  }
+  \caption[$\Delta^{\mathrm{OA}}$ using Anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
+{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading Anti-$k_\mathrm{t}$ R=0.1/0.4 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
   \label{Fig:OA_1-4}
 \end{figure}
 
@@ -153,17 +151,21 @@ As these are non-standard jet collections within the ATLAS collaboration the res
   \begin{subfigure}{.5\textwidth}
     \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity7_Ratio.eps}
+      \includegraphics{plots/Chap6/OtherActivity/OtherActivity7VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity10_Ratio.eps}
+      \includegraphics{plots/Chap6/OtherActivity/OtherActivity10VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=1.0}
   \end{subfigure}
-  \caption{The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA} and using the leading Anti-$k_\mathrm{t}$ R=0.1/0.4 jet as an estimate for the energy of the full recoil.  }
+  \caption[$\Delta^{\mathrm{OA}}$ using Anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
+{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading Anti-$k_\mathrm{t}$ R=0.7/1.0 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
   \label{Fig:OA_7-10}
 \end{figure}
+
+
+
 
