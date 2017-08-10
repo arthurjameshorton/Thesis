@@ -6,6 +6,7 @@ The flow of energy across the boundary of the jet definition is also studied (se
 Finally some key assumptions used in the derivation of the MPF are examined, including the relationship between the response of the recoil and the response of the jet, as well as the effect of the underlying event on the derivation of the MPF.  
 
 \section{Distribution of Hadronic Recoil Energy}
+\label{Sec:EnergyDensity}
 \begin{figure}[!ht]
  \begin{center}
   \scalebox{0.55}{
@@ -108,9 +109,8 @@ As these are non-standard jet collections within the ATLAS collaboration the res
 It is worth noting a few limitations of this technique before moving further.  
 Just like in the derivation of the MPF substituting the energy of the leading jet for the energy of the recoil is a sensible substitution only when the leading jet does make up the majority of the recoil (when the balance is not spoils by ISR/FSR).  
 This is ensured once again by applying both a $\Delta\phi$ and subleading jet (J2) requirement.  
-In the case of this analysis $\Delta\phi\left(\mathrm{leading jet, ref}\right)$>2.9 and the $p_{\mathrm T}$ of the subleading jet without calibration must be less than 7\% of the $p_{\mathrm T}$ of the reference object ($p_{\mathrm T}^{J2}<0.07$ $p_{\mathrm T}^{\mathrm{Ref}}$).  
+In the case of this analysis $\Delta\phi\left(\mathrm{leading jet, ref}\right)$>2.9 and the $p_{\mathrm T}$ of the subleading jet without calibration must be less than 5\% of the $p_{\mathrm T}$ of the reference object ($p_{\mathrm T}^{J2}<0.05$ $p_{\mathrm T}^{\mathrm{Ref}}$).  
 At low energies pileup becomes a larger issue, first by pileup jets being misidentified as the subleading jet which changes how strict the previous requirement is applied, and then by pileup jets being misidentified as the leading jet causing the event to fail the $\Delta\phi$ requirement.  
-These issues 
 An example of how these effects change the measured response distribution in a $p_{\mathrm T}$ based response measurement can be seen in Fig.~\ref{Fig:BalDistExample}.  
 
 \begin{figure}[!ht]
@@ -125,18 +125,19 @@ An example of how these effects change the measured response distribution in a $
  \label{Fig:BalDistExample}
 \end{figure}
 
+
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity1VsPt_Z_EM_Data.eps}
+      \includegraphics{plots/Chap6/OtherActivity/Z/OtherActivity1VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.1}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
    \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity4VsPt_Z_EM_Data.eps}
+      \includegraphics{plots/Chap6/OtherActivity/Z/OtherActivity4VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.4}
   \end{subfigure}
@@ -151,13 +152,13 @@ An example of how these effects change the measured response distribution in a $
   \begin{subfigure}{.5\textwidth}
     \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity7VsPt_Z_EM_Data.eps}
+      \includegraphics{plots/Chap6/OtherActivity/Z/OtherActivity7VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
     \scalebox{0.4}{
-      \includegraphics{plots/Chap6/OtherActivity/OtherActivity10VsPt_Z_EM_Data.eps}
+      \includegraphics{plots/Chap6/OtherActivity/Z/OtherActivity10VsPt_Z_EM_Data.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=1.0}
   \end{subfigure}
@@ -165,6 +166,39 @@ An example of how these effects change the measured response distribution in a $
 {\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading Anti-$k_\mathrm{t}$ R=0.7/1.0 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
   \label{Fig:OA_7-10}
 \end{figure}
+
+This measure of the effect of the other activity on the MPF is shown as a function of $p_{\mathrm T}^{\mathrm Ref}$ using various jet sizes as a substitute for the energy of the recoil in Figs.~\ref{Fig:OA_1-4}~and~\ref{Fig:OA_7-10}.  
+As seen in Sec.~\ref{Sec:EnergyDensity} the energy density of jets in the energy range considered remains large compared to that of pileup/underlying activity out to at least a distance of $\Delta\mathrm{r}=$ 0.4 away from the core.  
+For this reason the use of jets reconstructed using size parameters lower than this value as a stand in for the energy of the recoil is known to be a bad approximation, and therefore this plots are included only for illustrative purposes.  
+As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensitive to the choice of cone size at small values but it tends to show that the MPF is not effected by the other activity in the even when using a suitably large radius jet which includes the full recoil.  
+
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap6/OtherActivity/Z/OAVsCone_60-80.eps}
+    }
+    \caption{60 GeV $< p_{\mathrm{T}}^{\mathrm{ref}} < $ 80 GeV}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap6/OtherActivity/Z/OAVsCone_350-800.eps}
+    }
+    \caption{350 GeV $< p_{\mathrm{T}}^{\mathrm{ref}} < $ 800 GeV}
+  \end{subfigure}
+  \caption[$\Delta^{\mathrm{OA}}$ using various cone sizes]
+{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The dependence of this quantity on the size of the jet used as a stand in for the total recoil is shown for two $p_{\mathrm{T}}^{\mathrm {ref}}$ bins.  Results shown have been measured using EM scale jets from the 2016 ATLAS dataset.  }
+  \label{Fig:OA_ConeSize}
+\end{figure}
+
+
+
+
+
+
+
 
 
 
