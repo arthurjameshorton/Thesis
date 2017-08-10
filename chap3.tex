@@ -77,30 +77,30 @@ The most commonly used inputs to jet finding algorithms in ATLAS are topological
     }
   \end{center}
   \caption[Topoclustering diagram]
-  {\small Example of the 4-2-0 topocluster algorithm showing how cells passing the different thresholds are grouped together.  }
+  {\small Example of the 4-2-0 topo cluster algorithm showing how cells passing the different thresholds are grouped together.  }
 \end{figure}
 
 In the context of high energy physics detectors topological (topo) clustering is an algorithm where individual calorimeter cells are grouped together based on how significant the energy deposited within a given cell is relative to its neighbours and to the expected noise.  
 Topo clusters can have a wide variety of three dimensional shapes, which allows them to include a large fraction of the energy deposited by incoming particles while ignoring much of the noise.  
 
 Topo clustering begins by determining the significance of the energy deposited within each cell, which is defined as the absolute value of the measured energy divided by the average expected noise for that cell.  
-All cells above some predetermined threshold $t_{\mathrm{seed}}$, referred to as seeds, are then put into a list proto-clusters.  
-Next for each seed, cells with an energy above a second threshold, $t_{\mathrm{neighbor}}$, and which are ``neighbors'' to a proto-cluster are added to that proto-cluster.  
-In this case neighbors consist of the eight nearest neighbors and next to nearest neighbors in the same layer of the calorimeter as the seed cell, as well as all cells in adjacent layers which overlap or partially overlap any of these nine cells.  
-Next-to-nearest neighbours are then checked until there are no longer any neighbor cells above $t_{\mathrm{neighbor}}$.  
-The final stage of cluster building involves adding a single final layer around each proto-cluster of all neighboring cells above some third threshold, $t_{\mathrm{cell}}$~\cite{1603.02934}.  
-The thresholds used in topoclustering are usually reported as $t_{\mathrm{seed}}-t_{\mathrm{neighbor}}-t_{\mathrm{cell}}$; ATLAS uses a 4-2-0 clustering scheme.  
+All cells above some predetermined threshold $t_{\mathrm{seed}}$, referred to as seeds, are then put into a list of proto-clusters.  
+Next for each seed, cells with an energy above a second threshold, $t_{\mathrm{neighbour}}$, and which are ``neighbours'' to a proto-cluster are added to that proto-cluster.  
+In this case neighbours consist of the four nearest neighbours in the same layer of the calorimeter as the seed cell, as well as all cells in adjacent layers which overlap or partially overlap with the cell in question.  
+Neighbours to proto-clusters are iteratively added to proto clusters until there are no longer any neighbour cells above $t_{\mathrm{neighbour}}$.  
+The final stage of cluster building involves adding a single final layer around each proto-cluster of all neighbouring cells above some third threshold, $t_{\mathrm{cell}}$~\cite{1603.02934}.  
+The thresholds used in topoclustering are usually reported as $t_{\mathrm{seed}}-t_{\mathrm{neighbour}}-t_{\mathrm{cell}}$; ATLAS uses a 4-2-0 clustering scheme.  
 In addition to 4-2-0, 4-3-0 topoclusters are also used in ATLAS to reconstruct low $p_T$ electrons, but they are not considered in this thesis.   
 
 After all clusters have been fully formed there is an additional stage where clusters are split.  
-This begins by looking for local maxima within a given cluster, which are defined as a cell having an energy above 500 MeV with at least four neighbours, none of which have a higher energy than the cell in question.  
+This process begins by looking for local maxima within a given cluster, which are defined as a cell having an energy above 500 MeV with at least four neighbours, none of which have a higher energy than the cell in question.  
 Clusters are built surrounding these local maxima ignoring thresholds.  
 Cells at the boundary of these two subclusters have their energy split between the two, where the splitting is determined using the relative energy of the subclusters as well as the distance between the splitting cell and the two proto-cluster centres.  
-This splitting is done to improve both the Jet and the MET resolution by allowing each cluster to better represent a single stable particle at truth level.  
+This splitting is done to improve both the Jet and the \gls{MET} (see Sec.~\ref{Sec:MET}) resolution by allowing each cluster to better represent a single stable particle at truth level.  
 
  
 While topoclusters do a relatively good job of representing the visible energy deposited in the detector by a single particle they are not perfect.  
-Clustering may leave some visible energy outside of the bounds of a cluster, energy may be deposited in dead material, or the energy may simply be mis-measured as the response to EM energy of the ATLAS detector (e) is not equal to the response of hadronic energy deposits ($h$).  
+Clustering may leave some visible energy outside of the boundaries of a cluster, energy may be deposited in dead material, or the energy may simply be mis-measured as the response to EM energy of the ATLAS detector (e) is not equal to the response of hadronic energy deposits ($h$).  
 These are the factors that motivate the second collection of clusters used by ATLAS.  
 This second collection begins with the original (EM scale) clusters and applies a series of cell-by-cell weights based on energy density in an attempt to correct these problems at the cluster level.  
 The weights are one for EM-like deposits (large density) and greater than one for hadron-like deposits (small density).  
@@ -108,7 +108,7 @@ This calibration scheme is known as local hadronic cell weighting, or the LC sca
 The applied corrections depend on energy-based moments of the cluster.  
 The depth and density of the cluster is used for EM/Had identification for example.  
 The correction also depends on the physical location of the cluster which is used to estimate the energy lost in dead material.  
-This calibration is Monte Carlo based.  
+This calibration is based on Monte Carlo simulation.   
 
 \subsection{Jet Finding}
 \label{Sec:JetFinding}
@@ -136,15 +136,14 @@ This calibration is Monte Carlo based.
   \caption{Jet existence depending on collinear radiation.}
  \end{subfigure}
  \caption[Effect of radiation on jet building.]
-  {A few examples of how soft infrared/collinear radiation can affect the reconstructed jet topology of an event.  In example $a$ soft infrared radiation causes two potential jets to merge into a single jet.  In example $b$ collinear radiation causes the central particle to be lower down the list of jet seeds, changing the jet topology.  Example $c$ shows how the presence of collinear radiation has the possibility to lower the reconstructed energy below the jet seed threshold.  Figures from ~\cite{Blazey:2000qt}. }
+  {A few examples of how soft infrared/collinear radiation can affect the reconstructed jet topology of an event.  In example $a)$ soft infrared radiation causes two potential jets to merge into a single jet.  In example $b)$ collinear radiation causes the central particle to be lower down the list of jet seeds, changing the jet topology.  Example $c)$ shows how the presence of collinear radiation has the possibility to lower the reconstructed energy below the jet seed threshold.  Figures from ~\cite{Blazey:2000qt}. }
  \label{Fig:IRCoSafety}
 \end{figure}
 
 In order to meaningfully compare experimental results and fixed order QCD calculations jet algorithms must behave in a way that follows certain criteria~\cite{Blazey:2000qt}.  
-These criteria are infrared and collinear safety, which mean that the reconstruction should be insensitive to soft and collinear radiation, respectively.  
+Two of these criteria are infrared and collinear safety, which mean that the reconstruction should be insensitive to soft and collinear radiation, respectively (see Fig.~\ref{Fig:IRCoSafety}).  
 Without these criteria the jet topology in simulated events would be very dependent on how the low $p_{\mathrm T}$/small angle singularities in the parton splitting functions are handled, making it difficult to compare theory to experiment.  
-A family of jet finding algorithms used in ATLAS that satisfies these criteria is the $k_t$ family~\cite{Cacciari:2008gp}.  
-Specifically $k_t$ jets, Cambridge/Aachen jets, and the most commonly used type, anti-$k_t$ jets.  
+A family of jet finding algorithms used in ATLAS that satisfies these criteria is the $k_t$ family~\cite{Cacciari:2008gp}; specifically $k_t$ jets, Cambridge/Aachen jets, and the most commonly used type, anti-$k_t$ jets.  
 Objects that are used as inputs to these algorithms by ATLAS include tracks, truth particles\footnote{In ATLAS truth particles are simulated particles that are stable, which is defined as having a lifetime $c\tau _{\mathrm 0}$ greater than 10 mm.  The list of truth particles does not include particles that are the result of showering in the detector, and for jet building purposes muons and neutrinos are also not included~\cite{ATL-PHYS-PUB-2015-013}.}  (in Monte Carlo samples), clusters, etc.  
 These algorithms all begin by constructing a list of proto-jets, which consists of four vectors representing all of the inputs at the desired scale (e.g. EM or LC clusters for calorimeter jets).  
 Next a ``distance'' in momentum/angle space between every pair of proto-jets is calculated, defined as:
@@ -156,10 +155,10 @@ Next a ``distance'' in momentum/angle space between every pair of proto-jets is 
 where $\Delta_{ij}$ is  
 
 \begin{equation}
-  \Delta_{ij} = \sqrt{ \left(\phi_i-\phi_j\right)^2+\left(\eta_i-\eta_j\right)^2}
+  \Delta_{ij} = \sqrt{ \left(\phi_i-\phi_j\right)^2+\left(\eta_i-\eta_j\right)^2}, 
 \end{equation}
 \noindent
-and $R$ is a tunable size parameter, and the parameter $n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms respectively.  
+$R$ is a tunable size parameter, and the parameter $n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms respectively.  
 Additionally for each proto-jet a distance to the beam pipe is calculated using:
 
 \begin{equation}
@@ -172,7 +171,8 @@ Various four-momentum combination schemes exist ($p_{\mathrm T}$ weighted, $p_{\
 
 While the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms are all used in ATLAS they each serve a different purpose. 
 One large difference between the $k_t$ and the anti-$k_t$ algorithms is that the $k_t$ algorithm begins by combining the lowest $p_{\mathrm T}$ proto-jets while the anti-$k_t$ begins with larger $p_{\mathrm T}$ proto-jets.  
-This means that proto-jets are quite stable in location as they grow in the anti-$k_t$ algorithm (which tends to lead to quite circular jets) this is not the case for $k_t$ jets, which tend to have a wide variety of final jet shapes (see Fig.~\ref{Fig:ExampleJets}).  
+This means that proto-jets are quite stable in location as they grow in the anti-$k_t$ algorithm, which tends to lead to quite circular jets.  
+This is not the case for $k_t$ jets, which tend to have a wide variety of final jet shapes (see Fig.~\ref{Fig:ExampleJets}).  
 This $k_t$ growth can lead to some pathological cases where the jet grows well beyond what one would intuitively call a jet.  
 
 \begin{figure}[!ht]
@@ -199,7 +199,7 @@ This $k_t$ growth can lead to some pathological cases where the jet grows well b
 
 
 \section{Missing Transverse Energy}
-
+\label{Sec:MET}
 While large multipurpose detectors like ATLAS do a good job of detecting a wide range of particles they do not and cannot measure 100\% of the energy of every particle produced in every collision.  
 Some of this missed energy is from particles interacting with the detector and having a response lower than one.  
 Sometimes the more interesting energy that is undetected comes from particles that do not interact with the detector at all (eg. neutrinos).  
@@ -213,7 +213,7 @@ The MET, like jets, can be constructed using a number of different inputs at var
 For many analyses in ATLAS the most appropriate MET to use is one where all physics objects are used at their fully calibrated scales.  
 This is done by starting with some base collection (EM clusters, LC clusters, tracks, etc.) then adding physics objects while removing overlapping base objects to avoid double counting.  
 The final MET is calculated by taking the negative vector sum of the transverse momentum of the remaining base objects and all physics objects.  
-The work described in this thesis uses topocluster based METs with only photons, electrons, and muons being replaced by the fully calibrated objects.  
+The work described in this thesis uses topo cluster based MET definitions with only photons, electrons, and muons being replaced by the fully calibrated objects.  
 
 
 
