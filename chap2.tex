@@ -196,13 +196,14 @@ $\chi_{0}$, known as the radiation length, defines this energy loss rate and is 
 
 \begin{figure}[!ht]
   \begin{center}
-    \scalebox{0.5}{
-      \includegraphics{plots/Chap2/rpp_icru49_cu_col.eps}
+    \scalebox{0.8}{
+      \includegraphics{plots/Chap2/elossfrac_06.eps}
+%rpp_icru49_cu_col.eps}
     }
   \end{center}
   \caption[Stopping power for positive muons in copper.]
-  {\small Stopping power ($\frac{-dE}{dx}$) for positive muons in copper as a function of $\beta\gamma=\frac{p}{Mc}$, see ref.~\cite{PDG}.  Here $\delta$ is to account for the muon polarizing the material near itself which screens out charges further from the away from the muon (dependent on density).  } 
-  \label{StoppingMuon}
+  {\small Energy loss per radiation length as a function of particle energy for electrons/positrons in lead~\cite{PDG}. } 
+  \label{StoppingElectron}
 \end{figure}
 
 The dominant interaction mechanism for high energy photons is pair production, which results in a high energy electron/positron pair, and light high energy charged particles lose energy primarily by emitting photons.  
@@ -369,7 +370,7 @@ The number of sampling layers and the granularity of each of the regions of the 
 
 \subsection{ATLAS Hardware: Muon Spectrometer}
 
-Muons are 200 times heavier than electrons, are typically minimum ionizing at the LHC (see Fig.~\ref{StoppingMuon}) and therefore do not produce electromagnetic showers.  
+Muons are 200 times heavier than electrons, are typically minimum ionizing at the LHC and therefore do not produce electromagnetic showers.  
 Since muons also do not interact via the nuclear force, they do not produce hadronic showers either.  
 Thankfully as they are charge carriers they do interact with the tracking systems in the inner detector, and with the help of a second tracking system beyond the hadronic calorimeter they are easy to identify as they are the only ionizing particles that regularly pass through the entire calorimeter.  
 The magnetic field for the muon spectrometer is provided by large superconducting air-core toroids, with the field in the central region ($\mid\eta\mid$< 1.4) being provided by the barrel toroid and in the forward regions (1.6 <$\mid\eta\mid$< 2.7) by two relatively smaller endcap magnets.  
@@ -426,7 +427,7 @@ It uses a courser object definition than the full event reconstruction.
 Selections can still be made based on energy thresholds for given objects, as well as more topological information like particle isolation requirements or a specified range for the invariant mass of a combination of objects.  
 
 The second stage of the trigger system, which is implemented on a software computer farm, is known as the high-level trigger, or HLT.  
-In the HLT some full offline-like unseeded reconstruction algorithms can be run, including topoclustering (see Sec.~\ref{Sec:Topocluster}) and muon reconstruction.  
+In the HLT some full offline-like unseeded reconstruction algorithms can be run, including topo-clustering (see Sec.~\ref{Sec:Topocluster}) and muon reconstruction.  
 This is not always the case.  
 For example L1 tracking information is used to seed tracks in the HLT to reduce the reconstruction time.  
 The HLT is designed to reduce the event rate from the 100 kHz output of the L1 trigger down to 600 Hz, which can be increased to 1-1.5 kHz at peak luminosities.  

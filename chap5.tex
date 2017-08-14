@@ -48,7 +48,7 @@ Differences in the distributions of these shower shape variables have been obser
 This mismodeling is compensated by applying additional corrections to shower shape variables in the Monte Carlo samples before performing the photon selection.  
 
 To further reduce the number of jets faking photons an additional $p_{\mathrm{T}}$ dependent isolation criterion is applied to the photon, capitalizing on the fact that energy deposits from jets are more diffuse than those from photons.  
-This cut requires that the sum of the energy in topoclusters within a distance $\Delta R=\sqrt{\eta^2+\phi^2}$ = 0.4 of the photon, but excluding the photon itself, must be less than 0.022 $p_{\mathrm{T}}$ + 2.45 GeV.  
+This cut requires that the sum of the energy in topo-clusters within a distance $\Delta R=\sqrt{\eta^2+\phi^2}$ = 0.4 of the photon, but excluding the photon itself, must be less than 0.022 $p_{\mathrm{T}}$ + 2.45 GeV.  
 There is also a requirement that the sum of the momentum of tracks within $\Delta R$ = 0.2 of the candidate photon, excluding those identified as conversion electrons/photons, is less than 5\% of the momentum of the photon.  
 Finally it has been found that the purity of the converted photons can be further enhanced by applying a requirement that the amount of energy of the reconstructed cluster roughly matches the energy of the track.  
 In this study, for a two-track converted photon the energy of the cluster divided by the momentum of the track must be between 0.5 and 1.5, with the requirement loosened to be less than 2.0 for single-track converted photons.  
@@ -80,7 +80,7 @@ Muons also have predefined identification levels~\cite{ATL-PHYS-PUB-2015-037}; t
 A loose isolation cut is also used for muons, where the isolation area is within $\Delta R$ = 0.2 for the calorimeter and $\Delta R$ = 0.3 for the tracking detector.  
 
 \subsection{Jet Selection}
-The jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topoclusters as input at both the EM and LC scale, and with size parameter $R$=0.4.  
+The jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topo-clusters as input at both the EM and LC scale, and with size parameter $R$=0.4.  
 As jets are found by searching for large concentrated deposits of energy in the calorimeter, without further conditions imposed, photons and electrons are also expected to appear in the collection of reconstructed jets and must therefore be removed.  
 Jets within $\Delta R$ = 0.2 of a photon identified by a separate algorithm (see Sec.~\ref{Sec:Photons}) are not considered, and neither are jets within $\Delta R$ = 0.35 of a lepton.  
 
@@ -665,12 +665,15 @@ Note that by their very nature (they contain a larger fraction of EM components)
 
 \subsection{Monte Carlo Generator}
 
-To assess the impact of the modeling choices made to derive this calibration (parton showering, fragmentation, etc.) a second simulated sample is used.  
+%To assess the impact of the modeling choices made to derive this calibration (parton showering, fragmentation, etc.) a second simulated sample is used.  
+Within the ATLAS collaboration a large variety of Monte Carlo Generators are used.  
+An additional uncertainty is included to cover any potential non closer this calibration procedure could cause when using samples which have not been produced using Pythia.  
+It is derived by comparing the nominal results to a set of results calculated using a second, different, Monte Carlo sample.  
 The second samples used in this study have both been generated and showered using {\sc SHERPA}~\cite{Gleisberg:2008ta}, which uses the cluster fragmentation model as described in~\cite{1983NuPhB.214..201G}.  
 For the $\gamma$+jet sample the CT10 PDF set~\cite{Lai:2010vv} is used while NNPDF3.0 NNLO~\cite{Ball:2014uwa} is used for Z+jet.  
 The detector simulation is still the default ATLAS setup, which uses GEANT4 with the Bertini Cascade model transitioning to the FTFP model at higher energy.   
-The EM+GSC scale response measured using $\gamma$+jet in the {\sc SHERPA} sample can be seen in Fig.~\ref{Fig:GammaJetEM2016}, while the response in {\sc SHERPA} using Z+jet can be seen in Fig.~\ref{Fig:ZJetEM2016}
-The difference in response between these two samples is used as an uncertainty, which also accounts for the use of various Monte Carlo generators in ATLAS physics analyses.  
+The EM+GSC scale response measured using $\gamma$+jet in the {\sc SHERPA} sample can be seen in Fig.~\ref{Fig:GammaJetEM2016}, while the response in {\sc SHERPA} using Z+jet can be seen in Fig.~\ref{Fig:ZJetEM2016}.  
+%The difference in response between these two samples is used as an uncertainty, which also accounts for the use of various Monte Carlo generators in ATLAS physics analyses.  
 
 \begin{figure}[!ht]
  \begin{center}
@@ -686,14 +689,14 @@ The difference in response between these two samples is used as an uncertainty, 
 \subsection{Results}
 
 The various systematic uncertainties discussed in this chapter are added in quadrature (along with the statistical uncertainty on the central values) to obtain the total uncertainty on the residual data/MC correction.  
-The uncertainties on the EM+GSC scale response using $\gamma$+jet events are shown in Fig.~\ref{Fig:gJetSystsEM2016}.  
+The uncertainties on the EM+GSC scale response using $\gamma$+jet events are shown in Fig.~\ref{Fig:gJetSystsEM2016Main}.  
 Above 60 GeV the total uncertainty is approximately flat at 1\%, with the single largest component over the majority of that range being the photon energy scale uncertainty.  
 Below 60 GeV the uncertainty grows to about 6\% with increasing contributions from the MC-based the photon purity uncertainties.  
-The uncertainty on the EM+GSC using Z+jet events is shown in Fig.~\ref{Fig:ZJetSystsEM2016}; it is on the order of 0.5\% between $\sim$ 30 GeV and 500 GeV.  
+The uncertainty on the EM+GSC using Z+jet events is shown in Fig.~\ref{Fig:ZJetSystsEM2016Main}; it is on the order of 0.5\% between $\sim$ 30 GeV and 500 GeV.  
 In this range the largest component to the uncertainty varies between the MC generator uncertainty and the statistical uncertainty.  
 Above 500 GeV the Z+jet calibration becomes statistically limited while for lower energies (below 30 GeV) the MC generator uncertainty sets the scale (up to 4\%). 
 
-The LC+GSC scale uncertainties using $\gamma$+jet and Z+jet are shown in Figs.~\ref{Fig:gJetSystsLC2016} and ~\ref{Fig:ZJetSystsLC2016}, respectively.  
+The LC+GSC scale uncertainties using $\gamma$+jet and Z+jet are shown in Figs.~\ref{Fig:gJetSystsLC2016Main} and ~\ref{Fig:ZJetSystsLC2016Main}, respectively.  
 The uncertainties using $\gamma$+jet are once again approximately flat at around 1\% above 60 GeV, with the largest component being the photon energy scale.  
 Below 60 GeV the largest components are photon purity and the generator uncertainty, which is slightly larger at LC scale leading to a larger overall uncertainty (up to $\sim$ 7\%).  
 The LC+GSC scale uncertainty for Z+jet events is similar to the EM+GSC scale uncertainty, dropping as low as $\sim$ 0.5\% between 30 GeV and 500 GeV and growing to slightly more than 5\% at the lowest energies due to a slightly larger disagreement between the two generators at LC scale.  
@@ -712,7 +715,7 @@ The LC+GSC scale uncertainty for Z+jet events is similar to the EM+GSC scale unc
  \end{center}
  \caption[Uncertainty on the EM+GSC scale response measurement using $\gamma$+jet]
  {\small The total uncertainty (both statistical and systematic) on the measurement of the relative EM+GSC scale response between data and MC using $\gamma$+jet events.  It is broken down into the various uncertainty sources that go into the total uncertainty.  }
- \label{Fig:gJetSystsEM2016}
+ \label{Fig:gJetSystsEM2016Main}
 \end{figure}
 
 
@@ -730,7 +733,7 @@ The LC+GSC scale uncertainty for Z+jet events is similar to the EM+GSC scale unc
  \end{center}
  \caption[Uncertainty on the EM+GSC scale response measurement using Z+jet]
  {\small The total uncertainty (both statistical and systematic) on the measurement of the relative EM+GSC scale response between data and MC using Z+jet events.  It is broken down into the various uncertainty sources that go into the total uncertainty.  }
- \label{Fig:ZJetSystsEM2016}
+ \label{Fig:ZJetSystsEM2016Main}
 \end{figure}
 
 
@@ -748,7 +751,7 @@ The LC+GSC scale uncertainty for Z+jet events is similar to the EM+GSC scale unc
  \end{center}
  \caption[Uncertainty on the LC+GSC scale response measurement using $\gamma$+jet]
  {\small The total uncertainty (both statistical and systematic) on the measurement of the relative LC+GSC scale response between data and MC using $\gamma$+jet events.  It is broken down into the various uncertainty sources that go into the total uncertainty.  }
- \label{Fig:gJetSystsLC2016}
+ \label{Fig:gJetSystsLC2016Main}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -765,7 +768,7 @@ The LC+GSC scale uncertainty for Z+jet events is similar to the EM+GSC scale unc
  \end{center}
  \caption[Uncertainty on the LC+GSC scale response measurement using Z+jet]
  {\small The total uncertainty (both statistical and systematic) on the measurement of the relative LC+GSC scale response between data and MC using Z+jet events.  It is broken down into the various uncertainty sources that go into the total uncertainty.  }
- \label{Fig:ZJetSystsLC2016}
+ \label{Fig:ZJetSystsLC2016Main}
 \end{figure}
 
 

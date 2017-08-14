@@ -172,7 +172,6 @@ As seen in Sec.~\ref{Sec:EnergyDensity} the energy density of jets in the energy
 For this reason the use of jets reconstructed using size parameters lower than this value as a stand in for the energy of the recoil is known to be a bad approximation, and therefore this plots are included only for illustrative purposes.  
 As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensitive to the choice of cone size at small values but it tends to show that the MPF is not effected by the other activity in the even when using a suitably large radius jet which includes the full recoil.  
 
-
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}{.5\textwidth}
@@ -192,6 +191,21 @@ As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensi
 {\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The dependence of this quantity on the size of the jet used as a stand in for the total recoil is shown for two $p_{\mathrm{T}}^{\mathrm {ref}}$ bins.  Results shown have been measured using EM scale jets from the 2016 ATLAS dataset.  }
   \label{Fig:OA_ConeSize}
 \end{figure}
+
+\section{Showering Studies}
+
+In Sec.\ref{sec:ShoweringIntro} the so-called showering and topology corrections were briefly introduced as being factors which, when applied together, correct for the difference between the response of the hadronic recoil (as measured by the MPF) and the response of the jet which is needed for calibration.  
+In previous JES iterations in ATLAS the assumption has been that these corrections are well modeled by the Monte Carlo simulation, and an additional conservative uncertainty was added to cover any potential differences~\cite{ATLAS-CONF-2015-057}.  
+In this thesis these corrections are calculated using a purely simulation based technique to both reduce the systematic uncertainty assigned to the {\textit in-situ} JES and to further explore how the calorimeter responds to energy deposits and how that energy flows within the calorimeter.  
+
+Sec.\ref{sec:ShoweringIntro} also introduced the true calorimeter response, which is the sum of the visible energy in the calorimeter deposited by particles in the particle jet divided by the total energy of the particle jet, and was used to define both the showering and topology corrections.  
+To measure this response the `calibration hits' recorded by the GEANT4 simulation are used.  
+Calibration hits are a history of the idealized interactions between the final state particles and the detector used by GEANT4 to model the deposition of energy by theses particles into the detector and the production of secondary particles advancing the shower.  
+Each hit corresponds to a single stable particle which initialized the hit, and is characterized by an position (which can be associated with a calorimeter cell) and an energy.  
+The energy of each hit is subdivided into energy deposited by EM interactions (EM energy) or nuclear interactions (non-EM energy), non-visible energy used to excite nuclei (invisible energy) and energy which escapes the calorimeter via neutrinos or muons (escaped energy).  
+Furthermore every calibration hit is also labeled as being in an active or inactive region of a sampling calorimeter cell, or in dead material (material outside of the calorimeter).  
+Using this information the true calorimeter response can be calculated by summing both the EM and non-EM energy deposited by all particles in the particle jet in the active regions of cells which have been included in a reconstructed topo-cluster.   
+ 
 
 
 

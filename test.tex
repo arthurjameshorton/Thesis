@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs,amsmath}
+\usepackage{makecell}
+\usepackage{rotating}
+\usepackage{multicol}
+\usepackage{slashed}
+%\usepackage{slashbox}
+\usepackage{float}
+\usepackage{amsmath}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{needspace}
+\usepackage{afterpage}
+\usepackage[sort&compress]{natbib}
+\usepackage[titletoc]{appendix}
+
+ 
+\begin{document}
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.7\textwidth}
+    \centering
+    \scalebox{0.80}{
+      \hspace{-10mm}
+      \includegraphics[angle =90]{plots/Chap5/Photon_IssueFix/SystsTwoSided.eps}
+    }
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}  \centering
+    \scalebox{0.40}{
+      \hspace{30mm}
+      \includegraphics[angle=90]{plots/Chap5/Photon_IssueFix/Legend.eps}
+    }
+  \end{subfigure}
+  \caption[Uncertainty on the EM+GSC scale response measurement using $\gamma$+jet]
+  {\small The total uncertainty (both statistical and systematic) on the measurement of the relative EM+GSC scale response between data and MC using $\gamma$+jet events.  It is broken down into the various uncertainty sources that go into the total uncertainty.  }
+  \label{Fig:gJetSystsEM2016Main}
+\end{figure}
+\end{document}
