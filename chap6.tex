@@ -115,7 +115,7 @@ An example of how these effects change the measured response distribution in a $
 
 \begin{figure}[!ht]
  \begin{center}
-  \scalebox{0.55}{
+  \scalebox{0.75}{
    \includegraphics[width=0.9\linewidth]{plots/Chap6/OtherActivity/Dists/OADist_Cone7_Bin3.eps}
 %BalanceOtherActivity7_bin_3_30.00_log.eps}
   }
@@ -141,8 +141,8 @@ An example of how these effects change the measured response distribution in a $
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.4}
   \end{subfigure}
-  \caption[$\Delta^{\mathrm{OA}}$ using Anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
-{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading Anti-$k_\mathrm{t}$ R=0.1/0.4 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
+  \caption[$\Delta^{\mathrm{OA}}$ using anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
+{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading anti-$k_\mathrm{t}$ R=0.1/0.4 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
   \label{Fig:OA_1-4}
 \end{figure}
 
@@ -162,8 +162,8 @@ An example of how these effects change the measured response distribution in a $
     }
     \caption{Anti-$k_\mathrm{t}$ R=1.0}
   \end{subfigure}
-  \caption[$\Delta^{\mathrm{OA}}$ using Anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
-{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading Anti-$k_\mathrm{t}$ R=0.7/1.0 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
+  \caption[$\Delta^{\mathrm{OA}}$ using anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
+{\small The effect of the other activity in the event on the measured recoil response, as determined using Eq.~\ref{Eq:OA}.  The leading anti-$k_\mathrm{t}$ R=0.7/1.0 jet reconstructed using EM scale clusters is used as an estimate for the energy of the full recoil.  Using data collected in 2016.  }
   \label{Fig:OA_7-10}
 \end{figure}
 
@@ -194,26 +194,142 @@ As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensi
 
 \section{Showering Studies}
 
-In Sec.\ref{sec:ShoweringIntro} the so-called showering and topology corrections were briefly introduced as being factors which, when applied together, correct for the difference between the response of the hadronic recoil (as measured by the MPF) and the response of the jet which is needed for calibration.  
+In Sec.~\ref{sec:ShoweringIntro} the so-called showering and topology corrections were briefly introduced as being factors which, when applied together, correct for the difference between the response of the hadronic recoil (as measured by the MPF) and the response of the jet which is needed for calibration.  
 In previous JES iterations in ATLAS the assumption has been that these corrections are well modeled by the Monte Carlo simulation, and an additional conservative uncertainty was added to cover any potential differences~\cite{ATLAS-CONF-2015-057}.  
 In this thesis these corrections are calculated using a purely simulation based technique to both reduce the systematic uncertainty assigned to the {\textit in-situ} JES and to further explore how the calorimeter responds to energy deposits and how that energy flows within the calorimeter.  
 
-Sec.\ref{sec:ShoweringIntro} also introduced the true calorimeter response, which is the sum of the visible energy in the calorimeter deposited by particles in the particle jet divided by the total energy of the particle jet, and was used to define both the showering and topology corrections.  
+Sec.~\ref{sec:ShoweringIntro} also introduced the true calorimeter response, which is the sum of the visible energy in the calorimeter deposited by particles in the particle jet divided by the total energy of the particle jet, and was used to define both the showering and topology corrections.  
 To measure this response the `calibration hits' recorded by the GEANT4 simulation are used.  
 Calibration hits are a history of the idealized interactions between the final state particles and the detector used by GEANT4 to model the deposition of energy by theses particles into the detector and the production of secondary particles advancing the shower.  
 Each hit corresponds to a single stable particle which initialized the hit, and is characterized by an position (which can be associated with a calorimeter cell) and an energy.  
-The energy of each hit is subdivided into energy deposited by EM interactions (EM energy) or nuclear interactions (non-EM energy), non-visible energy used to excite nuclei (invisible energy) and energy which escapes the calorimeter via neutrinos or muons (escaped energy).  
+The energy of each hit is subdivided into energy deposited by EM interactions (EM energy) or nuclear interactions (non-EM energy), non-visible energy used to excite nuclei (called `invisible energy') and energy which escapes the calorimeter via neutrinos or muons (called `escaped energy').  
 Furthermore every calibration hit is also labeled as being in an active or inactive region of a sampling calorimeter cell, or in dead material (material outside of the calorimeter).  
-Using this information the true calorimeter response can be calculated by summing both the EM and non-EM energy deposited by all particles in the particle jet in the active regions of cells which have been included in a reconstructed topo-cluster.   
+Using this information the true calorimeter response can be calculated by summing both the EM and non-EM energy deposited by all particles in the particle jet in the active regions of cells which have been included in a reconstructed topo-cluster and scaling the total energy of each of these cells by their sampling fraction.   
  
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.75}{
+   \includegraphics[width=0.9\linewidth]{plots/Chap6/Showering/Distributions_FTFP/Showering4_bin_1_20.00_log.eps}
+  }
+ \end{center}
+ \caption[Example showering correction distribution]
+ {\small Showering correction distribution for anti-$k_{\mathrm t}$ R=0.4 jets at EM scale using Z+jet events, with 20 GeV $< p_{\mathrm T}^Z <$ 25 GeV.  Sample generated using {\sc powheg}, showered with {\sc pythia} and the nuclear interactions modeled using FTFP\_BERT (see Sec.~\ref{Sec:Samples}).   }
+ \label{Fig:ShoweringDistExample}
+\end{figure}
+
+As the energy density inside of a jet decreases with increasing distance from the core, it is more likely for energy which was inside of the jet definition at the particle level to move out at the reconstructed level than in the other direction.  
+That is to say on average the true calorimeter response should be larger than the regular response, meaning the showering correction should be expected to be greater than one.  
+The rate that this energy density is changing near the edge of the jet (and therefore the size of this effect) should be expected to decrease with increasing energy (as the recoil becomes more collimated) and with increasing jet size (as we move the jet boundary further to the tails of the recoil distribution).  
+An example of the distribution of measured showering corrections for a single reference $p_{\mathrm T}$ bin can be seen in Fig.~\ref{Fig:ShoweringDistExample}.  
+As the asymmetry of this distribution is a result of real effects (the slope of the energy density as a function of distance) and not the result of a few pathological events it is something worth measuring.  
+For this reason the mean of these distributions will be plotted as a measure of the average showering correction, as opposed to fitting the distribution and using the most probable value.  
+
+As this is a Monte Carlo only study an uncertainty on these corrections is obtained by exploring different simulation models which have been found to cover a range of showering scenarios.  
+As the showering correction is largely effected by the flow of energy inside of the calorimeter, this study will explore the effects of changing the nuclear interaction models used by GEANT4.  
+As a alternative to the default ATLAS model (FTFP\_BERT, introduced in Sec.~\ref{Sec:Samples}) a second model named QGSP\_BIC is used.  
+This model is used as it differers from FTFP\_BERT when measuring a large number of calorimeter showering related variables~\cite{Zhang:2253040}.  
+At low energies (below 9.9 GeV) QGSP\_BIC uses the \gls{BIC}, which propagates the incident particles through 3D models of nuclei that have been created using the expected density and nucleon momentum.  
+Energy is lost by individual hadron/nucleon resonance formations and decays as the incident hadron travels in curved trajectories in a smooth nuclear potential.  
+This differs from the Bertini Cascade model used by FTFP\_BERT below 5 GeV which models each nuclei as a continuous medium with new particles being created based on the free space cross sections for that collision.  
+
+At higher energies (above 12 GeV) QGSP\_BIC uses the \gls{QGSM} combined with the same Precompound model used in combination with the Fritiof model in FTFP.  
+Both QGSP and FTFP construct 3D models of nuclei from individual nucleons which are subsequent flattened as the incoming hadrons are boosted, and both make use of QCD strings to model the interactions between the incident hadrons and the atomic nuclei which subsequently decay resulting in secondary particles.  
+The difference is that FTFP creates strings through momentum exchange which excites the hadrons and the nucleons (which subsequently decay), while QGSP exchanges partons to create strings.  
+Diffractive excitations are modeled using a random transverse component sampled from a parameterized Gaussian and the longitudinal component calculated using light cone constraints~\cite{GEANT4}~\cite{GEANT4Man}.   
+The gap between BIC and the QGSM (9.9 GeV - 12 GeV) is covered using the \gls{LEP} model which has it's origins in {\sc GHEISHA}\cite{Fesefeldt:1985yw}.  
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringRatio_1.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringRatio_4.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.4}
+  \end{subfigure}
+  \caption[Showering correction using Anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
+{\small The showering correction $S$ as defined in Sec.~\ref{sec:ShoweringIntro} for Anti-$k_\mathrm{t}$ R=0.1/0.4 jets at EM scale.  }
+  \label{Fig:Showering_1-4}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringRatio_7.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.7}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringRatio_10.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=1.0}
+  \end{subfigure}
+  \caption[Showering correction using Anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
+{\small The showering correction $S$ as defined in Sec.~\ref{sec:ShoweringIntro} for Anti-$k_\mathrm{t}$ R=0.7/1.0 jets at EM scale.  }
+  \label{Fig:Showering_7-10}
+\end{figure}
+
+The showering correction using anti-$k_\mathrm{t}$ jets in a range of sizes is shown in Figs.~\ref{Fig:Showering_7-10} and~\ref{Fig:Showering_1-4}.  
+As expected the showering correction decreases with energy for all jet sizes, and at higher energies the showering correction decreases with increasing jet size.  
+Onces again at low energies the jet reconstruction threshold removes jets with a low $R_{\mathrm jet}$, biasing the measured mean to be high and therefore lowering the measured showering correction.  
+This effect is especially evident for low energy small (anti-$k_\mathrm{t}$ R=0.1) jets as determining the leading jet with this size can be problematic.  
+It is also worth noting that there is very little difference in the showering correction between the different physic lists used, with the largest differences being on the order of 0.5\% between 30-80 GeV for anti-$k_\mathrm{t}$ R=0.4 jets.  
+
+Using Monte Carlo truth information it is possible to identify each jet as having originated from a light quark or a gluon.  
+This distinction is more than just a cosmetic one, as gluon initiated jets tend to have a larger number of lower energy particles and tend to be wider (when compared to light quark initiated jets).   
+These differences mean that the average jet response for a predominantly gluon jet sample (dijet for example) can be significantly different than the response in a primarily quark jet sample (both Z+jet and $\gamma$+jet), a fact which is accounted for in the JES uncertainty by both a flavour response and flavour composition uncertainty~\cite{Aaboud:2017jcu}.  
+With these facts as motivation the showering correction has also been measured individually for both quark and gluon jets.  
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringQuarkRatio_4.eps}
+    }
+    \caption{Quark initiated jets}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.4}{
+      \includegraphics{plots/Chap6/Showering/ShoweringGluonRatio_4.eps}
+    }
+    \caption{Gluon initiated jets}
+  \end{subfigure}
+  \caption[Showering correction for quark/gluon initiated jets.]
+{\small The showering correction $S$ as defined in Sec.~\ref{sec:ShoweringIntro} for Anti-$k_\mathrm{t}$ R=0.4 jets at EM scale for quark/gluon initiated jets.  }
+  \label{Fig:Showering_QG4}
+\end{figure} 
+
+The showering correction for both quark and gluon initiated jets can be seen in Fig.~\ref{Fig:Showering_QG4}.  
+As gluon jets do tend to be wider the showering correction for them tends to be larger as well.  
+Fig.~\ref{Fig:Showering_QG4} does appear to show that the choice of physics lists has a larger effect on the showering correction for gluon jets than it does on quark jets.  
+Unfortunately the fraction of jets in Z+jet samples which are initiated by gluon jets is very low ($\sim$15\%) and does not allow for a fair comparison.   
 
 
+\section{Topology Correction}
+
+Along with the showering correction Sec.~\ref{sec:ShoweringIntro} introduced the topology correction, a second factor which accounts for the difference in response between the full hadronic recoil and the response of the more densely packed and higher energy particles in the particle jet.  
+As the ratio of the true calorimeter response to the response as measured using the MPF the distribution of the showering correction tends to be quite wide and symmetric.   
 
 
-
-
-
-
-
+\begin{figure}[!ht]
+ \begin{center}
+  \scalebox{0.75}{
+   \includegraphics[width=0.9\linewidth]{plots/Chap6/Showering/TopoBins/TopoCorr4_bin_1_20.00_log.eps}
+  }
+ \end{center}
+ \caption[Example topology correction distribution]
+ {\small Topology correction distribution for anti-$k_{\mathrm t}$ R=0.4 jets at EM scale using Z+jet events, with 20 GeV $< p_{\mathrm T}^Z <$ 25 GeV.  Sample generated using {\sc powheg}, showered with {\sc pythia} and the nuclear interactions modeled using FTFP\_BERT (see Sec.~\ref{Sec:Samples}).   }
+ \label{Fig:ShoweringDistExample}
+\end{figure}
 
 

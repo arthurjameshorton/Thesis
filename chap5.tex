@@ -2,6 +2,7 @@
 \label{JES2}
 
 \section{Samples}
+\label{Sec:Samples}
 As seen in Sec.~\ref{ATLASJES} the ATLAS collaboration uses a multistaged approach to calibrate jets, where the final step corrects for any measured response differences observed between selected data and simulated samples.  
 The results presented in this thesis are primarily derived using 34.7 fb$^{-1}$ of 13 TeV data taken between April 22nd and October 26th 2016. 
 Some results using 3.9 fb$^{-1}$ of 13 TeV data taken between June 3rd and November 3rd 2015 are also presented.  
@@ -18,6 +19,7 @@ The cascade ends when all particles, which are kinematically able to, have left 
 The FTFP model simulates the inelastic scattering of hadrons using the FRITIOF model, where one or two QCD strings connect partons in the two nuclei.  
 These strings are excited by momentum exchange, and the masses of the strings are chosen randomly.  
 These strings then decay into secondary particles using the Precompound model.  
+This default ATLAS nuclear interaction model is known as FTFP\_BERT.
  
 
 
@@ -80,7 +82,7 @@ Muons also have predefined identification levels~\cite{ATL-PHYS-PUB-2015-037}; t
 A loose isolation cut is also used for muons, where the isolation area is within $\Delta R$ = 0.2 for the calorimeter and $\Delta R$ = 0.3 for the tracking detector.  
 
 \subsection{Jet Selection}
-The jets used in this study are reconstructed with the anti-$k_t$ algorithm, using 4-2-0 topo-clusters as input at both the EM and LC scale, and with size parameter $R$=0.4.  
+The jets used in this study are reconstructed with the anti-$k_{\mathrm t}$ algorithm, using 4-2-0 topo-clusters as input at both the EM and LC scale, and with size parameter $R$=0.4.  
 As jets are found by searching for large concentrated deposits of energy in the calorimeter, without further conditions imposed, photons and electrons are also expected to appear in the collection of reconstructed jets and must therefore be removed.  
 Jets within $\Delta R$ = 0.2 of a photon identified by a separate algorithm (see Sec.~\ref{Sec:Photons}) are not considered, and neither are jets within $\Delta R$ = 0.35 of a lepton.  
 
@@ -96,7 +98,7 @@ If a significant portion of the jet energy (defined as more than 95\% and 50\% r
 Lastly the total track momentum within a jet is compared to the energy in the calorimeter.  
 If the energy in the tracks represents less than 5\% of the total energy in the jet there is likely a large fraction of neutral pions in the jet, so it is required that more than 5\% of the total energy of the jet is collected by the EM calorimeter.  
 
-In 2016 the average number of interactions per bunch crossing in the LHC in a single lumiblock (a period of time of about 1 minute) reached as high as 52.2 (achieved on Oct. 14th, 2016).  
+In 2016 the average number of interactions per bunch crossing in the LHC in a single lumiblock (a period of time of about 1 minute) reached as high as 52.2 (a quantity known as $\mu$)  was achieved on Oct. 14th, 2016.  
 With such a high luminosity the possibility for misidentifying a pileup jet as being part of the hard scattering interaction of interest becomes quite high.  
 ATLAS uses ghost association of a very large number of artificially added tracks, where the track momentum is set infinitesimally small and jets are reclustered (similar to using ghosts to define area as seen in Sec.~\ref{JES})~\cite{ATLAS-CONF-2013-083}), to match tracks to jets and then uses the vertex information for these tracks and the calibrated jet energy as input to the \gls{JVT}~\cite{ATLAS-CONF-2014-018}.  
 The output is a single continuous variable, where 1 corresponds to a perfect match to the primary vertex and 0 corresponds to a pileup jet.  
@@ -142,15 +144,16 @@ This correction is used throughout this thesis and the measured response is labe
 
 \section{Measuring the Jet Energy Scale}
 \label{Sec:MeasureJES}
+
 \begin{figure}[!ht]
-\begin{center}
-\scalebox{0.6}{
-  \includegraphics{plots/Chap5/Data2016_PhotonEMResponseBins/Response_bin_0_25.00.eps}
-}
-\end{center}
-\caption[Example response distribution]
-{\small The distribution of the measured response in ATLAS using $\gamma$+jet events in the 2016 dataset.  The response shown here is at EM scale and for events where the photon has a transverse momentum between 25 and 45 GeV. }
-\label{ExampleRespDist}
+  \begin{center}
+  \scalebox{0.6}{
+    \includegraphics{plots/Chap5/Data2016_PhotonEMResponseBins/Response_bin_0_25.00.eps}
+  }
+  \end{center}
+  \caption[Example response distribution]
+  {\small The distribution of the measured response in ATLAS using $\gamma$+jet events in the 2016 dataset.  The response shown here is at EM scale and for events where the photon has a transverse momentum between 25 and 45 GeV. }
+  \label{ExampleRespDist}
 \end{figure}
 
 
@@ -163,19 +166,19 @@ In practice the distribution is fit once with a Gaussian over the full range fol
 An example of the response distribution in the $\gamma$+jet channel at EM scale for photons with transverse momentum between 25 and 45 GeV in the 2016 dataset is shown in Fig.~\ref{ExampleRespDist}.  
 
 \begin{figure}[!ht]
-\begin{center}
-\scalebox{0.6}{
-  \includegraphics{plots/Chap5/MappingVsPt_Photon_EM_Data_2016.eps}
-}
-\end{center}
-\caption[Average measured jet momentum Vs. refence $p_{\mathrm T}$]
-{\small The average transverse momentum of the leading jet after the JES and GSC is applied as a function of the energy of the leading photon.  The jets are initially reconstructed using EM scale clusters.  The dotted line is included along the line $p_{\mathrm T}^{\mathrm {ref}}=p_{\mathrm T}^{\mathrm{JES+GSC}}$ to help guide the eye.}
-\label{plot:MappingExample}
+  \begin{center}
+  \scalebox{0.6}{
+    \includegraphics{plots/Chap5/MappingVsPt_Photon_EM_Data_2016.eps}
+  }
+  \end{center}
+  \caption[Average measured jet momentum Vs. refence $p_{\mathrm T}$]
+  {\small The average transverse momentum of the leading jet after the JES and GSC is applied as a function of the energy of the leading photon.  The jets are initially reconstructed using EM scale clusters.  The dotted line is included along the line $p_{\mathrm T}^{\mathrm {ref}}=p_{\mathrm T}^{\mathrm{JES+GSC}}$ to help guide the eye.}
+  \label{plot:MappingExample}
 \end{figure}
 
 
 Finally as jets have a predetermined size it is likely that the jet does not contain the full hadronic recoil in the 2$\rightarrow$2 type events used in this study.  
-This is especially true at lower energies where jets tend to be wider, and on average $\sim$20\% of the energy is deposited outside of an anti-$k_t$ R=0.4 jet~\cite{ATLAS-CONF-2015-057}.  
+This is especially true at lower energies where jets tend to be wider, and on average $\sim$20\% of the energy is deposited outside of an anti-$k_{\mathrm t}$ R=0.4 jet~\cite{ATLAS-CONF-2015-057}.  
 To remove the effect this imperfect match in $p_{\mathrm T}$ has on the binning, the average jet $p_{\mathrm T}$ after the JES and GSC are applied is measured in each bin.  
 After the response in each reference $p_{\mathrm T}$ bin is fit and measured the result is then scaled down to the average measured jet $p_{\mathrm T}$ in that bin.  
 The average jet $p_{\mathrm T}$ as a function of reference $p_{\mathrm T}$ can be seen in Fig.~\ref{plot:MappingExample}.  
@@ -201,25 +204,25 @@ This rise in the measured response at low $p_{\mathrm T}$, combined with the hig
 
 
 \begin{figure}[!ht]
-\begin{center}
-\scalebox{0.6}{
-  \includegraphics{plots/Chap5/ElectronMuonCompare.eps}
-}
-\end{center}
-\caption[Comparing EM scale response between Z$\rightarrow$ee and Z$\rightarrow\mu\mu$]
-{\small The MPF response as measured using both Z$\rightarrow$ee and Z$\rightarrow\mu\mu$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are Z$\rightarrow$ee and filled points are Z$\rightarrow\mu\mu$.  Measured at EM+GSC scale using 2016 data.  }
-\label{eemumuCompare2016EM}
+  \begin{center}
+  \scalebox{0.6}{
+    \includegraphics{plots/Chap5/ElectronMuonCompare.eps}
+  }
+  \end{center}
+  \caption[Comparing EM scale response between Z$\rightarrow$ee and Z$\rightarrow\mu\mu$]
+  {\small The MPF response as measured using both Z$\rightarrow$ee and Z$\rightarrow\mu\mu$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are Z$\rightarrow$ee and filled points are Z$\rightarrow\mu\mu$.  Measured at EM+GSC scale using 2016 data.  }
+  \label{eemumuCompare2016EM}
 \end{figure}
 
 \begin{figure}[!ht]
-\begin{center}
-\scalebox{0.6}{
-  \includegraphics{plots/Chap5/PhotonZCompare.eps}
-}
-\end{center}
-\caption[Comparing EM scale response between Z+jet and $\gamma$+jet]
-{\small The MPF response as measured using both Z+jet (with the Z$\rightarrow$ee and Z$\rightarrow\mu\mu$ channels combined) and $\gamma$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are $\gamma$+jet and filled points are Z+jet.  Measured at EM+GSC scale using 2016 data.   }
-\label{GammaZCompare2016EM}
+  \begin{center}
+  \scalebox{0.6}{
+    \includegraphics{plots/Chap5/PhotonZCompare.eps}
+  }
+  \end{center}
+  \caption[Comparing EM scale response between Z+jet and $\gamma$+jet]
+  {\small The MPF response as measured using both Z+jet (with the Z$\rightarrow$ee and Z$\rightarrow\mu\mu$ channels combined) and $\gamma$+jet events.  Red points indicate Monte Carlo, black points are data, hollow points are $\gamma$+jet and filled points are Z+jet.  Measured at EM+GSC scale using 2016 data.   }
+  \label{GammaZCompare2016EM}
 \end{figure}
 
 
@@ -241,95 +244,95 @@ This procedure is done starting from both the highest and lowest $p_{\mathrm T}$
 An example of these pseudo-experiments is shown in Fig.~\ref{ExamplePseudo} while an example of the effect of the entire rebinning process can be seen in Fig.~\ref{Fig:J2GJetEM2016}.  
 
 \begin{figure}[!ht]
-\begin{center}
-\scalebox{0.5}{
-  \includegraphics{plots/Chap5/PseudoExperients_GJet_EM_J2down_Data_105-125GeV.eps}
-}
-\end{center}
-\caption[Example pseudo-experiment distribution]
-{\small Distribution of the 100 pseudo-experiments used to estimate the statistical uncertainty on the effect of loosening the subleading jet cut.  This particular distribution is used to determine the uncertainty at EM scale in 2016 data for $\gamma$+jet events with a photon $p_{\mathrm T}$ between 105 and 125 GeV.  }
-\label{ExamplePseudo}
+  \begin{center}
+  \scalebox{0.5}{
+    \includegraphics{plots/Chap5/PseudoExperients_GJet_EM_J2down_Data_105-125GeV.eps}
+  }
+  \end{center}
+  \caption[Example pseudo-experiment distribution]
+  {\small Distribution of the 100 pseudo-experiments used to estimate the statistical uncertainty on the effect of loosening the subleading jet cut.  This particular distribution is used to determine the uncertainty at EM scale in 2016 data for $\gamma$+jet events with a photon $p_{\mathrm T}$ between 105 and 125 GeV.  }
+  \label{ExamplePseudo}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the subleading jet $p_{\mathrm T}$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
-\label{Fig:J2GJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/Veto_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the subleading jet $p_{\mathrm T}$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+  \label{Fig:J2GJetEM2016}
 \end{figure}
 
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.39}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_45-65.eps}
-}
-\caption{45-65 GeV}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.39}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_400-500.eps}
-}
-\caption{400-500 GeV}
-\end{subfigure}
-\caption[Response as a function of J2 for two $p_{\mathrm{T}}$ bins]
-{\small Response as a function of the fraction of the photon energy contained in the subleading jet (J2) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  At lower reference $p_{\mathrm T}$ a jet with a small fraction of the reference objects $p_{\mathrm T}$ falls below the reconstruction threshold.  That leads to a large number of events that appear to have no subleading jet.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
-\label{Fig:RespVsJ2GJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.39}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_45-65.eps}
+    }
+    \caption{45-65 GeV}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.39}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/J2/ResponseVsJ2_400-500.eps}
+    }
+    \caption{400-500 GeV}
+  \end{subfigure}
+  \caption[Response as a function of J2 for two $p_{\mathrm{T}}$ bins]
+  {\small Response as a function of the fraction of the photon energy contained in the subleading jet (J2) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  At lower reference $p_{\mathrm T}$ a jet with a small fraction of the reference objects $p_{\mathrm T}$ falls below the reconstruction threshold.  That leads to a large number of events that appear to have no subleading jet.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
+  \label{Fig:RespVsJ2GJetEM2016}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_45-65.eps}
-}
-\caption{45-65 GeV}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_400-500.eps}
-}
-\caption{400-500 GeV}
-\end{subfigure}
-\caption[Response as a function of $\Delta\phi$ for two $p_{\mathrm{T}}$ bins]
-{\small Response as a function of the opening angle in azimuth between the reference object and the leading jet ($\Delta\phi$) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
-\label{Fig:RespVsdPhiGJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_45-65.eps}
+    }
+    \caption{45-65 GeV}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi/ResponseVsdPhi_400-500.eps}
+    }
+    \caption{400-500 GeV}
+  \end{subfigure}
+  \caption[Response as a function of $\Delta\phi$ for two $p_{\mathrm{T}}$ bins]
+  {\small Response as a function of the opening angle in azimuth between the reference object and the leading jet ($\Delta\phi$) in two different $p_{\mathrm T}$ bins along with the distribution of events plotted against the same variable.  All selection cuts listed in Sec.~\ref{Sec:SelectionCriteria} have been applied except for the subleading jet cut and the $\Delta\phi$ cut.  }
+  \label{Fig:RespVsdPhiGJetEM2016}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{    \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the $\Delta\phi$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
-\label{Fig:dPhiGJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{    \includegraphics{plots/Chap5/RadiationPlots_PhotonEM2016/dPhi_rebinned.eps}
+  }
+  \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the $\Delta\phi$ cut up and down on the EM scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+  \label{Fig:dPhiGJetEM2016}
 \end{figure}
 
 \subsection{Initial- and Final-state Radiation}
@@ -386,61 +389,61 @@ The uncertainty on the relative difference in resolution is propagated to the me
 The effect of this smearing on the EM+GSC response as measured in $\gamma$+jet is shown in Fig.~\ref{Fig:EGResolutionGJetEM2016}.  
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.40}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.40}{    
-  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the photon energy scale up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
-\label{Fig:EGScaleGJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.40}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.40}{    
+      \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_SCALE_ALL_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the photon energy scale up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+  \label{Fig:EGScaleGJetEM2016}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.40}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.40}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the electron energy scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning.  Note that the y-axis scale is different from Fig.~\ref{Fig:EGScaleGJetEM2016}. } 
-\label{Fig:EGScaleZJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.40}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.40}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/EG_SCALE_ALL_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the electron energy scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning.  Note that the y-axis scale is different from Fig.~\ref{Fig:EGScaleGJetEM2016}. } 
+  \label{Fig:EGScaleZJetEM2016}
 \end{figure}
 
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{    
-  \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the photon energy smearing up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
-\label{Fig:EGResolutionGJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{    
+      \includegraphics{plots/Chap5/EgammaScaleResolution_GJet/EG_RESOLUTION_ALL_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the photon energy smearing up and down on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+  \label{Fig:EGResolutionGJetEM2016}
 \end{figure}
 
 \Needspace{5\baselineskip}
@@ -451,91 +454,142 @@ The momentum smearing is done independently for both the inner detector and the 
 The impact of each of these three variations on the ratio of the MPF in data and Monte Carlo is at most on the order of 0.1\% over the full $p_{\mathrm T}$ range measured, with the exception of one large fluctuation in the lowest $p_{\mathrm T}$ bin for the muon spectrometer smearing (see Figs.~\ref{Fig:MuonsScaleZJetEM2016}, \ref{Fig:MuonsIDZJetEM2016}, and~\ref{Fig:MuonsMSZJetEM2016}).  
 
 
+%\subsection{JVT}
+
+%The effect of misidentifying pileup jets as part of the hard scattering is measured by varying the JVT requirement from its nominal value of 0.59 to both a more restrictive (0.91) and a less restrictive (0.11) value.  
+%These values have average signal acceptance rates of 85\% and 97\%, respectively.  
+%The choice of a JVT working point has very little effect on the data/Monte Carlo agreement for the MPF, changing by less than 0.02\% over most of the $p_{\mathrm T}$ range considered.  
+%This illustrates the relative immunity of the MPF technique to pileup in general.  
+%There is a small potential effect at low $p_{\mathrm T}$ where the numerous low energy pileup jets could have a larger effect, but even in this region the agreement never changes by more than a third of a percent.  
+
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.40}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the muon momentum scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+  \label{Fig:MuonsScaleZJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the momentum smearing in the ID up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+  \label{Fig:MuonsIDZJetEM2016}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the momentum smearing in the MS up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
+  \label{Fig:MuonsMSZJetEM2016}
+\end{figure}
+
 \subsection{JVT}
 
-The effect of misidentifying pileup jets as part of the hard scattering is measured by varying the JVT requirement from its nominal value of 0.59 to both a more restrictive (0.91) and a less restrictive (0.11) value.  
-These values have average signal acceptance rates of 85\% and 97\%, respectively.  
-The choice of a JVT working point has very little effect on the data/Monte Carlo agreement for the MPF, changing by less than 0.02\% over most of the $p_{\mathrm T}$ range considered.  
-This illustrates the relative immunity of the MPF technique to pileup in general.  
-There is a small potential effect at low $p_{\mathrm T}$ where the numerous low energy pileup jets could have a larger effect, but even in this region the agreement never changes by more than a third of a percent.  
+The effect of misidentifying pileup jets as part of the hard scattering is measured by varying the JVT requirement from its nominal value of 0.59 to both a more restrictive (0.91) and a less restrictive (0.11) value.
+These values have average signal acceptance rates of 85\% and 97\%, respectively.
+The choice of a JVT working point has very little effect on the data/Monte Carlo agreement for the MPF, changing by less than 0.02\% over most of the $p_{\mathrm T}$ range considered.
+This illustrates the relative immunity of the MPF technique to pileup in general.
+There is a small potential effect at low $p_{\mathrm T}$ where the numerous low energy pileup jets could have a larger effect, but even in this region the agreement never changes by more than a third of a percent.
 
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.40}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_SCALE_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the muon momentum scale up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
-\label{Fig:MuonsScaleZJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_original.eps}
+    }
+    \caption{No rebinning}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+    \scalebox{0.4}{
+      \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_rebinned.eps}
+    }
+    \caption{With rebinning}
+  \end{subfigure}
+  \caption{Effect of varying the JVT requirement to be more/less strict in rejecting pileup jets on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
+  \label{Fig:GJetJVTEM2016}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_ID_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the momentum smearing in the ID up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
-\label{Fig:MuonsIDZJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap5/Pileup/Photon/EM/ResponseVsMU_45-65.eps}
+    }
+    \caption{45-65 GeV}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap5/Pileup/Photon/EM/ResponseVsMU_400-500.eps}
+    }
+    \caption{400-500 GeV}
+  \end{subfigure}
+  \caption[Response as a function of $\mu$ for two $p_{\mathrm{T}}$ bins]
+  {\small Response as a function of the average number of collisions per bunch crossing for a given lumiblock ($\mu$) in two different $p_{\mathrm T}$ bins.  This quantity is a measure of both the amount of in time and out of time pileup present in the event.  } 
+  \label{Fig:RespVsMUGJetEM2016}
 \end{figure}
 
 \begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/EgammaScaleResolution_ZJet/MUONS_MS_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the momentum smearing in the MS up and down on the EM+GSC scale MPF response using Z+jet events in 2016 before and after rebinning. }
-\label{Fig:MuonsMSZJetEM2016}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap5/Pileup/Photon/EM/ResponseVsNPV_45-65.eps}
+    }
+    \caption{45-65 GeV}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap5/Pileup/Photon/EM/ResponseVsNPV_400-500.eps}
+    }
+    \caption{400-500 GeV}
+  \end{subfigure}
+  \caption[Response as a function of npv for two $p_{\mathrm{T}}$ bins]
+  {\small Response as a function of the number of reconstructed primary vertices in the event (npv) in two different $p_{\mathrm T}$ bins.  This quantity is used as a measure of the amount of in time pileup present in the event.  }
+  \label{Fig:RespVsNPVJetEM2016}
 \end{figure}
 
-
-\begin{figure}[!ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-\centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_original.eps}
-}
-\caption{No rebinning}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}  \centering
-\scalebox{0.4}{
-  \includegraphics{plots/Chap5/GJet_Systs_EM/JVT_rebinned.eps}
-}
-\caption{With rebinning}
-\end{subfigure}
-\caption{Effect of varying the JVT requirement to be more/less strict in rejecting pileup jets on the EM+GSC scale MPF response using $\gamma$+jet events in 2016 before and after rebinning. }
-\label{Fig:GJetJVTEM2016}
-\end{figure}
 
 \subsection{Photon Purity}
 \label{Sec:purity}
@@ -671,7 +725,7 @@ An additional uncertainty is included to cover any potential non closer this cal
 It is derived by comparing the nominal results to a set of results calculated using a second, different, Monte Carlo sample.  
 The second samples used in this study have both been generated and showered using {\sc SHERPA}~\cite{Gleisberg:2008ta}, which uses the cluster fragmentation model as described in~\cite{1983NuPhB.214..201G}.  
 For the $\gamma$+jet sample the CT10 PDF set~\cite{Lai:2010vv} is used while NNPDF3.0 NNLO~\cite{Ball:2014uwa} is used for Z+jet.  
-The detector simulation is still the default ATLAS setup, which uses GEANT4 with the Bertini Cascade model transitioning to the FTFP model at higher energy.   
+The detector simulation is still the default ATLAS setup, which uses GEANT4 with the Bertini Cascade Model transitioning to the Fritiof Model combined with the Precompound (called FTFP) at higher energy.   
 The EM+GSC scale response measured using $\gamma$+jet in the {\sc SHERPA} sample can be seen in Fig.~\ref{Fig:GammaJetEM2016}, while the response in {\sc SHERPA} using Z+jet can be seen in Fig.~\ref{Fig:ZJetEM2016}.  
 %The difference in response between these two samples is used as an uncertainty, which also accounts for the use of various Monte Carlo generators in ATLAS physics analyses.  
 

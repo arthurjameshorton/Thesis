@@ -143,7 +143,7 @@ This calibration is based on Monte Carlo simulation.
 In order to meaningfully compare experimental results and fixed order QCD calculations jet algorithms must behave in a way that follows certain criteria~\cite{Blazey:2000qt}.  
 Two of these criteria are infrared and collinear safety, which mean that the reconstruction should be insensitive to soft and collinear radiation, respectively (see Fig.~\ref{Fig:IRCoSafety}).  
 Without these criteria the jet topology in simulated events would be very dependent on how the low $p_{\mathrm T}$/small angle singularities in the parton splitting functions are handled, making it difficult to compare theory to experiment.  
-A family of jet finding algorithms used in ATLAS that satisfies these criteria is the $k_t$ family~\cite{Cacciari:2008gp}; specifically $k_t$ jets, Cambridge/Aachen jets, and the most commonly used type, anti-$k_t$ jets.  
+A family of jet finding algorithms used in ATLAS that satisfies these criteria is the $k_{\mathrm t}$ family~\cite{Cacciari:2008gp}; specifically $k_{\mathrm t}$ jets, Cambridge/Aachen jets, and the most commonly used type, anti-$k_{\mathrm t}$ jets.  
 Objects that are used as inputs to these algorithms by ATLAS include tracks, truth particles\footnote{In ATLAS truth particles are simulated particles that are stable, which is defined as having a lifetime $c\tau _{\mathrm 0}$ greater than 10 mm.  The list of truth particles does not include particles that are the result of showering in the detector, and for jet building purposes muons and neutrinos are also not included~\cite{ATL-PHYS-PUB-2015-013}.}  (in Monte Carlo samples), clusters, etc.  
 These algorithms all begin by constructing a list of proto-jets, which consists of four vectors representing all of the inputs at the desired scale (e.g. EM or LC clusters for calorimeter jets).  
 Next a ``distance'' in momentum/angle space between every pair of proto-jets is calculated, defined as:
@@ -158,7 +158,7 @@ where $\Delta_{ij}$ is
   \Delta_{ij} = \sqrt{ \left(\phi_i-\phi_j\right)^2+\left(\eta_i-\eta_j\right)^2}, 
 \end{equation}
 \noindent
-$R$ is a tunable size parameter, and the parameter $n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms respectively.  
+$R$ is a tunable size parameter, and the parameter $n$ determines the behaviour of the algorithm, with $n$=1,0,-1 being the $k_{\mathrm t}$, Cambridge/Aachen, and anti-$k_{\mathrm t}$ algorithms respectively.  
 Additionally for each proto-jet a distance to the beam pipe is calculated using:
 
 \begin{equation}
@@ -169,11 +169,11 @@ The jet building is then performed by finding the smallest distance parameter.
 If it corresponds to a proto-jet/beam pipe distance that proto-jet is promoted to being a full jet, while if it is a proto-jet pair it is replaced by the combination of the pair.  
 Various four-momentum combination schemes exist ($p_{\mathrm T}$ weighted, $p_{\mathrm T}^2$ weighted) but ATLAS uses a simple addition of the four-vectors of the proto-jets using the FastJet implementation~\cite{Cacciari:2011ma}.  
 
-While the $k_t$, Cambridge/Aachen, and anti-$k_t$ algorithms are all used in ATLAS they each serve a different purpose. 
-One large difference between the $k_t$ and the anti-$k_t$ algorithms is that the $k_t$ algorithm begins by combining the lowest $p_{\mathrm T}$ proto-jets while the anti-$k_t$ begins with larger $p_{\mathrm T}$ proto-jets.  
-This means that proto-jets are quite stable in location as they grow in the anti-$k_t$ algorithm, which tends to lead to quite circular jets.  
-This is not the case for $k_t$ jets, which tend to have a wide variety of final jet shapes (see Fig.~\ref{Fig:ExampleJets}).  
-This $k_t$ growth can lead to some pathological cases where the jet grows well beyond what one would intuitively call a jet.  
+While the $k_{\mathrm{t}}$, Cambridge/Aachen, and anti-$k_{\mathrm t}$ algorithms are all used in ATLAS they each serve a different purpose. 
+One large difference between the $k_{\mathrm t}$ and the anti-$k_{\mathrm t}$ algorithms is that the $k_{\mathrm t}$ algorithm begins by combining the lowest $p_{\mathrm T}$ proto-jets while the anti-$k_{\mathrm t}$ begins with larger $p_{\mathrm t}$ proto-jets.  
+This means that proto-jets are quite stable in location as they grow in the anti-$k_{\mathrm t}$ algorithm, which tends to lead to quite circular jets.  
+This is not the case for $k_{\mathrm t}$ jets, which tend to have a wide variety of final jet shapes (see Fig.~\ref{Fig:ExampleJets}).  
+This $k_{\mathrm t}$ growth can lead to some pathological cases where the jet grows well beyond what one would intuitively call a jet.  
 
 \begin{figure}[!ht]
  \centering
@@ -182,17 +182,18 @@ This $k_t$ growth can lead to some pathological cases where the jet grows well b
   \scalebox{0.25}{
    \includegraphics{plots/Chap3/herwig-parton-level-ev-antikt-R1.0-ghosted4root.ps}
   }
-  \caption{Anti-$k_t$ jets using R=1.0.}
+  \caption{Anti-$k_{\mathrm t}$ jets using R=1.0.}
  \end{subfigure}%
  \begin{subfigure}{.5\textwidth}
   \centering
   \scalebox{0.25}{
    \includegraphics{plots/Chap3/herwig-parton-level-ev-kt-R1.0-ghosted4root.ps}
   }
-  \caption{$k_t$ jets using R=1.0.}
+  \caption{$k_{\mathrm t}$ jets using R=1.0.}
  \end{subfigure}
  \caption[Comparing differnet jet building algorithms.]
-  {Outputs of both the anti-$k_t$ and $k_t$ algorithms for the same event, where both have been run using size parameter R=1.0.  Truth particles from an event generated with HERWIG have been used as inputs.  Figure from ~\cite{Cacciari:2008gp}. }
+  {Outputs of both the anti-$k_{\mathrm t}$ and $k_{\mathrm t}$ algorithms for the same event, where both have been run using size parameter R=1.0.  Truth particles from an event generated with HERWIG have been used as inputs.  Figure from ~\cite{Cacciari:2008gp}. }
+
  \label{Fig:ExampleJets}
 \end{figure}
 
