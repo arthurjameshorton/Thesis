@@ -481,10 +481,10 @@ This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$
   \label{Fig:TopoCorr_QGSizes}
 \end{figure}
 
-The choice of physics lists has very little effect on the measured topology correciton for energies above $\sim$ 50 GeV.  
+The choice of physics lists has very little effect on the measured topology correction for energies above $\sim$ 50 GeV.  
 At low energies QGSP\_BIC tends to predict a larger difference between the true calorimeter response and the MPF response than FTFP\_BERT, with the differences growing to be on the order of 1\% for large jets and up to about 2\% for smaller (R$<$0.6) jets in the lowest $p_{\mathrm T}^{\mathrm ref}$ bins considered (20 GeV).  
 This is potentially caused by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
-With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when comapred to QGSP\_BIC.  
+With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when compared to QGSP\_BIC.  
 In the past it has been shown that while $R_{\mathrm{MPF}}$ is biased by the reconstruction threshold the effect of this bias is smaller than that observed when measuring $R_{\mathrm{jet}}$, and therefore $R_{\mathrm{true}}$. 
 This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that this growing difference between physics lists is at least partially caused by this effect.  
 
@@ -500,9 +500,52 @@ With that being said these two measurements were derived as corrections which ca
 For that reason a single correction $C$ is defined:
 \begin{equation}
   C = \frac{1}{k_{\mathrm{topo}}S} = \frac{R_{\mathrm{jet}}}{R_{\mathrm{MPF}}}
+  \label{EQ:CorrC}
 \end{equation}
 
+As previously mentioned the smaller charged pion response in FTFP\_BERT (along with a narrow showering width) causes both the showering correction $S$ and the topology correction $k_{\mathrm{topo}}$ to be larger at low energies as a result of the reconstruction threshold bias.  
+These effects therefore also cause the total correction $C$ to be larger using QGSP\_BERT at low energies, which is exactly what is observed.  
+The variation between the two physics lists grows steadily as the energy is decreased, with the differences getting as large as 2-3\% in at 20 GeV for anti-$k_\mathrm{t}$ R=0.4 jets.  
 
 
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap6/Final/FinalRatio_1.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.35}{
+      \includegraphics{plots/Chap6/Final/FinalRatio_4.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.4}
+  \end{subfigure}
+  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
+{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.1/0.4 jets at EM scale.  }
+  \label{Fig:TopoCorr_1-4}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \scalebox{0.35}{
+      \includegraphics{plots/Chap6/Final/FinalRatio_7.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.7}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.35}{
+      \includegraphics{plots/Chap6/Final/FinalRatio_10.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=1.0}
+  \end{subfigure}
+  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
+{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.7/1.0 jets at EM scale.  }
+  \label{Fig:TopoCorr_7-10}
+\end{figure}
 
 
