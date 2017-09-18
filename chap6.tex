@@ -431,8 +431,12 @@ For jets smaller than the size of the recoil ($\sim$0.6) the topology correction
 For jets between R=0.4 and R=0.7 the topology correction is small (<5\%) over the energy range considered, showing that the effects of the low energy/low response particles at the fringes of the recoil have very little effect on the total response of the recoil.  
 For jets with size parameters which extend beyond the range of the recoil a large amount of underlying event directed in the same direction as the jet is included in the jet.  
 This means that a large number of low energy particles are included in the truth jet, and as the true calorimeter response does not include underlying event in the opposite direction of the jet to partially cancel this effect (which the MPF does) these low energy/low response particles lower the true calorimeter response and therefore raise the topology correction to be greater than one.  
-The choice of physics list has very little effect on the topology correction, with variations being on average less than 0.5\% for all cone sizes above 40 GeV.  
-Below this energy the variations become larger, growing to between 1-2\% for jet sizes larger than R=0.1.  
+The choice of physics list has very little effect on the topology correction, with variations being on average less than 0.5\% for all cone sizes above 80 GeV (above 40 GeV for cone sizes greater than 0.2).   
+Below this energy the variations become larger, growing to between 1-3\% for jet sizes larger than R=0.1.  
+This large variation at low energy appears to be cause by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
+With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when compared to QGSP\_BIC.
+In the past it has been shown that while $R_{\mathrm{MPF}}$ is biased by the reconstruction threshold the effect of this bias is smaller than that observed when measuring $R_{\mathrm{jet}}$, and therefore $R_{\mathrm{true}}$.
+This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that this growing difference between physics lists is at least partially caused by this effect.
 
 
 \begin{figure}[!ht]
@@ -458,7 +462,7 @@ Below this energy the variations become larger, growing to between 1-2\% for jet
 The topology correction has also been studied individually for both quark and gluon initiated jets.
 As quark initiated jets on average have a lower number of particles with a higher energy per particle than gluon jets the same fraction of the total recoil energy is able to be reconstructed using a smaller jet size.  
 This can be seen both in Fig.~\ref{Fig:TopoCorr_QG4} which shows the anti-$k_\mathrm{t}$ R=0.4 jet topology correction for both quark and gluon initiated jets, where the correction is larger for gluon initiated jets as a larger fraction of the recoils energy is made up of low energy particles far away from the jet axis.  
-Another approach to understanding the difference can be seen in Fig.~\ref{Fig:TopoCorr_QGSizes}, which shows that the average true calorimeter response for anti-$k_\mathrm{t}$ R=0.6 quark jets is approximately equal to the total response of the recoil using the MPF.  
+Another approach to understanding the difference can be seen in Fig.~\ref{Fig:TopoCorr_QGSizes}, which shows that the average true calorimeter response for anti-$k_\mathrm{t}$ R=0.5 quark jets is approximately equal to the total response of the recoil using the MPF.  
 This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$ R=0.7 jets.  
 
 \begin{figure}[!ht]
@@ -466,9 +470,9 @@ This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$
   \begin{subfigure}{.5\textwidth}
     \centering
     \scalebox{0.36}{
-      \includegraphics{plots/Chap6/Showering/TopoCorrQuarkRatio_6.eps}
+      \includegraphics{plots/Chap6/Showering/TopoCorrQuarkRatio_5.eps}
     }
-    \caption{Quark initiated jets, anti-$k_\mathrm{t}$ R=0.6}
+    \caption{Quark initiated jets, anti-$k_\mathrm{t}$ R=0.5}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
    \scalebox{0.36}{
@@ -477,16 +481,16 @@ This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$
     \caption{Gluon initiated jets, anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
   \caption[Topology correction for quark/gluon initiated jets.]
-{\small The topology correction $k_{\mathrm{topo}}$ as defined in Sec.~\ref{sec:ShoweringIntro} for anti-$k_\mathrm{t}$ R=0.4 jets at EM scale for quark/gluon initiated jets.  }
+{\small The topology correction is defined in Sec.~\ref{sec:ShoweringIntro} as the ratio of the true calorimeter response to the MPF.  Shown above is the topolgy correction for quark jets using anti-$k_\mathrm{t}$ R=0.5 jets and for gluon jets using anti-$k_\mathrm{t}$ R=0.7.  In both cases the topology correction $\approx$ 1, showing that a larger jet sizes is required to capture the same fraction of a gluon initiated recoil when compared to a quark initiated recoil.  }
   \label{Fig:TopoCorr_QGSizes}
 \end{figure}
 
-The choice of physics lists has very little effect on the measured topology correction for energies above $\sim$ 50 GeV.  
-At low energies QGSP\_BIC tends to predict a larger difference between the true calorimeter response and the MPF response than FTFP\_BERT, with the differences growing to be on the order of 1\% for large jets and up to about 2\% for smaller (R$<$0.6) jets in the lowest $p_{\mathrm T}^{\mathrm ref}$ bins considered (20 GeV).  
-This is potentially caused by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
-With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when compared to QGSP\_BIC.  
-In the past it has been shown that while $R_{\mathrm{MPF}}$ is biased by the reconstruction threshold the effect of this bias is smaller than that observed when measuring $R_{\mathrm{jet}}$, and therefore $R_{\mathrm{true}}$. 
-This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that this growing difference between physics lists is at least partially caused by this effect.  
+%The choice of physics lists has very little effect on the measured topology correction for energies above $\sim$ 40 GeV.  
+%At low energies QGSP\_BIC tends to predict a larger difference between the true calorimeter response and the MPF response than FTFP\_BERT, with the differences growing to be on the order of 2\% for large jets and up to about 3\% for smaller (R$<$0.6) jets in the lowest $p_{\mathrm T}^{\mathrm ref}$ bins considered (20 GeV).  
+%This is potentially caused by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
+%With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when compared to QGSP\_BIC.  
+%In the past it has been shown that while $R_{\mathrm{MPF}}$ is biased by the reconstruction threshold the effect of this bias is smaller than that observed when measuring $R_{\mathrm{jet}}$, and therefore $R_{\mathrm{true}}$. 
+%This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that this growing difference between physics lists is at least partially caused by this effect.  
 
 
 \section{Combination}
@@ -504,48 +508,64 @@ For that reason a single correction $C$ is defined:
 \end{equation}
 
 As previously mentioned the smaller charged pion response in FTFP\_BERT (along with a narrow showering width) causes both the showering correction $S$ and the topology correction $k_{\mathrm{topo}}$ to be larger at low energies as a result of the reconstruction threshold bias.  
-These effects therefore also cause the total correction $C$ to be larger using QGSP\_BERT at low energies, which is exactly what is observed.  
-The variation between the two physics lists grows steadily as the energy is decreased, with the differences getting as large as 2-3\% in at 20 GeV for anti-$k_\mathrm{t}$ R=0.4 jets.  
+It is therefore unsurprising that the inverse of the product of these two quantities will be larger for using QGSP\_BERT at low energies.  
+The variation between the two physics lists grows steadily as the energy is decreased, with the differences getting as large as 5\% in at 20 GeV for anti-$k_\mathrm{t}$ R=0.4 jets, as seen in Fig.~\ref{Fig:TopoCorr_4-7}
+The correction $C$ has also been measured event by event, with the distributions of these measurements being fit using the same procedure used in the nominal MPF analysis.  
+The means of these fits as a function of reference energy is shown in Fig.~\ref{Fig:TopoCorrSingle_4-7}.  
+The size of the discrepancy between the two physics lists shrinks when measuring $C$ directly, with differences never being larger than 1\% as compared to the up to 5\% differences observed in the indirect measurement, although the absolute size of the correction remains comparable.  
+This difference in disagreement originates from the use of the arithmetic means used as the centroid of the showering correction.  
 
+
+It is also worth noting that for jet sizes larger than anti-$k_\mathrm{t}$ R=0.4 increasing the jet size increases the size of the correction $C$.  
+The is a result of extending the jet cone size beyond the boundaries of the recoil, which increases the number of low energy/low response particles included in the jet definition.  
+This effect is compensated for in the MPF by the presence of additional low energy/low response particles which deposit energy in the same hemisphere of the calorimeter of the calorimeter as the reference object (i.e $\Delta R\left(\mathrm{jet, particle}\right) > \pi/2$).  
+
+\clearpage
 
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \scalebox{0.35}{
-      \includegraphics{plots/Chap6/Final/FinalRatio_1.eps}
-    }
-    \caption{Anti-$k_\mathrm{t}$ R=0.1}
-  \end{subfigure}%
-  \begin{subfigure}{.5\textwidth}  \centering
-   \scalebox{0.35}{
+    \scalebox{0.30}{
       \includegraphics{plots/Chap6/Final/FinalRatio_4.eps}
     }
     \caption{Anti-$k_\mathrm{t}$ R=0.4}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}  \centering
+   \scalebox{0.30}{
+      \includegraphics{plots/Chap6/Final/FinalRatio_7.eps}
+    }
+    \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
-  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.1/0.4 jets]
-{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.1/0.4 jets at EM scale.  }
-  \label{Fig:TopoCorr_1-4}
+  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.4/0.7 jets]
+{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale, calculated as the inverse of the product of the showering and topology corrections measured in the previous section. }
+  \label{Fig:TopoCorr_4-7}
 \end{figure}
+
+
+
 
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \scalebox{0.35}{
-      \includegraphics{plots/Chap6/Final/FinalRatio_7.eps}
+    \scalebox{0.30}{
+      \includegraphics{plots/Chap6/Final/FinalCorrRatio_4.eps}
     }
-    \caption{Anti-$k_\mathrm{t}$ R=0.7}
+    \caption{Anti-$k_\mathrm{t}$ R=0.4}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}  \centering
-   \scalebox{0.35}{
-      \includegraphics{plots/Chap6/Final/FinalRatio_10.eps}
+   \scalebox{0.30}{
+      \includegraphics{plots/Chap6/Final/FinalCorrRatio_7.eps}
     }
-    \caption{Anti-$k_\mathrm{t}$ R=1.0}
+    \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
-  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.7/1.0 jets]
-{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.7/1.0 jets at EM scale.  }
-  \label{Fig:TopoCorr_7-10}
+  \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.4/0.7 jets]
+  {\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale.  Here the total correction is measured event by event and the mean of a Gaussian fit to the distribution of this correction is used as the central value.  }
+  \label{Fig:TopoCorrSingle_4-7}
 \end{figure}
+
+
+
 
 
