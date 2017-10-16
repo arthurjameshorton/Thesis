@@ -1,13 +1,13 @@
 \chapter{Experimental setup}
 \label{Experiment}
 The \gls{LHC} successfully began circulating its first protons within its 27 km long underground tunnel on the 10th of September 2008.  
-Unfortunately an incident on the 19th of that same month where a magnet quench caused 6 tonnes of liquid helium to vent and subsequently expand with violent force damaged over 50 superconducting magnets which needed to be repaired.   
+Unfortunately an incident on the 19th of that same month, where a superconducting magnet quench caused 6 tonnes of liquid helium to vent and subsequently expand with violent force, damaged over 50 superconducting magnets which needed to be repaired.   
 On the 23rd of November the following year the first collisions were recorded~\cite{FirstCollisions}, signalling the beginning of the LHC era at the forefront of the high energy frontier.  
 In the years since the LHC has been consistently pushing to more frequent collisions at higher energies, allowing the experiments along its ring to explore and extend our knowledge of physics at the subatomic level.  
 
 This chapter describes the technology that allows these studies to be performed.  
 First a description of the LHC acceleration complex is provided.  
-This is followed by a subdetector by subdetector description of the ATLAS detector, including details on the physics behind the technology used in these detectors.  
+This is followed by a subdetector by subdetector description of the ATLAS experiment, including details on the physics behind the technology used in these detectors.  
 
 \section{The Large Hadron Collider}
 \label{Sec:LHC}
@@ -28,7 +28,7 @@ It was built in the 1950's and was designed to accelerate up to 10$^{10}$ proton
 After the PS, the protons are injected into the Super Proton Synchrotron (SPS), a machine that in 1976 when it was turned on had the ability to accelerate protons to 400 GeV, the second highest energy attainable by an accelerator at that time.  
 The SPS, while in proton/anti-proton collision mode (the so-called Sp$\bar{\mathrm p}$S mode) allowed the discovery of both the W and Z bosons by the UA1 and UA2 collaborations.  
 It may be worth noting that it takes several fills of the PS to fill the SPS, and it subsequently takes several fills of the SPS to fully fill the LHC.  
-The SPS is now the final pre-injector into the LHC, accelerating the protons up to 450 GeV before they enter the LHC itself.  
+The SPS is the final pre-injector into the LHC, accelerating the protons up to 450 GeV before they enter the LHC itself.  
 
 The LHC is a machine that was designed to use 16 RF cavities to accelerate 2808 bunches, each with 1.15x$10^{11}$ protons, to 7 TeV per proton.  
 These bunches travel the 27~km around the ring of the LHC being held in orbit by 1232 superconducting dipole magnets (8.33 Tesla) which bend the beam, along with a number of additional magnets, mostly quadruples, which help focus the beam~\cite{LHCTDR}.  
@@ -45,12 +45,12 @@ The LHC's design luminosity is approximately 20 times the maximum luminosity of 
 The origin of the coordinate system that is used in ATLAS is at the geometric centre of the ATLAS detector.  
 The z-axis is parallel to the beam pipe running counterclockwise along the LHC ring when viewed from above, with the x-axis pointing toward the middle of the ring and the y-axis pointing up.  
 A more common way to describe the coordinates in the x-y plane is to use the azimuthal angle $\phi$, where $\phi$=0 is defined to be along the positive x-axis and to increase in the direction of the positive y-axis, along with the radial coordinate $r$ which is the distance of the point from the origin.  
-As the remnants of the collisions will be ejected in all directions a spherical coordinate system is adopted by adding a second angle $\theta$, with the most natural orientation being to define $\theta$=0 being in the x-y plane with $\theta$ increasing in the direction of the positive z-axis.  
-When it comes to high energy physics however it is often more convenient to speak in terms of rapidity($y$) and pseudorapidity($\eta$).  
+As the remnants of the collisions will be ejected in all directions a spherical coordinate system is adopted by adding a second angle $\theta$, with the most natural orientation being to define $\theta$=0 along the positive z-axis and increasing in the direction of the x-y plane.  
+In high energy physics however it is often more convenient to speak in terms of rapidity($y$) and pseudorapidity($\eta$).  
 This is especially true for a hadron collider like the LHC, which at high energy effectively collides partons.  
-Within the protons each parton carries an unknown fraction of the total momentum of the proton.  
+Each parton carries an unknown fraction of the total momentum of the proton.  
 This means that the center of mass frame for each collision is Lorentz boosted along the $z$ axis.  
-This makes the use of $\theta$ problematic due to how it transforms as one transitions from the detector reference frame to the centre of mass reference frame.  
+This makes the use of $\theta$ problematic due to how it transforms from the detector reference frame to the centre of mass reference frame.  
 Rapidity, given by $y=\frac{1}{2}\mathrm{ln}\left[\frac{E+p_{z}}{E-p_z}\right]$, is much more helpful in this regard as differences in rapidity remain constant under Lorentz boosts.  
 Pseudorapidity, defined as $\eta=-\mathrm{ln}\left[\mathrm{tan}\left(\frac{\theta}{2}\right)\right]$, is a good approximation for rapidity, especially at high energy, and does not require knowledge of the energy and momentum of the particle in question.  
 Pseudorapidity is equal to the rapidity in the case of a massless particle.  
@@ -89,7 +89,7 @@ This magnetic field bends the trajectories of charged particles by an amount tha
 The main purpose of the inner detector is to make non destructive measurements of this bending, allowing the momentum of charged particles to be measured.  
 It is also possible to track the trajectories of multiple particles back to a single origin, called a vertex.  
 Vertices along the beam axis may indicate an individual proton-proton collision event, while vertices off of the beam axis may indicate the location where some heavy particle produced in the original collision further decays into lighter secondaries.  
-The \gls{TRT} also contributed to particle identification by measuring transition radiation (discussed later in this section).  
+The \gls{TRT} also contributes to particle identification by measuring transition radiation (discussed later in this section).  
  
 These trajectories are measured by a large number of concentric cylindrical detectors (and circular endcap detectors)  with well known positions surrounding the interaction point.  
 When a particle passes through these detectors a space-point is measured (a hit).  
@@ -111,25 +111,25 @@ This setup allowed for an intrinsic resolution of 10 $\mu$m in the transverse im
  }
  \end{center}
  \caption[Layout and coverage of the ID]
- {\small Layout and coverage of the ID.  Figure from ~\cite{Iwamoto:2013kla}}
+ {\small Layout and coverage of the ID.  Figure from ~\cite{Iwamoto:2013kla}.  Note that the IBL is not included.}
  \label{IDCoverage}
 \end{figure} 
 
 During the first long shutdown of the LHC a fourth additional layer was added closer to the beam, known as the \gls{IBL}.  
 This layer was designed to deal with the high occupancy expected as the luminosity delivered by the LHC increases into 2020 (2-3 x $10^{34}$ cm$^{-2}$s$^{-1}$)~\cite{IBL1}, and to provide an additional hit near the interaction point to ensure good tracking efficiency as the ID ages.  
-This new layer has 14 staves which are arranged in an overlapping circular pattern 33~mm away from the centre of the beam pipe, adding a further 6x10$^6$ individual readout pixels to the pixel detector.
+This new layer has 14 staves which are arranged in an overlapping circular pattern 33~mm away from the centre of the beam pipe, adding a further 6x10$^6$ individual readout channels to the pixel detector.
 The IBL improves the intrinsic resolution of the pixel detector by a factor of 1.7~in longitudinal impact parameter and by 1.2~in transverse impact parameter.  
 It also reduces the $p_{\mathrm T}$ dependence of the resolution by a factor of 1.8 in both directions~\cite{IBL2}.  
-One measurement that can be improved by this increased track resolution is b-tagging, which involves using vertices which are displaced from the beam line to identify the remnants of very short lived particles decaying before they reach the tracking system (in this case b mesons).  
+One measurement that can be improved by this increased track resolution is b-tagging, which involves using vertices which are displaced from the beam line to identify the remnants of very short lived particles decaying before they reach the tracking system (in this case B mesons).  
 The light jet rejection rate of a b-tagger set to accept 60\% of b jets has been shown to increase by nearly a factor of 2 with this improvement in resolution (in the absence of pileup).
 
-As mentioned above the SCT is also a semiconductor detector, consisting of 4088 mod- ules tiling 4 cylinders and two endcaps, with each endcap consisting of 9 layers~\cite{JOIATLAS}.  
-In the barrel these modules consist of two inner and two outer sensors with a stereo angle of 40 mrad to provide a position measurement in a complemantary direction.  
+As mentioned above the SCT is also a semiconductor detector, consisting of 4088 modules tiling 4 cylinders and two endcaps, with each endcap consisting of 9 layers~\cite{JOIATLAS}.  
+In the barrel these modules consist of two inner and two outer sensors with a stereo angle of 40 mrad to provide a position measurement in a complementary direction.  
 The endcap modules use the same strategy, having two sensors glued back-to-back once again with a stereo angle of 40~mrad.  
 The SCT has a nominal resolution of 17~$\mu$m in R-$\phi$ and 580~$\mu$m in z.  
 
 The final subsystem in the tracker is the TRT which uses up to 73 layers of gas filled ``straws'' in the barrel and as many as 160 straw planes in the endcaps.  
-Each straw is filled with a mixture of 70\% xenon gas (for x-ray absorption), 27\% CO2, and 3\% O2 (for increasing the electron drift velocity and photon quenching).  
+Each straw is filled with a mixture of 70\% xenon gas (for x-ray absorption), 27\% CO$_2$, and 3\% O$_2$ (for increasing the electron drift velocity and photon quenching respectively).  
 Charged particles ionize the gas mixture as they pass through and the charge is collected by a central gold plated tungsten anode wire within each straw.  
 Each of these 144~cm long straws provides only information in R-$\phi$, for which the intrinsic accuracy is 130~$\mu$m.  
 In addition to providing position measurements the TRT is also able to detect the low energy transition radiation photons created as the charged particles travel between the gas, the layers within the straw walls, and the inter-straw medium (polypropylene foils or fibres).  
@@ -138,10 +138,10 @@ By having two detection thresholds for each straw, a low ionization threshold an
 Tracks with a large number of high threshold hits can be assumed to be highly boosted light particles, namely electrons.  
 
 \subsection{ATLAS Hardware: Calorimeter}
-Calorimeters, in contrast to tracking systems, absorb the energy of incoming particles through destructive processes and produce signals that are proportional to the initial incoming energy.  
+Calorimeters, in contrast to tracking systems, absorb the energy of incoming particles through destructive processes and produce signals that are proportional to the incoming energy.  
 In addition to pure energy measurements calorimeters which are segmented into $\eta$ x $\phi$ x $R$ cells can also provide information on how the energy from a given particle is deposited, which helps both particle identification and energy calibration.  
 With a large coverage in both $\eta$ and $\phi$ one can also determine the location in $\phi$ where signals may be expected due to the conservation of momentum in the transverse plane but nothing is detected.  
-These imbalances in measured momentum may interpreted as a miscalibration of the observed energy or as particles having passed through the detector without interacting such as a neutrino.
+These imbalances in measured momentum may be interpreted as a miscalibration of the observed energy or as particles having passed through the detector without interacting such, as a neutrino.
 
 The ATLAS calorimeter is broken up into three $\eta$ sections: the central barrel region, the endcaps and the forward calorimeters (FCal).  
 In all three regions the ATLAS calorimeter is split into two well defined primary longitudinal segments, the \gls{EM} calorimeter, and the hadronic calorimeter.   
@@ -149,14 +149,14 @@ This division is to take advantage of the relatively shallow showering depth of 
 These differences will be further explained in the following sections.  
 
 The remainder of this section is divided into four subsections.  
-The first subsection describes particles which result in electromagnetic showers and how electromagnetic showers are propagated.  
+The first subsection describes particles that result in electromagnetic showers and how electromagnetic showers are propagated.  
 This is followed by a description of the technology used in the EM calorimeters in ATLAS.  
 The same two stage approach is also used to explain hadronic showers and how they are measured in ATLAS.  
 
 \subsubsection{Electromagnetic Calorimeter}
 \label{EMCalo} 
 
-Electromagnetic calorimeters are focused on measuring the energy of photons and electrons, which interact with matter through a variety of processes which are all results of the electromagnetic interaction~\cite{grupen2008particle}~\cite{Wigmans2008}.  
+Electromagnetic calorimeters are focused on measuring the energy of photons and electrons, which interact with matter through a variety of processes that are all results of the electromagnetic interaction~\cite{grupen2008particle}~\cite{Wigmans2008}.  
 The photon for example has four primary processes through which it interacts with matter: Rayleigh scattering, the photoelectric effect, Compton scattering, and pair production.  
 The contribution of each of these processes to the overall energy loss of the photon depends on the energy of the photon.  
 
@@ -167,7 +167,7 @@ The contribution of each of these processes to the overall energy loss of the ph
       }
     \end{center}
         \caption[Contributions to the photon interaction cross section]
-        {\small Contributions to the photon interaction cross section as a function of the photon energy.  $\tau$ is the photoelectric effect, $\sigma_{\mathrm{COH}}$ is Rayleigh scattering, $\sigma_{\mathrm{INCOH}}$ is Compton scattering, $\kappa_{\mathrm n}$ and $\kappa_{\mathrm e}$ is pair production off of atomic nuclei and electrons respectively in lead~\cite{:/content/aip/journal/jpcrd/9/4/10.1063/1.555629}. 
+        {\small Contributions to the photon interaction cross section as a function of the photon energy.  $\tau$ is the photoelectric effect, $\sigma_{\mathrm{COH}}$ is Rayleigh scattering, $\sigma_{\mathrm{INCOH}}$ is Compton scattering, $\kappa_{\mathrm n}$ and $\kappa_{\mathrm e}$ are pair production off of atomic nuclei and electrons respectively in lead~\cite{:/content/aip/journal/jpcrd/9/4/10.1063/1.555629}. 
 }
             \label{Photon}
 \end{figure}
@@ -185,7 +185,7 @@ An important measure of the number of interactions a photon will experience whil
 By measuring the amount of material present in a given detector in terms of $\lambda$ one can more readily compare two calorimeters made with different materials.  
 
 
-The primary electromagnetic mechanism through which charged particles (electrons and positrons for example) lose their energy is also energy dependent.  
+The primary electromagnetic mechanism by which charged particles (electrons and positrons for example) lose their energy is also energy dependent.  
 Lower energy particles primarily lose energy by ionizing the material they are travelling through (with processes like M{\o}ller scattering or Bhabha scattering also contributing).  
 Particles with higher energy tend to lose energy by radiating photons (bremsstrahlung).  
 The energy at which the average energy loss due to ionization is equal to the average energy loss due to bremsstrahlung is called the critical energy $\epsilon_{\mathrm{C}}$.  
@@ -363,8 +363,8 @@ The number of sampling layers and the granularity of each of the regions of the 
     }
   \end{center}
   \caption[Grafic showing different particle interactions]
-      {\small Cross-section of the muon system in a plane containing the beam axis (bending plane). The muon track bends in the magnetic field of the ID and deposits small amounts of energy in every detector along it's path.  Note that muons are the only charged particles to reach the muon spectrometer~\cite{JOIATLAS}.}
-  \label{MuonSpectroFig}
+  {\small Illustration showing how and where various particles interact with the ATLAS detector.  Note that while neutrons and protons are shown to only begin interacting in the hadronic calorimeter the showering does in fact begin in the EM calorimeter.  The muon track bends in the magnetic field of the ID and deposits small amounts of energy in every detector along it's path.  Note that muons are the only charged particles to reach the muon spectrometer~\cite{JOIATLAS}.}
+  \label{Fig:ATLASCrossX}
 \end{figure}
 
 
@@ -389,7 +389,7 @@ The additional wheel at 10.8~m is to allow for the full three measurements of th
     }
   \end{center}
   \caption[Muon system cross section.]
-      {\small Cross-section of the muon system in a plane containing the beam axis (bending plane).  The light green and light blue cells are the MDTs, the yellow cell represets the CSCs, the light purple lines are the TGCs and the labeled black lines are the RPC's.  }
+      {\small Cross-section of the muon system in a plane containing the beam axis (bending plane).  The light green and light blue cells are the MDTs, the yellow cell represents the CSCs, the light purple lines are the TGCs and the labeled black lines are the RPC's.  }
 %Infinite-momentum muons would propagate along straight trajectories which are illustrated by the dashed lines and typically traverse three muon stations~\cite{JOIATLAS}.}
   \label{MuonSpectroFig}
 \end{figure}
@@ -397,12 +397,12 @@ The additional wheel at 10.8~m is to allow for the full three measurements of th
 \gls{MDT}'s are used to make the position measurements in the outer two layers of the muon spectrometer over the full eta range ($\mid\eta\mid<$ 2.7), and they are also used in all but the most forward portion of the innermost layer ($\mid\eta\mid<$ 2.0).  
 MDTs make use of the trail of ionized particles left behind as a charged particle passes through a gas in a similar way to the TRT (see Sec.~\ref{Sec.ID}), where the gas used here is a 93/7 mixture of Ar/CO$_2$~\cite{JOIATLAS}.  
 The most forward region of the inner most layer of the endcaps experiences larger particle rates than is generally considered safe for operating MDTs (greater than 150 Hz/cm$^2$).  
-For this reason this region uses \gls{CSC}'s, which have higher time and space resolution as well as lower neutron sensitivity.  
-\gls{CSC}'s consist of an array of positively charged anode wires crossed with a series of negatively charged cathode plates all immersed in an active gases medium (80/20 Ar/CO$_2$).  
+For this reason this region uses \gls{CSC}'s, which have better time and space resolution as well as lower neutron sensitivity.  
+\gls{CSC}'s consist of an array of positively charged anode wires which run perpendicular to a series of negatively charged cathode plates all immersed in an active gas medium (80/20 Ar/CO$_2$).  
 Charged particles ionize this gas and the electrons/ions are collected on the anodes/cathodes, providing measurements in both directions.  
 
-The MS also contains additional detectors to be used for triggering (see Sec.~\ref{Trig}).  
-In the central region ($\mid\eta\mid < 1.05$) three layers of \gls{RPC}'s are used (two sandwiching the central station and a third either on the inside or the outside of the third station.  
+The MS also contains additional detectors to be used for triggering (see Sec.~\ref{Trig}), where these detectors must have a fast enough response time to deal with the large collisions rates present in the LHC environment.  
+In the central region ($\mid\eta\mid < 1.05$) three layers of \gls{RPC} are used (two sandwiching the central station and a third either on the inside or the outside of the third station.  
 \gls{RPC}'s contain no wires and consist of two parallel charged plates surrounding an active gaseous medium (94.7/5/0.3 of C$_2$H$_2$F$_4$/Iso-C$_4$H$_10$/DF$_6$), where charged particles ionize the gas and the electrons are collected on the anode plate.   
 The forward region ($1.05<\mid\eta\mid < 1.4$) has additional complications with regards to triggering compared to the central region (larger momentum for the given transverse momentum, inhomogeneities in the magnetic field, higher occupancy), motivating the use of \gls{TGC}'s which are better suited to handle this environment.  
 \gls{TGC}'s consist of a number of parallel anode wires between two cathode plates, immersed in an active gas (55/45 CO$_2$n-pentane).  
@@ -422,11 +422,11 @@ This must be done in a way that maximizes the number of rare events of interest 
 The triggering system uses a combination of hardware and software tools to perform this task~\cite{Run2Triggers}.  
 
 The trigger system consists of two parts the first being the \gls{L1} trigger.  
-The L1 trigger is hardware based and reduces the number of events to be considered from 40 MHz per second down to 100 kHz.  
+The L1 trigger is hardware based and reduces the number of events to be considered from 40 MHz down to 100 kHz.  
 It uses a courser object definition than the full event reconstruction.  
 Selections can still be made based on energy thresholds for given objects, as well as more topological information like particle isolation requirements or a specified range for the invariant mass of a combination of objects.  
 
-The second stage of the trigger system, which is implemented on a software computer farm, is known as the high-level trigger, or HLT.  
+The second stage of the trigger system, which is implemented in software on a computer farm, is known as the high-level trigger, or HLT.  
 In the HLT some full offline-like unseeded reconstruction algorithms can be run, including topo-clustering (see Sec.~\ref{Sec:Topocluster}) and muon reconstruction.  
 This is not always the case.  
 For example L1 tracking information is used to seed tracks in the HLT to reduce the reconstruction time.  

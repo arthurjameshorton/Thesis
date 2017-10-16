@@ -18,26 +18,26 @@ Finally some key assumptions used in the derivation of the MPF are examined, inc
  \label{Fig:EMShape17-20}
 \end{figure}
 
-As mentioned in Sec.~\ref{sec:ShoweringIntro} the majority of the energy from the hadronic recoil resides within a narrow energy core that has a large energy density (the jet).  
+As mentioned in Sec.~\ref{sec:ShoweringIntro} the majority of the energy from the hadronic recoil resides within a narrow energy core that has a large energy density (the core of the reconstructed the jet).  
 In this section this statement is explored by measuring how the energy from the recoil is distributed around the calorimeter.  
 This is done by measuring the average energy density in an annulus with an inner radius of $r-\Delta r$ and an outer radius of $r+\Delta r$, which is defined as
 \begin{equation}
   \rho\left(r\right)  = \left( \frac{ E\left(r-\Delta r, r+\Delta r\right)}{\pi \left[\left(r +\Delta r\right)^2-\left(r -\Delta r\right)^2\right] E^{\mathrm{jet}}}\right), 
 \end{equation}
 where $E\left(r-\Delta r, r+\Delta r\right)$ is the sum of the energy of all clusters with a distance $R$ from the jet between $r-\Delta r$ and  $r+\Delta r$.  
-As this thesis aims to measure this energy density profile in the context of an MPF based calibration results are obtained using the same selection used in the main analysis (see Sec.~\ref{Sec:SelectionCriteria}), and are also binned in $p_{\mathrm T}^{\mathrm{ref}}$.  
-The energy distributions using EM scale clusters at three different reference energies with Z+jet events are shown in Figs.~\ref{Fig:EMShape17-20},~\ref{Fig:EMShape60-80}, and~\ref{Fig:EMShape210-260}.  
+As this thesis aims to measure this energy density profile in the context of an MPF based calibration, results are obtained using the same selection used in the main analysis (see Sec.~\ref{Sec:SelectionCriteria}), and are also binned in $p_{\mathrm T}^{\mathrm{ref}}$.  
+The energy distributions using EM-scale clusters at three different reference energies with Z+jet events are shown in Figs.~\ref{Fig:EMShape17-20},~\ref{Fig:EMShape60-80}, and~\ref{Fig:EMShape210-260}.  
 One feature that should be understood is a dip in energy density at the boundary of the jet (in this case at $\Delta R = 0.4$).  
 This dip is not a feature of the recoil or the calorimeter, but of the jet reconstruction algorithm, which creates an object which is centered on the most energetic clusters it contains~\cite{Choudalakis:1248716}.  
 The location of the jet axis can be affected by significant energy clusters near the jet reconstruction boundary, which effectively moves these clusters closer to the axis, depleting the region just inside of the jet boundary.  
 For example, consider a jet growing from $R$ = 0.35 to $R$ = 0.4.  
 If this jet growth only adds clusters with energies which are small with respect to the energy of the growing proto-jet the centre of the jet (the four-momentum sum of its constituents) does not move very much.  
 If there is a cluster with a relatively high energy compared to the energy of the proto-jet the centre of the jet will move closer to this new addition.  
-This process moves high energy clusters away from the jet boundary.  
+This process moves high energy clusters away from the jet boundary towards the centre of the jet.  
 This effect is especially evident for lower energy jets where even very small energy clusters represent a relatively large fraction of the total jet energy.  
 This dip is therefore more pronounced in Fig.~\ref{Fig:EMShape17-20} than in Fig.~\ref{Fig:EMShape60-80} or Fig~\ref{Fig:EMShape210-260}.  
-The jet reconstruction threshold also effects the energy density distribution of the low reference object energy region.  
-With these topologies events with more energy distributed outside of the jet definition (beyond $R$=0.4 in this case) will not have enough energy in the core to pass the threshold.  
+The jet reconstruction threshold also affects the energy density distribution for the region with low reference object energy.  
+With these topologies events with more energy distributed outside of the jet definition (beyond $R$=0.4 in this case) do not have enough energy in the core to pass the threshold.  
 This means that in Fig.~\ref{Fig:EMShape17-20} the energy density flattens out more quickly as a function of $R$ than it would if the reconstruction threshold were removed.  
 
 
@@ -70,11 +70,11 @@ This is caused by the presence of the subleading jet, which tends to be produced
 
 \section{Expanded MPF Derivation}
 
-In Sec.~\ref{METProj} a derivation of the MPF was presented which considered only the hard scattering event, ignoring any potential effects of the underlying event and pileup.  
+In Sec.~\ref{METProj} a derivation of the MPF was presented which considered only the hard scattering part of the event, ignoring any potential effects of the underlying event and pileup.  
 This potential deficiency in the derivation was justified by arguing that the underlying event and pileup are symmetric in $\phi$ when averaged over many events and therefore do not contribute to the measured MPF response.  
 This assumption is tested in this section.  
 
-The definition of the MPF in Eq.~\ref{EQ:MPFSimple}, is modified by a term $\Delta^{\mathrm{OA}}$ that accounts for the effect of other activity in the event on measured $_{\mathrm{recoil}}$, 
+The definition of the MPF in Eq.~\ref{EQ:MPFSimple}, is modified by a term $\Delta^{\mathrm{OA}}$ that accounts for the effect of other activity in the event on measured $R_{\mathrm{recoil}}$, 
 \begin{equation}
   \label{Eq:MPFWithDelta}
   R_{\mathrm{recoil}}=1+\frac{\vec{E}_{\mathrm T}^{\mathrm{miss, recoil}}\cdot\hat{p}_{\mathrm T}^{\mathrm{ref}}}{E_{\mathrm T}^{\mathrm{ref}}} + \Delta^{\mathrm{OA}}, 
@@ -108,15 +108,15 @@ To first order the effect of the other activity can be assumed to be small (as t
 This allows the use of the MPF itself as a measure of the response of the recoil.  
 Obtaining a measurement of the full energy of the hadronic recoil at the detector level with the underlying event removed (and also without including pileup) is also a difficult issue.  
 As the MPF technique already intimately connects the energy of the recoil to the energy of the jet this strategy will be used again.  
-A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which contains the vast majority of the hard scattering along with a significant amount of underlying event.   
+A range of jet cone sizes will be used ranging from a jet size parameter of $R$=0.1, which contains only the highest energy most central components of a jet, to $R$=1.0 which contains essential all of the hard scattering along with a significant amount of underlying event.   
 As these are non-standard jet collections in ATLAS the residual pileup correction is not available for all sizes considered, however it is still possible to remove the majority of the pileup from each jet using the jet area subtraction as described in Sec.~\ref{ATLASJES}.  
 
 It is worth noting a few limitations of this technique before moving further.  
-Just like in the derivation of the MPF substituting the energy of the leading jet for the energy of the recoil is a sensible substitution only when the leading jet makes up the majority of the recoil (when the balance is not spoiled by ISR/FSR).  
+Just like in the derivation of the MPF, substituting the energy of the leading jet for the energy of the recoil is a sensible substitution only when the leading jet makes up the majority of the recoil (when the balance is not spoiled by ISR/FSR).  
 This is ensured once again by applying both a $\Delta\phi$ and subleading jet (J2) requirement.  
 In the case of this analysis $\Delta\phi\left(\text{leading jet, ref}\right)$>2.9 and the $p_{\mathrm T}$ of the subleading jet without calibration must be less than 5\% of the $p_{\mathrm T}$ of the reference object ($p_{\mathrm T}^{J2}<0.05$ $p_{\mathrm T}^{\mathrm{ref}}$).  
-This very tight removes nearly all events in the lowest $p_{\mathrm T}^{\mathrm {ref}}$ bins.  
-At low energies pileup becomes a larger issue, first by pileup jets being misidentified as the subleading jet which changes how strict the previous requirement is applied, and then by pileup jets being misidentified as the leading jet causing the event to fail the $\Delta\phi$ requirement.  
+These very tight selection criteria remove nearly all events in the lowest $p_{\mathrm T}^{\mathrm {ref}}$ bins.  
+At low energies pileup becomes a larger issue, first by pileup jets being misidentified as the subleading jet which changes how strict the previously applied requirement is, and then by pileup jets being misidentified as the leading jet causing the event to fail the $\Delta\phi$ requirement.  
 Examples of $\Delta^{\mathrm {OA}}$ distributions can be seen in Fig.~\ref{Fig:OADistExample}.  
 %An example of how these effects change the measured response distribution in a $p_{\mathrm T}$ based response measurement can be seen in Fig.~\ref{Fig:BalDistExample}.  
 
@@ -184,8 +184,16 @@ Examples of $\Delta^{\mathrm {OA}}$ distributions can be seen in Fig.~\ref{Fig:O
 \end{figure}
 
 This measure of the effect of the other activity on the MPF is shown as a function of $p_{\mathrm T}^{\mathrm {ref}}$ using various jet sizes as a substitute for the energy of the recoil in Figs.~\ref{Fig:OA_1-4}~and~\ref{Fig:OA_7-10}.  
-As seen in Sec.~\ref{Sec:EnergyDensity} the energy density of jets in the energy range considered remains large compared to that of pileup/underlying activity out to at least a distance of $\Delta\mathrm{r}=$ 0.4 away from the core.  
-For this reason the use of jets reconstructed using size parameters smaller than this value as a stand in for the energy of the recoil is known to be a bad approximation, and therefore these plots are included only for illustrative purposes.  
+As seen in Sec.~\ref{Sec:EnergyDensity} the energy density of jets in the energy range considered remains large compared to that of pileup/underlying activity out to at least a distance of $\Delta\mathrm{R}=$ 0.4 away from the jet axis.  
+For this reason the use of jets reconstructed using size parameters smaller than this value as a stand-in for the energy of the recoil is known to be a bad approximation, and therefore these plots are included only for illustrative purposes.  
+It is also worth noting that in the lowest $p_{\mathrm{T}}^{\mathrm{Ref}}$ bins the effect of the reconstruction threshold is to remove all events with a low $\vec{E}_{\mathrm T}^{\mathrm{meas, recoil}}$, biasing the quantity high.  
+This effect is seen in Fig.~\ref{Fig:OA_7-10} for anti-$k_\mathrm{t}$ R=1.0 jets where $\Delta^{\mathrm{OA}}$ becomes positive at low energies.  
+
+
+As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensitive to the choice of cone size at small values of $p_{\mathrm T}$ but it tends to show that the MPF is not affected by the other activity in the event when using a suitably large radius jet which includes the full recoil.
+This means that the previously used assumption that the other activity is $\phi$ symmetric when averaged over a large number of events is correct and therefore does not affect the MPF's ability to measure the response of the recoil.
+
+
 
 \begin{figure}[!ht]
   \centering
@@ -207,8 +215,6 @@ For this reason the use of jets reconstructed using size parameters smaller than
   \label{Fig:OA_ConeSize}
 \end{figure}
 
-As shown in Fig.~\ref{Fig:OA_ConeSize} $\Delta^{\mathrm{OA}}$ can be quite sensitive to the choice of cone size at small values but it tends to show that the MPF is not affected by the other activity in the event when using a suitably large radius jet which includes the full recoil.  
-This means that the previously used assumption that the other activity is $\phi$ symmetric when averaged over a large number of events and therefore does not effect the MPF's ability to measured the response of the recoil is true.  
 
 
 
@@ -216,10 +222,10 @@ This means that the previously used assumption that the other activity is $\phi$
 \label{Sec:Showering}
 
 In Sec.~\ref{sec:ShoweringIntro} the so-called showering and topology corrections were briefly introduced as being factors which, when applied together, correct for the difference between the response of the hadronic recoil (as measured by the MPF) and the response of the jet which is needed for calibration.  
-In previous JES iterations in ATLAS the assumption has been that these corrections are well modeled by the Monte Carlo simulation, and an additional conservative uncertainty was added to cover any potential differences~\cite{ATLAS-CONF-2015-057}.  
+In previous JES versions in ATLAS the assumption has been that these corrections are well modeled by the Monte Carlo simulation, and an additional conservative uncertainty was added to cover any potential differences~\cite{ATLAS-CONF-2015-057}.  
 In this thesis these corrections are calculated using a purely simulation based technique to both reduce the systematic uncertainty assigned to the {\textit in-situ} JES and further explore how the calorimeter responds to energy deposits and how that energy flows within the calorimeter.  
 
-Sec.~\ref{sec:ShoweringIntro} also introduced the true calorimeter response, which is the sum of the visible energy in the calorimeter deposited by particles in the particle jet divided by the total energy of the particle jet, and was used to define both the showering and topology corrections.  
+Sec.~\ref{sec:ShoweringIntro} also introduced the true calorimeter response, which is the sum of the visible energy in the calorimeter deposited by particles originally in the particle jet divided by the total energy of the particle jet, and was used to define both the showering and topology corrections.  
 \begin{equation}
   R_{\mathrm{true}} = \frac{\sum_{i\in{\mathrm{particle~jet}}} E_i^{\mathrm{measured}}}{\sum_{i\in{\mathrm{particle~jet}}}E_i^{\mathrm{true}}}
 \end{equation}
@@ -227,7 +233,7 @@ Sec.~\ref{sec:ShoweringIntro} also introduced the true calorimeter response, whi
   S = \frac{R_{\mathrm{true}}}{R_{\mathrm{jet}}}.
 \end{equation}
 To measure this response the `calibration hits' recorded by the GEANT4 simulation are used.  
-Calibration hits are a history of the idealized interactions between the final state particles and the detector used by GEANT4 to model the deposition of energy by these particles in the detector and the production of secondary particles advancing the shower.  
+Calibration hits are a history of the idealized interactions between the final state particles and the detector used by GEANT4 to model the deposition of energy by these particles in the detector and the production of secondary particles created in the shower.  
 Each hit corresponds to a single stable particle which initialized the hit, and is characterized by an position (which can be associated with a calorimeter cell) and an energy.  
 The energy of each hit is subdivided into energy deposited by EM interactions (EM energy) or nuclear interactions (non-EM energy), non-visible energy used to excite nuclei (called `invisible energy') and energy which escapes the calorimeter via neutrinos or muons (called `escaped energy').  
 Furthermore every calibration hit is also labeled as being in an active or inactive region of a sampling calorimeter cell, or in dead material (material outside of the calorimeter).  
@@ -256,7 +262,7 @@ Using this information the true calorimeter response can be calculated by summin
 
 As the energy density inside of a jet decreases with increasing distance from the core, it is more likely for energy which was inside of the jet definition at the particle level to move out at the reconstructed level than it is for particles originally outside of the jet to migrate in.  
 That is to say on average the true calorimeter response should be larger than the measured response, meaning the showering correction should be expected to be greater than one.  
-The rate that this energy density is changing near the edge of the jet (and therefore the size of this effect) should be expected to decrease with increasing energy (as the recoil becomes more collimated) and with increasing jet size (as we move the jet boundary further into the tails of the recoil distribution).  
+The rate that this energy density is changing near the edge of the jet (and therefore the size of this effect) should be expected to decrease with increasing energy (as the recoil becomes more collimated) and with increasing jet size (as the jet boundary moves further into the tails of the recoil distribution).  
 An example of the distribution of measured showering corrections for a single reference $p_{\mathrm T}$ bin can be seen in Fig.~\ref{Fig:ShoweringDistExample}.  
 As the asymmetry of this distribution is a result of real effects (the slope of the energy density as a function of distance) and not the result of a few pathological events it should be included in the factor $S$.  
 For this reason the mean of these distributions is taken as a measure of the average showering correction, as opposed to fitting the distribution and using the most probable value.  
@@ -264,12 +270,12 @@ For this reason the mean of these distributions is taken as a measure of the ave
 As this is a Monte Carlo only study an uncertainty on these corrections is obtained by exploring different models for the generation of the calorimeter shower which have been found to cover a range of showering scenarios.  
 As the showering correction is largely affected by the flow of energy inside of the calorimeter, this study will explore the effects of changing the nuclear interaction models used by GEANT4.  
 As a alternative to the default ATLAS model (FTFP\_BERT, introduced in Sec.~\ref{Sec:Samples}) a second model named QGSP\_BIC is used.  
-This model is used as it differs from FTFP\_BERT when measuring a large number of calorimeter showering related variables~\cite{Zhang:2253040}.  
-One important notable difference between these two models is in the width of their showers.  
-This difference in width is necessary to the sensitivity of the showering correction to the jet structure near its boundary.  
+This model is used as it differs from FTFP\_BERT for a large number of variables related to calorimeter showering~\cite{Zhang:2253040}.  
+One important notable difference between these two models is the width of the showers produced.  
+This difference in width is necessary to gauge the sensitivity of the showering correction to the jet structure near its boundary.  
 At low energies (below 9.9 GeV) QGSP\_BIC uses the \gls{BIC}, which propagates the incident particles through 3D models of nuclei that have been created using the expected density and nucleon momentum.  
 Energy is lost by individual hadron/nucleon resonance formation and decay as the incident hadron travels in curved trajectories in a smooth nuclear potential.  
-This differs from the Bertini Cascade model used by FTFP\_BERT below 5 GeV which models each nucleus as a continuous medium with new particles being created based on the free space cross sections for that collision.  
+This differs from the Bertini Cascade model used by FTFP\_BERT below 5 GeV which models each nucleus as a continuous medium with new particles being created based on the free space nucleon-nucleon cross sections for that collision.  
 
 At higher energies (above 12 GeV) QGSP\_BIC uses the \gls{QGSM} combined with the same Precompound model used in combination with the Fritiof model in FTFP.  
 Both QGSP and FTFP construct 3D models of nuclei from individual nucleons which are subsequently flattened because the incoming hadrons are Lorentz-boosted, and both models make use of QCD strings to model the interactions between the incident hadrons and the atomic nuclei which subsequently decay resulting in secondary particles.  
@@ -321,12 +327,12 @@ The showering correction using anti-$k_\mathrm{t}$ jets in a range of sizes is s
 As expected the showering correction decreases with energy for all jet sizes, and at higher energies the showering correction decreases with increasing jet size.  
 Once again at low energies the jet reconstruction threshold removes jets with a low $R_{\mathrm jet}$, biasing the measured mean to be high and therefore lowering the measured showering correction.  
 This effect is especially evident for low energy small jets (anti-$k_\mathrm{t}$ R=0.1) as determining the leading jet with this size can be problematic.  
-It is also worth noting that there is very little diffetence in the showering correction between the different physics lists used, with the largest differences being on the order of 0.5\% between 30-80 GeV for anti-$k_\mathrm{t}$ R=0.4 jets.  
+It is also worth noting that there is very little difference in the showering correction between the different physics lists used, with the largest differences being on the order of 0.5\% between 30-80 GeV for anti-$k_\mathrm{t}$ R=0.4 jets.  
 The observed differences may be caused by a combination of the higher response to charged pions in QGSP\_BIC~\cite{Zhang:2253040} along with the overall narrower shower profiles observed using QGSP\_BIC\cite{Adloff:2013jqa}.  
 
 Using Monte Carlo truth information it is possible to identify each jet as having originated from a light quark or a gluon.  
-This distinction is more than just a cosmetic one, as gluon initiated jets tend to have a larger number of lower energy particles and tend to be wider than jets initiated by light quarks.  
-These differences mean that the average jet response for a predominantly gluon jet sample (dijet for example) can be significantly different than the response in a primarily quark jet sample (both Z+jet and $\gamma$+jet), a fact which is accounted for in the JES uncertainty by both a flavour response and flavour composition uncertainty~\cite{Aaboud:2017jcu}.  
+This distinction is more than just academic, as gluon initiated jets tend to have a larger number of lower energy particles and tend to be wider than jets initiated by light quarks.  
+These differences mean that the average jet response for a predominantly gluon-initiated jet sample (dijet for example) can be significantly different than the response in a primarily quark-initiated jet sample (both Z+jet and $\gamma$+jet), a fact which is accounted for in the JES uncertainty by both a flavour response and flavour composition uncertainty~\cite{Aaboud:2017jcu}.  
 With these facts as motivation the showering correction has also been measured individually for both quark and gluon jets.  
 
 \begin{figure}[!ht]
@@ -351,8 +357,8 @@ With these facts as motivation the showering correction has also been measured i
 
 The showering correction for both quark and gluon initiated jets can be seen in Fig.~\ref{Fig:Showering_QG4}.  
 As gluon jets do tend to be wider the showering correction for them tends to be larger as well.  
-Fig.~\ref{Fig:Showering_QG4} does appear to show that the choice of physics list has a larger effect on the showering correction for gluon jets than it does on quark jets.  
-Unfortunately the fraction of jets in Z+jet samples which are initiated by gluon jets is very low ($\sim$15\%) and does not allow for a fair comparison.   
+Fig.~\ref{Fig:Showering_QG4} does appear to show that the choice of physics list has a larger effect on the showering correction for gluon jets than it does for quark jets.  
+Unfortunately the fraction of jets in Z+jet samples which are initiated by gluons is very small ($\sim$15\%), leaving the comparison between the two physics lists statistically limited.   
 
 
 \section{Topology Correction}
@@ -377,8 +383,8 @@ Unfortunately the fraction of jets in Z+jet samples which are initiated by gluon
  \label{Fig:TopologyDistExample}
 \end{figure}
 
-Along with the showering correction Sec.~\ref{sec:ShoweringIntro} introduced the topology correction, a second factor which accounts for the difference in response between the full hadronic recoil and the response of the more densely packed and higher energy particles in the particle jet.  
-This correction is defined as the ratio of the true calorimeter response (using the same definition introduced in Sec.~\ref{Sec:Showering}) to the MPF response.  
+Along with the showering correction Sec.~\ref{sec:ShoweringIntro} introduced the topology correction, a second factor which accounts for the difference in response between the full hadronic recoil and the response of the more densely packed and higher energy particles in the jet core.  
+This correction is defined as the ratio of the true calorimeter response (using the same definition introduced in Sec.~\ref{Sec:Showering}, see Eq.~\ref{EQ:Topo6} ) to the MPF response.  
 As the MPF response makes use of the missing transverse energy the response distributions tend to be quite wide and symmetric.  
 The same Gaussian fitting procedure used in the nominal MPF response measurement is therefore used to extract the mean of these distributions (see Fig.~\ref{Fig:TopologyDistExample}).  
 The observed topology corrections using samples generated with the same two physics lists used to explore the showering correction (FTFP\_BERT and QGSP\_BIC) can be seen for a number of cone sizes in Figs.~\ref{Fig:TopoCorr_1-4} and~\ref{Fig:TopoCorr_7-10}.  
@@ -425,18 +431,24 @@ The observed topology corrections using samples generated with the same two phys
 
 \begin{equation}
   k_{\mathrm{topo}} = \frac{R_{\mathrm{MPF}}}{R_{\mathrm{true}}}
+\label{EQ:Topo6}
 \end{equation}
 
 For jets smaller than the size of the recoil ($\sim$0.6) the topology correction is less than one as the response of the high energy particles in a very narrow jet is larger than the average response of the entire recoil.  
 For jets between R=0.4 and R=0.7 the topology correction is small (<5\%) over the energy range considered, showing that the effects of the low energy/low response particles at the fringes of the recoil have very little effect on the total response of the recoil.  
 For jets with size parameters which extend beyond the range of the recoil a large amount of underlying event directed in the same direction as the jet is included in the jet.  
-This means that a large number of low energy particles are included in the truth jet, and as the true calorimeter response does not include underlying event in the opposite direction of the jet to partially cancel this effect (which the MPF does) these low energy/low response particles lower the true calorimeter response and therefore raise the topology correction to be greater than one.  
+This means that a large number of low energy particles are included in the truth jet, and as the true calorimeter response does not include the underlying event in the opposite direction of the jet to partially cancel this effect (which the MPF does) these low energy/low response particles lower the true calorimeter response and therefore raise the topology correction to be greater than one.  
 The choice of physics list has very little effect on the topology correction, with variations being on average less than 0.5\% for all cone sizes above 80 GeV (above 40 GeV for cone sizes greater than 0.2).   
 Below this energy the variations become larger, growing to between 1-3\% for jet sizes larger than R=0.1.  
-This large variation at low energy appears to be cause by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
-With a lower response FTFP\_BERT will be affected by the reconstruction threshold to a larger degree at low energies and will continue to be affected up to higher energies when compared to QGSP\_BIC.
+This large variation at low energy appears to be caused by a combination of the higher response to charged pions seen in QGSP\_BIC~\cite{Zhang:2253040} and the reconstruction threshold.  
+With a lower response FTFP\_BERT will be more affected by the reconstruction threshold at low energies and will continue to be affected up to higher energies compared to QGSP\_BIC.
 In the past it has been shown that while $R_{\mathrm{MPF}}$ is biased by the reconstruction threshold the effect of this bias is smaller than that observed when measuring $R_{\mathrm{jet}}$, and therefore $R_{\mathrm{true}}$.
-This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that this growing difference between physics lists is at least partially caused by this effect.
+This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which is consistent with the idea that the growing difference between physics lists is at least partially caused by this difference in response.
+
+For larger jets (greater than $\sim$ R=0.6) the topology correction becomes positive.  
+This is a result of the truth jet growing large enough that it begins to include more low energy/low response particles from the underlying event.  
+This means that the true calorimeter response of these jets begins to decrease beyond the response of the recoil.  
+While these low energy/low response particles are also present and contribute to the measured response in the MPF they are canceled out by additional low energy particles which are directed towards the same hemisphere of the detector as the reference object which are not taken into account for the true response.  
 
 
 \begin{figure}[!ht]
@@ -461,7 +473,7 @@ This larger bias would cause the measured $k_{\mathrm{topo}}$ to be low, which i
 
 The topology correction has also been studied individually for both quark and gluon initiated jets.
 As quark initiated jets on average have a lower number of particles with a higher energy per particle than gluon jets the same fraction of the total recoil energy is able to be reconstructed using a smaller jet size.  
-This can be seen both in Fig.~\ref{Fig:TopoCorr_QG4} which shows the anti-$k_\mathrm{t}$ R=0.4 jet topology correction for both quark and gluon initiated jets, where the correction is larger for gluon initiated jets as a larger fraction of the recoils energy is made up of low energy particles far away from the jet axis.  
+This can be seen in Fig.~\ref{Fig:TopoCorr_QG4} which shows the anti-$k_\mathrm{t}$ R=0.4 jet topology correction for both quark and gluon initiated jets, where the correction is larger for gluon initiated jets as a larger fraction of the recoil energy is made up of low energy particles far away from the jet axis.  
 Another approach to understanding the difference can be seen in Fig.~\ref{Fig:TopoCorr_QGSizes}, which shows that the average true calorimeter response for anti-$k_\mathrm{t}$ R=0.5 quark jets is approximately equal to the total response of the recoil using the MPF.  
 This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$ R=0.7 jets.  
 
@@ -481,7 +493,7 @@ This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$
     \caption{Gluon initiated jets, anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
   \caption[Topology correction for quark/gluon initiated jets.]
-{\small The topology correction is defined in Sec.~\ref{sec:ShoweringIntro} as the ratio of the true calorimeter response to the MPF.  Shown above is the topolgy correction for quark jets using anti-$k_\mathrm{t}$ R=0.5 jets and for gluon jets using anti-$k_\mathrm{t}$ R=0.7.  In both cases the topology correction $\approx$ 1, showing that a larger jet sizes is required to capture the same fraction of a gluon initiated recoil when compared to a quark initiated recoil.  }
+{\small The topology correction is defined in Sec.~\ref{sec:ShoweringIntro} as the ratio of the true calorimeter response to the MPF.  Shown above is the topology correction for quark jets using anti-$k_\mathrm{t}$ R=0.5 jets and for gluon jets using anti-$k_\mathrm{t}$ R=0.7.  In both cases the topology correction $\approx$ 1, showing that a larger jet size is required to capture the same fraction of a gluon initiated recoil when compared to a quark initiated recoil.  }
   \label{Fig:TopoCorr_QGSizes}
 \end{figure}
 
@@ -499,8 +511,9 @@ This is only true for gluon initiated jets when using larger anti-$k_\mathrm{t}$
   R_{\mathrm{jet}} = R_{\mathrm{MPF}}\left(\frac{R_{\mathrm{true}}}{R_{\mathrm{MPF}}}\right)\left(\frac{R_{\mathrm{jet}}}{R_{\mathrm{true}}}\right) = \frac{R_{\mathrm{MPF}}}{k_{\mathrm{topo}}S}
 \end{equation}
 
-Both the topology and showering corrections give insight into jet related physics, with the showering correction measuring the flow of energy across the jets reconstruction boundary and the topology correction measuring the effect that jet energy density has on the response.  
-With that being said these two measurements were derived as corrections which can be applied to the MPF to measure an absolute jet energy scale, and practically to use the sensitivity of these quantities to the choice of physics lists as an additional uncertainty on using the MPF for an {\textit in-situ} measurement they would be combined into one measurement.  
+Both the topology and showering corrections give insight into jet related physics, with the showering correction measuring the flow of energy across the jet reconstruction boundary and the topology correction measuring the effect that jet energy density has on the response.  
+These two corrections can be applied to the MPF to measure an absolute jet energy scale, and practically to provide sensitivity to the choice of physics lists as an additional uncertainty on using the MPF for an {\textit{in-situ}} measurement.  
+The two corrections depend on $R_{\mathrm{true}}$ and can therefore be combined to eliminate the sensitivity of the final correction to this part of the MC simulation.  
 For that reason a single correction $C$ is defined:
 \begin{equation}
   C = \frac{1}{k_{\mathrm{topo}}S} = \frac{R_{\mathrm{jet}}}{R_{\mathrm{MPF}}}
@@ -508,17 +521,17 @@ For that reason a single correction $C$ is defined:
 \end{equation}
 
 As previously mentioned the smaller charged pion response in FTFP\_BERT (along with a narrow showering width) causes both the showering correction $S$ and the topology correction $k_{\mathrm{topo}}$ to be larger at low energies as a result of the reconstruction threshold bias.  
-It is therefore unsurprising that the inverse of the product of these two quantities will be larger for using QGSP\_BERT at low energies.  
-The variation between the two physics lists grows steadily as the energy is decreased, with the differences getting as large as 5\% in at 20 GeV for anti-$k_\mathrm{t}$ R=0.4 jets, as seen in Fig.~\ref{Fig:TopoCorr_4-7}
+It is therefore not surprising that the inverse of the product of these two quantities is smaller for FTFP\_BERT at low energies.  
+The variation between the two physics lists grows steadily as the energy is decreased, with the differences getting as large as 5\% in at 20 GeV for anti-$k_\mathrm{t}$ R=0.4 jets, as seen in Fig.~\ref{Fig:TopoCorr_4-7}.  
 The correction $C$ has also been measured event by event, with the distributions of these measurements being fit using the same procedure used in the nominal MPF analysis.  
-The means of these fits as a function of reference energy is shown in Fig.~\ref{Fig:TopoCorrSingle_4-7}.  
-The size of the discrepancy between the two physics lists shrinks when measuring $C$ directly, with differences never being larger than 1\% as compared to the up to 5\% differences observed in the indirect measurement, although the absolute size of the correction remains comparable.  
-This difference in disagreement originates from the use of the arithmetic means used as the centroid of the showering correction.  
+The means of these fits as a function of reference energy are shown in Fig.~\ref{Fig:TopoCorrSingle_4-7}.  
+The size of the discrepancy between the two physics lists shrinks when calculating $C$ directly, with differences never being larger than 1\% as compared to the up to 5\% differences observed when using a combination of the two individual calculations, although the absolute size of the correction remains comparable.  
+This difference originates from the use of the arithmetic means used as the centroid of the showering correction.  
 
 
 It is also worth noting that for jet sizes larger than anti-$k_\mathrm{t}$ R=0.4 increasing the jet size increases the size of the correction $C$.  
-The is a result of extending the jet cone size beyond the boundaries of the recoil, which increases the number of low energy/low response particles included in the jet definition.  
-This effect is compensated for in the MPF by the presence of additional low energy/low response particles which deposit energy in the same hemisphere of the calorimeter of the calorimeter as the reference object (i.e $\Delta R\left(\mathrm{jet, particle}\right) > \pi/2$).  
+This is a result of extending the jet cone size beyond the boundaries of the recoil, which increases the number of low energy/low response particles included in the jet definition.  
+This effect is compensated for in the MPF by the presence of additional low energy/low response particles which deposit energy in the same hemisphere of the calorimeter as the reference object (i.e $\Delta R\left(\mathrm{jet, particle}\right) > \pi/2$), the same reason that the topology correction becomes greater than one for large jet sizes.  
 
 \clearpage
 
@@ -538,7 +551,7 @@ This effect is compensated for in the MPF by the presence of additional low ener
     \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
   \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.4/0.7 jets]
-{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale, calculated as the inverse of the product of the showering and topology corrections measured in the previous section. }
+{\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale, calculated as the inverse of the product of the showering and topology corrections calculated in the previous section. }
   \label{Fig:TopoCorr_4-7}
 \end{figure}
 
@@ -561,7 +574,7 @@ This effect is compensated for in the MPF by the presence of additional low ener
     \caption{Anti-$k_\mathrm{t}$ R=0.7}
   \end{subfigure}
   \caption[MPF Correction $C$ for anti-$k_\mathrm{t}$ R=0.4/0.7 jets]
-  {\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale.  Here the total correction is measured event by event and the mean of a Gaussian fit to the distribution of this correction is used as the central value.  }
+  {\small MPF correction $C$ as defined in Eq.~\ref{EQ:CorrC} for anti-$k_\mathrm{t}$ R=0.4/0.7 jets at EM scale.  Here the total correction is calculated event by event and the mean of a Gaussian fit to the distribution of this correction is used as the central value.  }
   \label{Fig:TopoCorrSingle_4-7}
 \end{figure}
 

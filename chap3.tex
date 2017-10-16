@@ -22,7 +22,7 @@ The energy of these larger clusters is used as the input energy of the object fo
 Muons are reconstructed using information from both the muon spectrometer and the inner detector.  
 Muon reconstruction begins by creating station by station muon track segments which are then fit into a combined track.  
 The fit takes into account the magnetic field from the toroid magnets and a detailed description of the material density throughout the detector.  
-These spectrometer-only muon tracks are then propagated through the calorimeter (again taking the energy the muons deposit into account) back into the inner detector.  
+These spectrometer-only muon tracks are then propagated back through the calorimeter (again taking the energy the muons deposit into account) into the inner detector.  
 Here they are combined with tracks left by the muon in the tracking detector that have been reconstructed using the regular all-purpose track reconstruction algorithm.  
 
 \section{Jets}
@@ -42,7 +42,7 @@ Collectively these two stages are known as quark or gluon fragmentation.
     }
   \end{center}
   \caption[Parton showering diagram]
-  {\small Example showing the progression of a parton shower.  }
+  {\small Example showing the progression of a calorimeter shower.  }
 \end{figure}
 
 It is now worth going into slightly more detail as to why QCD behaves differently than QED, and pointing out a few additional consequences.  
@@ -50,7 +50,7 @@ In quantum field theories calculations are done using series expansions.
 Each term in the series is scaled by the coupling constant of the force in question raised to some power.  
 In the case of QED the coupling constant is such that terms with the coupling constant to higher orders are quite small and at some point can be ignored, i.e. the series converges.  
 These smaller and smaller terms can be considered corrections to the larger terms, making QED what is known as a perturbative theory.  
-There is an energy dependence to the coupling constant, where it becomes lower at lower energies as a result of the bare charge of particles being partially screened by a cloud of virtual particles.  
+There is an energy dependence to the coupling constant, where it becomes smaller at lower energies as a result of the bare charge of particles being partially screened by a cloud of virtual particles.  
 
 With QCD this screening goes the other way, with the apparent colour charge of quarks growing at lower energies.  
 This is because along with the charge screening provided by light quarks there is a larger anti-screening effect provided by the gluons (as they also carry colour charge).  
@@ -64,7 +64,7 @@ The strategy that is generally used is two staged.
 First, individual particle candidates are constructed followed by a second stage where these particle candidates are combined with nearby particles into groups that are known as jets.  
 Multiple options are available for each stage.  
 
-ATLAS has previously used calorimeter towers (stacks of cells in the calorimeter pointing back to the centre of the inner detector) and ``TopoTowers'' (towers with additional noise suppression) as inputs to jet finding algorithms, but they are not necessarily a good representation of a single particle.  
+Early on ATLAS has used calorimeter towers (stacks of cells in the calorimeter pointing back to the centre of the inner detector) and ``TopoTowers'' (towers with additional noise suppression) as inputs to jet finding algorithms, but they are not necessarily a good representation of a single particle.  
 Tracks in the inner detector can also be used to define jets, although using only tracks ignores all neutral particle information obtained by the calorimeter.  
 The most commonly used inputs to jet finding algorithms in ATLAS are topological clusters of calorimeter cells.  
  
@@ -81,12 +81,12 @@ The most commonly used inputs to jet finding algorithms in ATLAS are topological
 \end{figure}
 
 In the context of high energy physics detectors topological (topo) clustering is an algorithm where individual calorimeter cells are grouped together based on how significant the energy deposited within a given cell is relative to its neighbours and to the expected noise.  
-Topo clusters can have a wide variety of three dimensional shapes, which allows them to include a large fraction of the energy deposited by incoming particles while ignoring much of the noise.  
+Topo clusters can have a wide variety of three-dimensional shapes, which allows them to include a large fraction of the energy deposited by incoming particles while ignoring much of the noise.  
 
 Topo clustering begins by determining the significance of the energy deposited within each cell, which is defined as the absolute value of the measured energy divided by the average expected noise for that cell.  
 All cells above some predetermined threshold $t_{\mathrm{seed}}$, referred to as seeds, are then put into a list of proto-clusters.  
 Next for each seed, cells with an energy above a second threshold, $t_{\mathrm{neighbour}}$, and which are ``neighbours'' to a proto-cluster are added to that proto-cluster.  
-In this case neighbours consist of the four nearest neighbours in the same layer of the calorimeter as the seed cell, as well as all cells in adjacent layers which overlap or partially overlap with the cell in question.  
+In this case neighbours consist of the eight neighbours in the same layer of the calorimeter as the seed cell, as well as all cells in adjacent layers which overlap or partially overlap with the cell in question.  
 Neighbours to proto-clusters are iteratively added to proto clusters until there are no longer any neighbour cells above $t_{\mathrm{neighbour}}$.  
 The final stage of cluster building involves adding a single final layer around each proto-cluster of all neighbouring cells above some third threshold, $t_{\mathrm{cell}}$~\cite{1603.02934}.  
 The thresholds used in topo-clustering are usually reported as $t_{\mathrm{seed}}-t_{\mathrm{neighbour}}-t_{\mathrm{cell}}$; ATLAS uses a 4-2-0 clustering scheme.  
@@ -95,14 +95,14 @@ In addition to 4-2-0, 4-3-0 topo-clusters are also used in ATLAS to reconstruct 
 After all clusters have been fully formed there is an additional stage where clusters are split.  
 This process begins by looking for local maxima within a given cluster, which are defined as a cell having an energy above 500 MeV with at least four neighbours, none of which have a higher energy than the cell in question.  
 Clusters are built surrounding these local maxima ignoring thresholds.  
-Cells at the boundary of these two subclusters have their energy split between the two, where the splitting is determined using the relative energy of the subclusters as well as the distance between the splitting cell and the two proto-cluster centres.  
+Cells at the boundary of these two subclusters have their energy split between the two, where the splitting is determined using the relative energy of the subclusters as well as the distance between the cell to be split and the two proto-cluster centres.  
 This splitting is done to improve both the Jet and the \gls{MET} (see Sec.~\ref{Sec:MET}) resolution by allowing each cluster to better represent a single stable particle at truth level.  
 
  
 While topo-clusters do a relatively good job of representing the visible energy deposited in the detector by a single particle they are not perfect.  
 Clustering may leave some visible energy outside of the boundaries of a cluster, energy may be deposited in dead material, or the energy may simply be mis-measured as the response to EM energy of the ATLAS detector (e) is not equal to the response of hadronic energy deposits ($h$).  
 These are the factors that motivate the second collection of clusters used by ATLAS.  
-This second collection begins with the original (EM scale) clusters and applies a series of cell-by-cell weights based on energy density in an attempt to correct these problems at the cluster level.  
+This second collection begins with the original (EM scale) clusters and applies a series of cell-by-cell weights based on energy density in an attempt to correct the calorimeter response problem at the cluster level.  
 The weights are one for EM-like deposits (large density) and greater than one for hadron-like deposits (small density).  
 This calibration scheme is known as local hadronic cell weighting, or the LC scale.  
 The applied corrections depend on energy-based moments of the cluster.  
@@ -171,7 +171,7 @@ Various four-momentum combination schemes exist ($p_{\mathrm T}$ weighted, $p_{\
 
 While the $k_{\mathrm{t}}$, Cambridge/Aachen, and anti-$k_{\mathrm t}$ algorithms are all used in ATLAS they each serve a different purpose. 
 One large difference between the $k_{\mathrm t}$ and the anti-$k_{\mathrm t}$ algorithms is that the $k_{\mathrm t}$ algorithm begins by combining the lowest $p_{\mathrm T}$ proto-jets while the anti-$k_{\mathrm t}$ begins with larger $p_{\mathrm t}$ proto-jets.  
-This means that proto-jets are quite stable in location as they grow in the anti-$k_{\mathrm t}$ algorithm, which tends to lead to quite circular jets.  
+This means that proto-jets are quite stable in location as they grow in the anti-$k_{\mathrm t}$ algorithm, which tends to lead to mostly circular jets.  
 This is not the case for $k_{\mathrm t}$ jets, which tend to have a wide variety of final jet shapes (see Fig.~\ref{Fig:ExampleJets}).  
 This $k_{\mathrm t}$ growth can lead to some pathological cases where the jet grows well beyond what one would intuitively call a jet.  
 
@@ -212,7 +212,7 @@ This quantity is known as the \gls{MET} or $E_{\mathrm T}^{miss}$.
 
 The MET, like jets, can be constructed using a number of different inputs at various scales.  
 For many analyses in ATLAS the most appropriate MET to use is one where all physics objects are used at their fully calibrated scales.  
-This is done by starting with some base collection (EM clusters, LC clusters, tracks, etc.) then adding physics objects while removing overlapping base objects to avoid double counting.  
+This is done by starting with some base collection (EM clusters, LC clusters, tracks, etc.) then adding calibrated physics objects while removing overlapping base objects to avoid double counting.  
 The final MET is calculated by taking the negative vector sum of the transverse momentum of the remaining base objects and all physics objects.  
 The work described in this thesis uses topo-cluster based MET definitions with only photons, electrons, and muons being replaced by the fully calibrated objects.  
 

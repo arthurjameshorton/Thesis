@@ -1,10 +1,10 @@
 \chapter{Jet Energy Scale}
 \label{JES}
 
-Recalling from Sec.~\ref{jets} that jets evolve through many different stages (see Fig.~\ref{JetLevelsFig}) it becomes clear that to reasonably compare experimental results to theoretical results one must decide on a scale at which to make the comparison.  
+Recalling from Sec.~\ref{jets} that jets evolve through many different stages (see Fig.~\ref{JetLevelsFig}) it becomes clear that to reasonably compare experimental results to theoretical calculations one must decide on a scale at which to make the comparison.  
 This also allows for comparisons that do not require any knowledge of the detector itself.  
 This is usually done by bringing all results to the ``particle jet'' or ``truth jet'' scale, as described in Sec.~\ref{Sec:JetFinding}.  
-This makes the results detector independent easing cross experiment comparisons.  
+This makes the results detector independent also allowing for cross experiment comparisons.  
 This is accomplished by carefully studying the relationship between the particle scale jet energy and the detector scale jet energy, known as the \gls{JES}.   
 A successful \gls{JES} accounts for pileup, escaped/invisible energy, algorithm effects, etc.  
 
@@ -25,14 +25,14 @@ A successful \gls{JES} accounts for pileup, escaped/invisible energy, algorithm 
 
 Calibrating jets at ATLAS is a multistaged process.  
 During the initial jet reconstruction the jet is set to originate from point (0,0,0) in the ATLAS coordinate system, so the first step is to adjust the jet to originate from the reconstructed vertex using the tracking information.  
-Next in order to compensate for energy coming adjacent beam bunches and secondary interactions in the same beam bunch crossing (pileup) energy is subtracted from the jet, first using the average energy density observed in that given event multiplied by the active area of the jet.  
+Next in order to compensate for energy coming from adjacent beam bunches and secondary interactions in the same beam bunch crossing (pileup), energy is subtracted from the jet first using the average energy density observed in that given event multiplied by the active area of the jet.  
 The area of a jet is determined by adding a large number of equally spaced particles with infinitesimally small energy (called ghost particles, see~\cite{Soyez:2012hv}) to the event and rerunning the jet reconstruction algorithm.  
 The number of ghost particles in a given jet is used to determine its area.  
 This subtraction is followed by two residual corrections, which are applied to completely remove the jet energy's dependence on pileup.  
 One correction is based on the average number of interactions in neighbouring beam bunches and another is based on the actual reconstructed number of interactions in that given event.    
-With pileup now removed a Monte Carlo based calibration, which completely corrects for the average response as a function of energy and pseudorapidity of the jet, is applied.  
+With pileup now removed a Monte Carlo based calibration, which corrects for the average response as a function of energy and pseudorapidity of the jet, is applied.  
 
-To improve the energy resolution and reduce the flavour dependence of the jets at this stage a series of smaller Monte Carlo based calibration factors are applied.  
+To improve the energy resolution and reduce the flavour (quark or gluon) dependence of the jets at this stage a series of smaller Monte Carlo based calibration factors are applied.  
 These ideally flatten the dependence of the response on the amount of energy in the first layer of the hadronic calorimeter, the energy in the last layer of the EM calorimeter, the number of charged tracks in the jet, the width of the distribution of the tracks in the jet, and the number of track segments in the muon spectrometer behind the jet.  
 These calibrations are collectively known as the \gls{GSC} scheme.  
 
@@ -43,7 +43,7 @@ These calibrations are collectively known as the \gls{GSC} scheme.
     }
   \end{center}
   \caption[Jet calibration sequence used by ATLAS.]
-      {\small A diagram outlining the progression from a calorimeter jet back to a particle level jet.  }
+      {\small A diagram outlining the calibration scheme used by ATLAS to transform the energy from a calorimeter jet back to the energy of the particle level jet.  }
   \label{Fig:JetCalibSequenceFig}
 \end{figure}
 
@@ -109,7 +109,8 @@ These quantities are solely dependent on the parton shower and hadronization pro
 \section{$E_{\mathrm T}^{miss}$ Projection Fraction Method}
 \label{METProj}
 
-The Missing $E_{\mathrm T}$ projecting fraction (MPF) method is an \textit{in-situ} technique for measuring the jet response.  
+The \gls{MPF} method is an \textit{in-situ} technique for measuring the jet response.  
+%Missing $E_{\mathrm T}$ projecting fraction (MPF) method is an \textit{in-situ} technique for measuring the jet response.  
 It was first developed at the CDF collaboration~\cite{abe1992dijet} to help with their $\eta$ intercalibration, and was also used by the D0 collaboration to extract an absolute jet energy scale~\cite{item/10150/186444}.  
 In contrast to the $p_{\mathrm T}$ balance method, which directly compares the measured energy of the jet to the reference object, the MPF measures the response of the calorimeter to the entire recoiling system.
 
@@ -139,7 +140,7 @@ $\vec{E}_{\mathrm T}^{\mathrm{object}}$ is known as the transverse energy of the
   \vec{E}_{\mathrm T}=\frac{E}{\mathrm{cosh}\left(\eta\right)}\hat{p}_{\mathrm T}.  
 \end{equation}
 \noindent
-In this thesis only well measured objects are used as references, so $R_{\mathrm{ref}}\simeq1$ and small differences are well known and can be propagated to $\vec{E}_{\mathrm T}^{\mathrm{miss}}$.  
+In this thesis only well measured objects (from test beam data and {\textit{in-situ}} techniques) are used as references, so $R_{\mathrm{ref}}\simeq1$ and small differences are well known and can be propagated to $\vec{E}_{\mathrm T}^{\mathrm{miss}}$.  
 By projecting both sides of Eq.~\ref{EQ:MPFCaloLevel} along the direction of the reference object and using Eq.~\ref{EQ:MPFPartonLevel} to remove ${E}_{\mathrm T}^{\mathrm{recoil}}$ we obtain
 \begin{equation}
   E_{\mathrm T}^{\mathrm{ref}}-R_{\mathrm{recoil}}E_{\mathrm T}^{\mathrm{ref}}=-\vec{E}_{\mathrm T}^{\mathrm{miss}}\cdot\hat{p}_{\mathrm T}^{\mathrm{ref}}.
@@ -153,7 +154,7 @@ By projecting both sides of Eq.~\ref{EQ:MPFCaloLevel} along the direction of the
 This variable, referred to henceforth as MPF, is used to measure the JES \textit{in-situ}.  
 What exactly the MPF measures can be made more clear by expanding out the MET.  
 In the ideal case where only the reference object and the recoil exist (using Eq.~\ref{EQ:MPFCaloLevel}) we get that the MPF is just the ratio of the measured energy of the recoil to the measured energy of the reference object, so it measures the response of the calorimeter to the particles making up the recoil.  
-In practice the MET includes particles radiated by the partons participating in the hard scattering (before and after the interaction), known as initial and final state radiation (ISR and FSR), as well as the underlying event (all particles in the initial protons which to not participate in the hard scattering), and pileup.  
+In practice the MET includes particles radiated by the partons participating in the hard scattering (before and after the interaction), known as initial and final state radiation (ISR and FSR), as well as the underlying event (all particles in the initial protons which do not participate in the hard scattering), and pileup.  
 This means that the MET can be written as 
 \begin{equation}
   \vec{E}_{\mathrm T}^{\mathrm{miss}} = -\vec{E}_{T}^{\mathrm{ref}}-\sum_{n}\vec{E}_{\mathrm T}^{n},
@@ -166,9 +167,9 @@ Using this definition of the MET we see that the MPF (as measured) can be writte
 In this form it is much clearer that the MPF is in fact balancing all energy in the event against the reference object.  
 Although at first this may seem like a potentially large problem for the MPF to overcome thankfully this is not the case.  
 Both the pileup, and to a lesser extent the underlying activity, are uncorrelated with the hard scattering.  
-This means that while this extra energy may raise or lower the measured response on an event by event basis when measured over a large sample they will average out to zero (to first order).  
+This means that while this extra energy may raise or lower the measured response on an event-by-event basis when measured over a large sample they will average out to zero (to first order).  
 It will be shown in this thesis that the effects of these extra effects are small and can for the most part be ignored.  
-As seen in Fig.~\ref{Fig:JetCalibSequenceFig} the ATLAS collaboration uses these \textit {in-situ} JES studies as a residual correction to a MC based calibration.  
+As seen in Fig.~\ref{Fig:JetCalibSequenceFig} the ATLAS collaboration uses these \textit {in-situ} JES studies as a residual correction to a MC-based calibration.  
 
 \section{Jet Showering}
 \label{sec:ShoweringIntro}
@@ -181,10 +182,10 @@ This small amount of energy from lower energy particles has a lower response tha
 
 Another issue is that the MPF is designed the measure the response of the full hadronic recoil in the calorimeter, that does not include a measure of the flow of energy in the calorimeter shower across the boundaries drawn by the jet reconstruction algorithm.
 This means that not all of the energy within the reconstructed calorimeter jet necessarily originated from particles in the particle/truth jet, and likewise there is no guarantee that all of the energy deposited by particles in the truth jet is reconstructed within the calorimeter jet.
-While a $p_{\mathrm T}$ balance based calibration inherently measures and compensates for any potential flow of energy across the boundaries of the jet, an MPF-based calibration (being jet algorithm independent) does not.
+While a $p_{\mathrm T}$-balance based calibration inherently measures and compensates for any potential flow of energy across the boundaries of the jet, an MPF-based calibration (being jet algorithm independent) does not.
 
 These two issues could be covered by a single correction, but that correction would provide no insight into the underlying physics.  
-Instead they will be treated independently as the showering correction, which deals with the flow of energy across the jet boundary and is mostly effected by the low energy nuclear physics modeling, and the topology correction, which deals with the difference between the jet response and the recoil response and can be affect by both perturbative and non-perturbative QCD modelling.  
+Instead they will be treated independently as the showering correction, which deals with the flow of energy across the jet boundary and is mostly affected by the low energy nuclear physics modeling, and the topology correction, which deals with the difference between the jet response and the recoil response, and can be affected by both perturbative and non-perturbative QCD modelling.  
 To define these corrections the so-called ``true calorimeter response'' is introduced.  
 It is defined as 
 \begin{equation}
@@ -203,6 +204,42 @@ In addition a ``showering'' correction can now be defined as
   S = \frac{R_{\mathrm{true}}}{R_{\mathrm{jet}}}.  
 \end{equation}
 \noindent
-This showering correction solely focuses on the flow of energy across the boundary of the calorimeter jet.
+This showering correction solely focuses on the flow of energy across the boundary of the calorimeter jet.  
+The movement of energy across this boundary which necessitates a showering correction is caused by a combination the physical showering within the calorimeter moving energy outside of the boundary, the difference in position of the reconstructed jet axis at particle level and reconstruction level, and particles being bent out of the jet by the magnetic field of the tracking system.   
 
+
+\begin{figure}[!ht]
+ \centering
+ \begin{subfigure}{.5\textwidth}
+  \centering
+  \scalebox{0.23}{
+   \includegraphics{plots/ShoweringDemo/Particles.eps}
+  }
+  \caption{Recoil at particle level}
+ \end{subfigure}%
+ \begin{subfigure}{.5\textwidth}
+  \centering
+  \scalebox{0.23}{
+   \includegraphics{plots/ShoweringDemo/TruthJet.eps}
+  }
+  \caption{Particle level jet}
+ \end{subfigure}
+ \begin{subfigure}{.5\textwidth}
+  \centering
+  \scalebox{0.23}{
+   \includegraphics{plots/ShoweringDemo/Clusters.eps}
+  }
+  \caption{Recoil at the calorimeter level}
+ \end{subfigure}%
+ \begin{subfigure}{.5\textwidth}
+  \centering
+  \scalebox{0.23}{
+   \includegraphics{plots/ShoweringDemo/RecoJet.eps}
+  }
+  \caption{Calorimeter level jet}
+ \end{subfigure}%
+ \caption[Showering correction illustration. ]
+  {Illustration showing some of the effects motivating the showering correction.  In this diagram panel $a)$ is intended to show the full hadronic recoil against some reference object with only four stable particles.  Some fraction of these particles are then reconstructed as a truth jet in panel $b)$.  While a single particle may create two or more clusters in the calorimeter, and more than one particle can contribute energy to a single cluster, here we have assumed that each coloured particle leads to a single cluster identified with the same colour.  The different sizes of these `clusters' are meant to represent the different responses (and therefore different reconstructed energies) of these particles in panel $c)$.  The final panel shows just how some energy from particles in the particle jet may no be included in the reconstructed jet, and how some energy in the reconstructed jet may originate from particles outside of the particle jet.  In this diagram the showering correction would be calculated as $S = \frac{E^{\mathrm{reco, green}}+E^{\mathrm{reco, blue}}}{E^{\mathrm{reco, green}}+E^{\mathrm{reco, orange}}}$}
+ \label{Fig:ShoweringCartoon}
+\end{figure}
 
